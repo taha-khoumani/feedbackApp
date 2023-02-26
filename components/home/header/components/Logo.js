@@ -19,20 +19,13 @@ import { mediaQueries} from '@/lib/helper-functions'
 import Image from 'next/image'
 
 export default function Logo() {
-  const {width} = useSelector(store=>store)
-
-
+  const {screenWidth} = useSelector(store=>store.ui)
+  
   const imgsOptions = [bg_1,bg_2,bg_3]
-  // const styles2 = {
-  //   backgroundImage:`url('${mediaQueries(imgsOptions,width).src}')`,
-  //   backgroundRepeat:"no-repeat",
-  //   backgroundColor:"red",
-  //   height:"200px"
-  // }
 
   return (
     <div id={styles.logo}>
-      <Image src={mediaQueries(imgsOptions,width)} alt={"background-img"} priority={true} />
+      <Image src={mediaQueries(imgsOptions,screenWidth)} alt={"background-img"} priority={true} />
       <div id="logo-text">
         <h1>Audiophile</h1>
         <p>Feedback Board</p>

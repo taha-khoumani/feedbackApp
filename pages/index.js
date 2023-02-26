@@ -21,6 +21,7 @@ export default function Home() {
 
   return (
     <>
+      <Head><title>Feedback</title></Head>
       <Header />
       <Main />
     </>
