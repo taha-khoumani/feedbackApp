@@ -17,7 +17,7 @@ export default function Filter_Roadmap() {
 
     const {isMenuOpen,screenWidth,logoHeight} = useSelector(store=>store.ui)
 
-    const upOffset = {top:`${logoHeight}px`}
+    const upOffset = {top:`${logoHeight}px`,height: `calc(100% - ${logoHeight})px`}
 
     function toggleMenuHandler (boolean){
         //open-modal

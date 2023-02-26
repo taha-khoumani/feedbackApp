@@ -1,3 +1,12 @@
+#all-padding {
+  padding: 94px 165px;
+}
+@media (max-width: 1023px) {
+  #all-padding {
+    padding: 56px 39px;
+  }
+}
+
 #header {
   display: inline-flex;
   flex-direction: column;
@@ -7,7 +16,9 @@
 }
 @media (max-width: 1023px) {
   #header {
+    width: 100%;
     flex-direction: row;
+    justify-content: space-between;
     gap: 10px;
   }
 }
@@ -15,7 +26,6 @@
   #header {
     align-items: flex-end;
     flex-direction: column;
-    width: 100%;
     gap: 0;
   }
 }
@@ -29,10 +39,14 @@
   vertical-align: bottom;
   border-radius: 10px;
 }
+@media (max-width: 1023px) {
+  #logo #bg_img {
+    width: 100%;
+  }
+}
 @media (max-width: 767px) {
   #logo #bg_img {
     border-radius: 0;
-    width: 100%;
   }
 }
 #logo #logo_content {

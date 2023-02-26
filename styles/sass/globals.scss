@@ -1,8 +1,21 @@
+@mixin media($size){
+    @media (max-width:$size){
+        @content
+    }
+}
+
+//variables
+$tablet:1023px;
+$mobile:767px;
+
 body{
     margin:0;
     font-family: 'Jost', sans-serif;
     background-color: #F2F2F2;
     inset:0;
+    padding: 94px 165px;
+    @include media($tablet){padding:56px 39px;}
+    @include media($mobile){padding:0;}
 }
 
 .button-one{

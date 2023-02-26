@@ -5,9 +5,28 @@
     }
 }
 
+
 //variables
 $tablet:1023px;
 $mobile:767px;
+
+#all-padding {
+    padding: 94px 165px;
+    // @include media($mdesktop) {
+    //   padding: 0 120px;
+    // }
+    // @include media($sdesktop) {
+    //   padding: 0 90px;
+    // }
+    // @include media($ssdesktop) {
+    //   padding: 0 60px;
+    // }
+    @include media($tablet) {
+      padding: 56px 39px;
+    }
+    // @include media($mobile){padding: 0 35px;}
+}
+
 
 #header{
     display: inline-flex;
@@ -16,13 +35,14 @@ $mobile:767px;
     position: relative;
     z-index: 10;
     @include media($tablet){
+        width:100%;
         flex-direction: row;
+        justify-content: space-between;
         gap:10px;
     }
     @include media($mobile){
         align-items: flex-end;
         flex-direction: column;
-        width:100%;
         gap:0;
     }
 }
@@ -34,9 +54,11 @@ $mobile:767px;
     #bg_img{
         vertical-align: bottom;
         border-radius: 10px;
+        @include media($tablet){
+            width: 100%;
+        }
         @include media($mobile){
             border-radius: 0;
-            width: 100%;
         }
     }
     #logo_content{

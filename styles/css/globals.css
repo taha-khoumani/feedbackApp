@@ -3,6 +3,17 @@ body {
   font-family: "Jost", sans-serif;
   background-color: #F2F2F2;
   inset: 0;
+  padding: 94px 165px;
+}
+@media (max-width: 1023px) {
+  body {
+    padding: 56px 39px;
+  }
+}
+@media (max-width: 767px) {
+  body {
+    padding: 0;
+  }
 }
 
 .button-one {

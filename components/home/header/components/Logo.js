@@ -41,12 +41,13 @@ export default function Logo() {
       document.querySelector("#header_menu__1DIIo").classList.add("menu-right")
       document.body.style.position = "static"
       setTimeout(()=>dispatch(toggleMenu(boolean)),250) 
+    }
   }
-}
   
   useEffect(()=>{
     if(screenWidth > 768 && isMenuOpen === true){
-      toggleMenuHandler(false)
+      dispatch(toggleMenu(false))
+      document.body.style.position = "static"
     }
   },[screenWidth])
 
