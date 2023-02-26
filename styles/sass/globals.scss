@@ -21,3 +21,29 @@ body{
     }
 }
 
+.menu-left{
+    animation-name: menu-left;
+    animation-fill-mode: forwards;
+    animation-duration: 250ms;
+}
+@keyframes menu-left {
+    from{
+        left:100%;
+    } to{
+        left: 0;
+    }
+}
+
+.menu-right{
+    animation-name: menu-right;
+    animation-fill-mode: forwards;
+    animation-duration: 150ms;
+    animation-timing-function: ease-out;
+}
+@keyframes menu-right {
+    from{
+        left:0;
+    } to{
+        left: 100%;
+    }
+}

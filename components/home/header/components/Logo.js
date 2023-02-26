@@ -30,16 +30,19 @@ export default function Logo() {
   function toggleMenuHandler (boolean){
     //open-modal
     if(boolean){
-      dispatch(toggleMenu(boolean))
-      document.body.style.position = "fixed"
+        dispatch(toggleMenu(boolean))
+        document.body.style.position = "fixed"
     }
     
     //close-modal
     else{
-      dispatch(toggleMenu(boolean))
+      document.querySelector("#header_menu__1DIIo").classList.remove("menu-left")
+      document.querySelector('#header_filter_roadmap__DVAvC').style.backgroundColor = "transparent"
+      document.querySelector("#header_menu__1DIIo").classList.add("menu-right")
       document.body.style.position = "static"
-    }
+      setTimeout(()=>dispatch(toggleMenu(boolean)),250) 
   }
+}
   
   useEffect(()=>{
     if(screenWidth > 768 && isMenuOpen === true){
