@@ -16,16 +16,16 @@ export default function Filters() {
   return (
     <div id={headerStyles.filters} >
       <div>
-        <button class="button-one">All</button>
-        <button class="button-one">UI</button>
-        <button class="button-one">UX</button>
+        <button className="button-one">All</button>
+        <button className="button-one">UI</button>
+        <button className="button-one">UX</button>
       </div>
       <div>
-        <button class="button-one">Enhancement</button>
-        <button class="button-one">Bug</button>
+        <button className="button-one">Enhancement</button>
+        <button className="button-one">Bug</button>
       </div>
       <div>
-        <button class="button-one">Feature</button>
+        <button className="button-one">Feature</button>
       </div>
     </div>
   )

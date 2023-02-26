@@ -1,10 +1,12 @@
 #header {
   display: inline-flex;
   flex-direction: column;
+  gap: 24px;
 }
 @media (max-width: 1023px) {
   #header {
     flex-direction: row;
+    gap: 10px;
   }
 }
 @media (max-width: 767px) {
@@ -12,6 +14,7 @@
     align-items: flex-end;
     flex-direction: column;
     width: 100%;
+    gap: 0;
   }
 }
 
@@ -20,17 +23,17 @@
   position: relative;
   width: 100%;
 }
-#logo img {
+#logo #bg_img {
   vertical-align: bottom;
   border-radius: 10px;
 }
 @media (max-width: 767px) {
-  #logo img {
+  #logo #bg_img {
     border-radius: 0;
     width: 100%;
   }
 }
-#logo div {
+#logo #logo_content {
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
@@ -39,31 +42,50 @@
   inset: 24px;
 }
 @media (max-width: 767px) {
-  #logo div {
+  #logo #logo_content {
     inset: 0 24px;
     gap: 3px;
-    justify-content: center;
+    justify-content: space-between;
+    flex-direction: row;
+    align-items: center;
   }
 }
-#logo div h1, #logo div p {
+#logo #logo_content h1, #logo #logo_content p {
   margin: 0;
 }
-#logo div h1 {
+#logo #logo_content h1 {
   font-size: 20px;
 }
 @media (max-width: 767px) {
-  #logo div h1 {
+  #logo #logo_content h1 {
     font-size: 15px;
   }
 }
-#logo div p {
+#logo #logo_content p {
   font-weight: 500;
   font-size: 15;
 }
 @media (max-width: 767px) {
-  #logo div p {
+  #logo #logo_content p {
     font-size: 13px;
   }
+}
+#logo #logo_content img {
+  cursor: pointer;
+}
+
+#filter_roadmap {
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+}
+#filter_roadmap > div {
+  display: flex;
+  background-color: #F7F8FD;
+  flex-direction: column;
+  gap: 24px;
+  padding: 24px;
 }
 
 #filters {
@@ -85,4 +107,69 @@
 #filters div {
   display: flex;
   gap: 8px;
+}
+
+#roadmap {
+  background-color: white;
+  padding: 19px 24px 24px 24px;
+  border-radius: 10px;
+  display: inline-flex;
+  flex-direction: column;
+  gap: 17px;
+  box-sizing: border-box;
+  width: 100%;
+}
+@media (max-width: 767px) {
+  #roadmap {
+    height: 100%;
+    width: auto;
+  }
+}
+#roadmap p, #roadmap ul {
+  margin: 0;
+}
+#roadmap div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+#roadmap div p {
+  font-size: 18px;
+  color: #3A4374;
+  font-weight: bold;
+}
+#roadmap div a {
+  font-size: 13px;
+  color: #4661E6;
+  margin-left: 67px;
+  font-weight: 600;
+}
+#roadmap div a a:visited {
+  color: #4661E6;
+}
+#roadmap ul {
+  padding-left: 24px;
+}
+#roadmap ul li {
+  font-size: 16px;
+  font-weight: 400;
+  color: #647196;
+  margin-bottom: 3px;
+}
+#roadmap ul li::marker {
+  font-size: 20px;
+}
+#roadmap ul li:first-child::marker {
+  color: #F49F85;
+}
+#roadmap ul li:nth-child(2)::marker {
+  color: #AD1FEA;
+}
+#roadmap ul li:last-child::marker {
+  color: #62BCFA;
+}
+#roadmap ul li span {
+  float: right;
+  margin-left: auto;
+  font-weight: 700;
 }/*# sourceMappingURL=header.module.css.map */
