@@ -123,7 +123,6 @@
   flex-direction: column;
   gap: 14px;
   box-sizing: border-box;
-  width: 100%;
 }
 @media (max-width: 767px) {
   #filters {
@@ -143,7 +142,6 @@
   flex-direction: column;
   gap: 17px;
   box-sizing: border-box;
-  width: 100%;
 }
 @media (max-width: 767px) {
   #roadmap {

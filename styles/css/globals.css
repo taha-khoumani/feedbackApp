@@ -5,6 +5,11 @@ body {
   inset: 0;
   padding: 94px 165px;
 }
+@media (max-width: 1300px) {
+  body {
+    padding: 76px 80px;
+  }
+}
 @media (max-width: 1023px) {
   body {
     padding: 56px 39px;
