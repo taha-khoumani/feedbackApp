@@ -10,16 +10,73 @@ $tablet:1023px;
 $mobile:767px;
 
 #header{
-    display: flex;
+    display: inline-flex;
     flex-direction: column;
     @include media($tablet){flex-direction: row;}
+    @include media($mobile){
+        align-items: flex-end;
+        flex-direction: column;
+        width:100%;
+    }
 }
 
 #logo{
-    border-radius: 10px;
     color:white;
+    position:relative;
+    width: 100%;
+    img{
+        vertical-align: bottom;
+        border-radius: 10px;
+        @include media($mobile){
+            border-radius: 0;
+            width: 100%;
+        }
+    }
+    div{
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        position: absolute;
+        gap:5px;
+        inset: 24px;
+        @include media($mobile){
+            inset: 0 24px;
+            gap:3px;
+            justify-content: center;
+        }
+
+        h1,p{
+            margin:0;
+        }
+        h1{
+            font-size: 20px;
+            @include media($mobile){font-size: 15px;}
+        }
+        p{
+            font-weight: 500;
+            font-size: 15;
+            @include media($mobile){font-size: 13px;}
+
+        }
+    }
+}
+
+#filters{
+    background-color: white;
     padding:24px;
-    h1{
-        margin:0;
+    border-radius: 10px;
+    display: inline-flex;
+    flex-direction: column;
+    gap:14px;
+    box-sizing: border-box;
+    width:100%;
+    @include media($mobile){
+        height: 100%;
+        width: auto;
+    }
+
+    div{
+        display: flex;
+        gap:8px;
     }
 }

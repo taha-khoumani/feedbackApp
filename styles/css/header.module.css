@@ -1,5 +1,5 @@
 #header {
-  display: flex;
+  display: inline-flex;
   flex-direction: column;
 }
 @media (max-width: 1023px) {
@@ -7,12 +7,82 @@
     flex-direction: row;
   }
 }
+@media (max-width: 767px) {
+  #header {
+    align-items: flex-end;
+    flex-direction: column;
+    width: 100%;
+  }
+}
 
 #logo {
-  border-radius: 10px;
   color: white;
-  padding: 24px;
+  position: relative;
+  width: 100%;
 }
-#logo h1 {
+#logo img {
+  vertical-align: bottom;
+  border-radius: 10px;
+}
+@media (max-width: 767px) {
+  #logo img {
+    border-radius: 0;
+    width: 100%;
+  }
+}
+#logo div {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  position: absolute;
+  gap: 5px;
+  inset: 24px;
+}
+@media (max-width: 767px) {
+  #logo div {
+    inset: 0 24px;
+    gap: 3px;
+    justify-content: center;
+  }
+}
+#logo div h1, #logo div p {
   margin: 0;
+}
+#logo div h1 {
+  font-size: 20px;
+}
+@media (max-width: 767px) {
+  #logo div h1 {
+    font-size: 15px;
+  }
+}
+#logo div p {
+  font-weight: 500;
+  font-size: 15;
+}
+@media (max-width: 767px) {
+  #logo div p {
+    font-size: 13px;
+  }
+}
+
+#filters {
+  background-color: white;
+  padding: 24px;
+  border-radius: 10px;
+  display: inline-flex;
+  flex-direction: column;
+  gap: 14px;
+  box-sizing: border-box;
+  width: 100%;
+}
+@media (max-width: 767px) {
+  #filters {
+    height: 100%;
+    width: auto;
+  }
+}
+#filters div {
+  display: flex;
+  gap: 8px;
 }/*# sourceMappingURL=header.module.css.map */
