@@ -3,6 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
     screenWidth:0,
     isMenuOpen:false,
+    logoHeight:0,
 }
 
 const uiSlice = createSlice({
@@ -14,9 +15,12 @@ const uiSlice = createSlice({
         },
         toggleMenu:(state,{payload})=>{
             state.isMenuOpen = payload
-        }
+        },
+        setLogoHeight:(state,{payload})=>{
+            state.logoHeight = payload
+        },
     }
 })
 
 export default uiSlice.reducer
-export const {setScreenWidth,toggleMenu} = uiSlice.actions
+export const {setScreenWidth,toggleMenu,setLogoHeight} = uiSlice.actions

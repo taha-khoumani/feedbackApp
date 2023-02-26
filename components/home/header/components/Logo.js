@@ -28,7 +28,17 @@ export default function Logo() {
   const dispatch = useDispatch()
 
   function toggleMenuHandler (boolean){
-    dispatch(toggleMenu(boolean))
+    //open-modal
+    if(boolean){
+      dispatch(toggleMenu(boolean))
+      document.body.style.position = "fixed"
+    }
+    
+    //close-modal
+    else{
+      dispatch(toggleMenu(boolean))
+      document.body.style.position = "static"
+    }
   }
   
   useEffect(()=>{
@@ -47,12 +57,11 @@ export default function Logo() {
         </div>
         {
           screenWidth < 768 && 
-          (
-            isMenuOpen ?
-            <Image src={close} alt="close menu" property='true' onClick={()=>toggleMenuHandler(false)} />
-            :
-            <Image src={ham} alt="open menu" property='true' onClick={()=>toggleMenuHandler(true)} />
-          )
+          <Image 
+            src={isMenuOpen ? close : ham} 
+            alt="toggle-menu" property='true' 
+            onClick={()=>toggleMenuHandler(!isMenuOpen)} 
+          />
         }
       </div>
     </div>

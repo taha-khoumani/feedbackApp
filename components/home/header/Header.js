@@ -8,14 +8,22 @@ import Filter_Roadmap from './components/Filter_Roadmap'
 import styles from "@/styles/css/header.module.css"
 
 //redux
-import { setScreenWidth } from '@/state/slices/uiSlice'
-import { useDispatch } from 'react-redux'
+import { setScreenWidth ,setLogoHeight} from '@/state/slices/uiSlice'
+import { useDispatch} from 'react-redux'
 
 export default function Header() {
   const dispatch = useDispatch()
+
   useEffect(()=>{
+    dispatch(setScreenWidth(window.innerWidth))
+    if(window.innerWidth < 768){
+      dispatch(setLogoHeight(document.querySelector("#header_logo___F9kW").offsetHeight))
+    }
     window.addEventListener('resize',()=>{
       dispatch(setScreenWidth(window.innerWidth))
+      if(window.innerWidth < 768){
+        dispatch(setLogoHeight(document.querySelector("#header_logo___F9kW").offsetHeight))
+      }
     })
   },[])
 
