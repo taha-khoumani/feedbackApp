@@ -1,4 +1,121 @@
 #main {
   position: relative;
   height: 1000px;
+  width: 100%;
+}
+
+#feedback_bar {
+  background-color: #373F68;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+}
+@media (max-width: 767px) {
+  #feedback_bar {
+    border-radius: 0;
+  }
+}
+#feedback_bar #sugg_num {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 14px 0px 14px 16px;
+}
+#feedback_bar #sugg_num p {
+  font-weight: 700;
+  color: white;
+}
+#feedback_bar #filter_container {
+  position: relative;
+  padding: 14px 0px;
+  margin-left: 30px;
+}
+@media (max-width: 767px) {
+  #feedback_bar #filter_container {
+    margin-left: 24px;
+    padding: 18px 0;
+  }
+}
+@media (max-width: 400px) {
+  #feedback_bar #filter_container {
+    margin-left: 8px;
+  }
+}
+#feedback_bar #filter_container #filter {
+  color: #F2F4FE;
+  display: flex;
+  align-items: center;
+}
+#feedback_bar #filter_container #filter #sort {
+  opacity: 0.75;
+  font-size: 14px;
+  font-weight: 400;
+}
+@media (max-width: 767px) {
+  #feedback_bar #filter_container #filter #sort {
+    font-size: 13px;
+  }
+}
+#feedback_bar #filter_container #filter #by_what {
+  font-weight: 700;
+  cursor: pointer;
+}
+@media (max-width: 767px) {
+  #feedback_bar #filter_container #filter #by_what {
+    font-size: 13px;
+  }
+}
+#feedback_bar #filter_container #filter i {
+  cursor: pointer;
+}
+#feedback_bar #filter_container #filter_options {
+  background-color: white;
+  border-radius: 10px;
+  width: 255px;
+  margin: 0 auto;
+  position: absolute;
+  inset: calc(100% + 16px) auto auto auto;
+  box-shadow: 0px 10px 40px -7px rgba(55, 63, 104, 0.350492);
+}
+#feedback_bar #filter_container #filter_options p {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 400;
+  font-size: 16px;
+  color: #647196;
+  padding: 12px 24px;
+  margin: 0;
+  border-bottom: 1px solid rgba(58, 67, 116, 0.15);
+  cursor: pointer;
+}
+#feedback_bar #filter_container #filter_options p:hover {
+  color: #AD1FEA;
+}
+#feedback_bar #filter_container #filter_options p i {
+  color: #AD1FEA;
+  font-weight: 700;
+}
+#feedback_bar button {
+  border-radius: 10px;
+  background-color: #C75AF6;
+  border: none;
+  color: #F2F4FE;
+  font-weight: 700;
+  font-size: 14px;
+  padding: 12px 24px;
+  margin: 14px 16px 14px auto;
+  cursor: pointer;
+}
+@media (max-width: 767px) {
+  #feedback_bar button {
+    font-size: 13px;
+    padding: 11px 16px;
+  }
+}
+@media (max-width: 400px) {
+  #feedback_bar button {
+    margin-right: 8px;
+    padding: 11px 12px;
+  }
 }/*# sourceMappingURL=main.module.css.map */

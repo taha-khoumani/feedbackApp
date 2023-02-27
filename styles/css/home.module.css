@@ -1,0 +1,14 @@
+#home {
+  display: flex;
+  gap: 30px;
+}
+@media (max-width: 1023px) {
+  #home {
+    flex-direction: column;
+  }
+}
+@media (max-width: 767px) {
+  #home {
+    gap: 0;
+  }
+}/*# sourceMappingURL=home.module.css.map */

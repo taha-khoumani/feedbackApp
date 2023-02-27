@@ -1,0 +1,17 @@
+//mixins
+@mixin media($size){
+    @media (max-width:$size){
+        @content
+    }
+}
+
+//variables
+$tablet:1023px;
+$mobile:767px;
+
+#home{
+    display: flex;
+    gap:30px;
+    @include media($tablet){flex-direction: column;}
+    @include media($mobile){gap:0;}
+}

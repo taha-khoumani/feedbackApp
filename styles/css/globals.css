@@ -21,6 +21,10 @@ body {
   }
 }
 
+select, button {
+  font-family: "Jost", sans-serif;
+}
+
 .button-one {
   background-color: #F2F4FF;
   border: none;
