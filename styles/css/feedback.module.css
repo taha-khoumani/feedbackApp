@@ -6,6 +6,17 @@
   gap: 40px;
   padding: 28px 32px;
 }
+@media (max-width: 767px) {
+  .feedback {
+    flex-direction: column;
+    gap: 16px;
+    align-items: flex-start;
+    padding: 24px;
+  }
+}
+.feedback .upvotes {
+  margin-bottom: auto;
+}
 .feedback .upvotes button {
   background-color: #F2F4FE;
   border: none;
@@ -21,8 +32,22 @@
   width: 40px;
   height: 53px;
 }
+@media (max-width: 767px) {
+  .feedback .upvotes button {
+    flex-direction: row;
+    font-size: 13px;
+    width: 69px;
+    height: 32px;
+    gap: 10px;
+  }
+}
 .feedback .upvotes button img {
   margin-top: 10px;
+}
+@media (max-width: 767px) {
+  .feedback .upvotes button img {
+    margin: 0 0 3px 10px;
+  }
 }
 .feedback .upvotes button:hover {
   background-color: #CFD7FF;
@@ -36,11 +61,21 @@
   font-weight: 700;
   margin-bottom: 4px;
 }
+@media (max-width: 767px) {
+  .feedback .infos .title {
+    font-size: 13px;
+  }
+}
 .feedback .infos .description {
   font-size: 16px;
   font-weight: 400;
   color: #647196;
   margin-bottom: 12px;
+}
+@media (max-width: 767px) {
+  .feedback .infos .description {
+    font-size: 13px;
+  }
 }
 .feedback .infos .category {
   display: inline;
@@ -48,7 +83,6 @@
   border: none;
   padding: 6px 16px;
   border-radius: 10px;
-  cursor: pointer;
   font-weight: 600;
   font-family: "Jost", sans-serif;
   font-size: 13px;
@@ -62,4 +96,69 @@
   font-weight: 700;
   color: #3A4374;
   font-size: 16px;
+}
+@media (max-width: 767px) {
+  .feedback .comments {
+    font-size: 13px;
+  }
+}
+.feedback .comments p {
+  margin: 0;
+}
+.feedback .upvotes_comments {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#no_feedback {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 100%;
+  justify-content: center;
+  background-color: white;
+  border-radius: 10px;
+  padding: 25px;
+}
+@media (max-width: 767px) {
+  #no_feedback {
+    margin: 32px 24px 47px 24px;
+  }
+}
+#no_feedback img {
+  margin-bottom: 30px;
+}
+@media (max-width: 767px) {
+  #no_feedback img {
+    margin-bottom: 30px;
+  }
+}
+#no_feedback #no_feedback_title {
+  color: #3A4374;
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 16px;
+  text-align: center;
+}
+@media (max-width: 767px) {
+  #no_feedback #no_feedback_title {
+    margin-bottom: 14px;
+    line-height: 30px;
+  }
+}
+#no_feedback #no_feedback_description {
+  color: #647196;
+  font-weight: 400;
+  text-align: center;
+  margin-bottom: 35px;
+}
+@media (max-width: 767px) {
+  #no_feedback #no_feedback_description {
+    margin-bottom: 24px;
+  }
+}
+#no_feedback p {
+  margin: 0;
 }/*# sourceMappingURL=feedback.module.css.map */

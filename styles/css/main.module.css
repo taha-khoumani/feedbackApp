@@ -3,7 +3,13 @@
   width: 100%;
   display: flex;
   flex-direction: column;
+  flex: 100%;
   gap: 24px;
+}
+@media (max-width: 767px) {
+  #main {
+    gap: 0;
+  }
 }
 
 #feedback_bar {
@@ -98,32 +104,15 @@
   color: #AD1FEA;
   font-weight: 700;
 }
-#feedback_bar button {
-  border-radius: 10px;
-  background-color: #C75AF6;
-  border: none;
-  color: #F2F4FE;
-  font-weight: 700;
-  font-size: 14px;
-  padding: 12px 24px;
-  margin: 14px 16px 14px auto;
-  cursor: pointer;
-}
-@media (max-width: 767px) {
-  #feedback_bar button {
-    font-size: 13px;
-    padding: 11px 16px;
-  }
-}
-@media (max-width: 400px) {
-  #feedback_bar button {
-    margin-right: 8px;
-    padding: 11px 12px;
-  }
-}
 
 #feedback_list {
   display: flex;
   flex-direction: column;
   gap: 20px;
+}
+@media (max-width: 767px) {
+  #feedback_list {
+    gap: 16px;
+    padding: 32px 24px 55px 24px;
+  }
 }/*# sourceMappingURL=main.module.css.map */

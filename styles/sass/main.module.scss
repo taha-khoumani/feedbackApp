@@ -14,7 +14,9 @@ $mobile:767px;
     width: 100%;
     display: flex;
     flex-direction: column;
+    flex:100%;
     gap:24px;
+    @include media($mobile){gap:0;}
 }
 
 
@@ -103,25 +105,7 @@ $mobile:767px;
     }
 
 
-    button{
-        border-radius: 10px;
-        background-color: #C75AF6;
-        border:none;
-        color: #F2F4FE;
-        font-weight: 700;
-        font-size: 14px;
-        padding:12px 24px;
-        margin: 14px 16px 14px auto;
-        cursor: pointer;
-        @include media($mobile){
-            font-size: 13px;
-            padding:11px 16px;
-        }
-        @include media(400px){
-            margin-right: 8px;
-            padding:11px 12px;
-        }
-    }
+
 
 }
 
@@ -129,6 +113,9 @@ $mobile:767px;
     display: flex;
     flex-direction: column;
     gap:20px;
-
+    @include media($mobile){
+        gap:16px;
+        padding: 32px 24px 55px 24px;
+    }
 }
 

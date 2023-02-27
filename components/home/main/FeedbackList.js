@@ -2,12 +2,19 @@ import React from 'react'
 
 //components
 import Feedback from './Feedback'
+import NoFeedbacks from './NoFeedbacks'
 
 //styles
 import styles from "@/styles/css/main.module.css"
 
 export default function FeedbackList(props) {
   const {feedbacks} = props
+
+  if(!feedbacks){
+    return(
+      <NoFeedbacks />
+    )
+  }
   
   const feedbacksEls = feedbacks.map(feedback => 
     <Feedback 
@@ -17,6 +24,7 @@ export default function FeedbackList(props) {
   )
 
   return (
+
     <div id={styles.feedback_list}>
       {feedbacksEls}
     </div>

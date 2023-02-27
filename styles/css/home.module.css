@@ -1,14 +1,24 @@
 #home {
   display: flex;
   gap: 30px;
+  padding: 94px 165px;
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+@media (max-width: 1300px) {
+  #home {
+    padding: 76px 80px;
+  }
 }
 @media (max-width: 1023px) {
   #home {
     flex-direction: column;
+    padding: 56px 39px;
   }
 }
 @media (max-width: 767px) {
   #home {
     gap: 0;
+    padding: 0;
   }
 }/*# sourceMappingURL=home.module.css.map */

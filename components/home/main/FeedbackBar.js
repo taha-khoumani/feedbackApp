@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 
 //images
 import suggestions from "@/images/icons/icon-suggestions.svg"
@@ -21,6 +21,17 @@ export default function FeedbackBar() {
         dispatch(setSortMethode(methode))
         dispatch(toggleSort(!isSortOpen))
     }
+
+    function toggleOff(){
+        if(isSortOpen){
+            dispatch(toggleSort(false))
+        }
+    }
+
+    useEffect(()=>{
+        document.querySelector("#home_home__bZmM7").addEventListener("click",toggleOff)
+        return document.body.removeEventListener("click",toggleOff)
+    },[isSortOpen])
 
   return (
     <div id={styles.feedback_bar}>
@@ -50,7 +61,7 @@ export default function FeedbackBar() {
                 </div>
             }
         </div>
-        <button>
+        <button className='button_two'>
             + Add Feedback
         </button>
     </div>

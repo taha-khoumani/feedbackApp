@@ -3,22 +3,6 @@ body {
   font-family: "Jost", sans-serif;
   background-color: #F2F2F2;
   inset: 0;
-  padding: 94px 165px;
-}
-@media (max-width: 1300px) {
-  body {
-    padding: 76px 80px;
-  }
-}
-@media (max-width: 1023px) {
-  body {
-    padding: 56px 39px;
-  }
-}
-@media (max-width: 767px) {
-  body {
-    padding: 0;
-  }
 }
 
 select, button {
@@ -38,6 +22,30 @@ select, button {
 }
 .button-one:hover {
   background-color: #CFD7FF;
+}
+
+.button_two {
+  border-radius: 10px;
+  background-color: #C75AF6;
+  border: none;
+  color: #F2F4FE;
+  font-weight: 700;
+  font-size: 14px;
+  padding: 12px 24px;
+  margin: 14px 16px 14px auto;
+  cursor: pointer;
+}
+@media (max-width: 767px) {
+  .button_two {
+    font-size: 13px;
+    padding: 11px 16px;
+  }
+}
+@media (max-width: 400px) {
+  .button_two {
+    margin-right: 8px;
+    padding: 11px 12px;
+  }
 }
 
 .menu-left {
