@@ -1,7 +1,9 @@
 #main {
   position: relative;
-  height: 1000px;
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
 }
 
 #feedback_bar {
@@ -118,4 +120,10 @@
     margin-right: 8px;
     padding: 11px 12px;
   }
+}
+
+#feedback_list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }/*# sourceMappingURL=main.module.css.map */

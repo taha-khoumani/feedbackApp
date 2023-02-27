@@ -1,0 +1,65 @@
+.feedback {
+  background-color: white;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  padding: 28px 32px;
+}
+.feedback .upvotes button {
+  background-color: #F2F4FE;
+  border: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  justify-content: flex-start;
+  border-radius: 10px;
+  font-weight: 700;
+  color: #3A4374;
+  cursor: pointer;
+  width: 40px;
+  height: 53px;
+}
+.feedback .upvotes button img {
+  margin-top: 10px;
+}
+.feedback .upvotes button:hover {
+  background-color: #CFD7FF;
+}
+.feedback .infos p {
+  margin: 0;
+}
+.feedback .infos .title {
+  color: #3A4374;
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+.feedback .infos .description {
+  font-size: 16px;
+  font-weight: 400;
+  color: #647196;
+  margin-bottom: 12px;
+}
+.feedback .infos .category {
+  display: inline;
+  background-color: #F2F4FF;
+  border: none;
+  padding: 6px 16px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 600;
+  font-family: "Jost", sans-serif;
+  font-size: 13px;
+  color: #4661E6;
+}
+.feedback .comments {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  margin-left: auto;
+  font-weight: 700;
+  color: #3A4374;
+  font-size: 16px;
+}/*# sourceMappingURL=feedback.module.css.map */
