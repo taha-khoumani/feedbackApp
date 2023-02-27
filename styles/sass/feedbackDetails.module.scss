@@ -1,0 +1,82 @@
+//mixins
+@mixin media($size){
+    @media (max-width:$size){
+        @content
+    }
+}
+
+//variables
+$tablet:1023px;
+$mobile:767px;
+
+.feedback_nav{
+    display: flex;
+    align-items: center;
+
+    div:first-child{
+        display: flex;
+        align-items: center;
+        gap:13px;
+        cursor: pointer;
+        p{
+            color: #647196;
+            font-weight: 700;
+            font-size: 14px;
+            &:hover{
+                text-decoration: underline;
+            }
+        }
+    }
+    button{
+        background-color: #4661E6;
+        margin:auto 0 auto auto;
+        &:hover{
+            background-color: #7C91F9;
+        }
+    }
+}
+
+.add_comment{
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 24px 33px 32px;
+
+    .add_comment_title{
+        font-size: 18px;
+        font-weight: 700;
+        color:#3A4374;
+    }
+
+    textarea{
+        border:none;
+        background-color: #F7F8FD;
+        border-radius: 5px;
+
+        &::placeholder{
+            color: #8C92B3;
+            font-size: 15px;
+            font-weight: 400;
+            font-family:'Jost', sans-serif ;
+            color: red;
+        }
+    }
+
+    .chrleft_post{
+        display: flex;
+        align-items: center;
+
+        .characters_left{
+            color: #647196;
+            font-size: 15px;
+            font-weight: 400;
+        }
+
+        button{
+            margin:auto 0 auto auto;
+        }
+
+    }
+
+}

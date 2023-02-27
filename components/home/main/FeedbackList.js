@@ -1,14 +1,14 @@
 import React from 'react'
 
 //components
-import Feedback from './Feedback'
+import Feedback from '../../ui/Feedback'
 import NoFeedbacks from './NoFeedbacks'
 
 //styles
 import styles from "@/styles/css/main.module.css"
 
 export default function FeedbackList(props) {
-  const {feedbacks} = props
+  const {feedbacks} = 0
 
   if(!feedbacks){
     return(

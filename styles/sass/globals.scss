@@ -37,7 +37,7 @@ select,button{
 
 .button_two{
     border-radius: 10px;
-    background-color: #C75AF6;
+    background-color: #AD1FEA;
     border:none;
     color: #F2F4FE;
     font-weight: 700;
@@ -45,6 +45,9 @@ select,button{
     padding:12px 24px;
     margin: 14px 16px 14px auto;
     cursor: pointer;
+    &:hover{
+        background-color: #C75AF6;
+    }
     @include media($mobile){
         font-size: 13px;
         padding:11px 16px;

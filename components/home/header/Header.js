@@ -1,8 +1,8 @@
 import React,{useEffect} from 'react'
 
 //components
-import Logo from './components/Logo'
-import Filter_Roadmap from './components/Filter_Roadmap'
+import Logo from './Logo'
+import Filter_Roadmap from './Filter_Roadmap'
 
 //styles
 import styles from "@/styles/css/header.module.css"
