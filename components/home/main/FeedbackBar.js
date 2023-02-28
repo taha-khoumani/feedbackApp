@@ -25,6 +25,7 @@ export default function FeedbackBar() {
 
     function toggleOff(){
         if(!isSortOpen){
+            console.log("doiioh")
             dispatch(toggleSort(false))
         }
     }
