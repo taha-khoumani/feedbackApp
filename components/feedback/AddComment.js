@@ -1,18 +1,33 @@
 import React from 'react'
 
+//react
+import { useRef } from 'react';
+
 //styles
 import styles from "@/styles/css/feedbackDetails.module.css"
 
 export default function AddComment() {
+  const refTextarea = useRef(null)
+
+  function changeHeight (el){
+    el.style.height = "";
+    el.style.height = `${textarea.scrollHeight}px`;
+  }
+
   return (
-    <form className={styles.add_comment}>
+    <form 
+      className={styles.add_comment}
+      onSubmit={(e)=>{e.preventDefault()}}  
+    >
       <p className={styles.add_comment_title} >Add Comment</p>
       <textarea 
+        ref={refTextarea}
         name="" 
-        id="" 
+        id="textarea" 
         cols="30" 
-        rows="10" 
+        rows="1" 
         placeholder='Type your comment here'
+        onInput={()=>changeHeight(refTextarea.current)}
       >
         
       </textarea>

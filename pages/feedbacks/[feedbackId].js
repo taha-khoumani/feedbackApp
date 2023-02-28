@@ -9,8 +9,11 @@ import data from "@/data.js"
 //components
 import Feedback from '@/components/ui/Feedback'
 import AddComment from '@/components/feedback/AddComment'
-import Comments from '@/components/feedback/Comments'
+import CommentsSection from '@/components/feedback/CommentsSection'
 import FeedbackNav from '@/components/feedback/FeedbackNav'
+
+//styles
+import styles from "@/styles/css/feedbackDetails.module.css"
 
 export default function feedback() {
     const feedbackId = useRouter().query.feedbackId
@@ -26,10 +29,10 @@ export default function feedback() {
     }
 
   return (
-    <div>
+    <div className={styles.feedback_details} >
         <FeedbackNav />
         <Feedback data={requestedFeedback} />
-        <Comments />
+        <CommentsSection comments={requestedFeedback.comments} />
         <AddComment />
     </div>
   )

@@ -79,4 +79,17 @@ select, button {
   to {
     left: 100%;
   }
+}
+.commentYesReplies {
+  margin-left: 20px;
+  border-left: solid 1px #F0F1F4;
+  padding: 0 0 32px 52px;
+}
+
+.commentNoReplies {
+  margin-left: 72px;
+}
+
+.reply {
+  margin-left: 72px;
 }/*# sourceMappingURL=globals.css.map */

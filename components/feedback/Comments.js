@@ -1,7 +1,25 @@
 import React from 'react'
 
-export default function Comments() {
+//components
+import Comment from './Comment'
+
+//styles
+import styles from "@/styles/css/feedbackDetails.module.css"
+
+export default function Comments(props) {
+  const {comments} = props
+
+  const commentsEls = comments.map((comment,index,comments)=>
+    <Comment 
+      isFirst={index === 0 ? true : false}
+      commentData={comment}
+      key={comment.id}
+    />
+  )
+
   return (
-    <div>Comments</div>
+    <div className={styles.comments} >
+      {commentsEls}
+    </div>
   )
 }
