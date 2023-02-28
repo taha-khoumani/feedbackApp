@@ -54,7 +54,16 @@ export default function FeedbackBar() {
             {
                 isSortOpen &&
                 <div id={styles.filter_options}>
-                    <p onClick={()=>setSortMethodeHandler("Most Upvotes")} >Most Upvotes {sortMethode === "Most Upvotes" && <i className="fa-sharp fa-solid fa-check"></i>}</p>
+                    <p 
+                        onClick={()=>{
+                            console.log("taha")
+                            setSortMethodeHandler("Most Upvotes")
+                        }} 
+                    >
+                        Most Upvotes 
+                        {sortMethode === "Most Upvotes" && <i className="fa-sharp fa-solid fa-check"></i>}
+                    </p>
+
                     <p onClick={()=>setSortMethodeHandler("Least Upvotes")}>Least Upvotes {sortMethode === "Least Upvotes" && <i className="fa-sharp fa-solid fa-check"></i>}</p>
                     <p onClick={()=>setSortMethodeHandler("Most Comments")}>Most Comments {sortMethode === "Most Comments" && <i className="fa-sharp fa-solid fa-check"></i>}</p>
                     <p onClick={()=>setSortMethodeHandler("Least Comments")}>Least Comments {sortMethode === "Least Comments" && <i className="fa-sharp fa-solid fa-check"></i>}</p>

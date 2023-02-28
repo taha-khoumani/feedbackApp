@@ -11,7 +11,7 @@ export default function AddComment() {
 
   function changeHeight (el){
     el.style.height = "";
-    el.style.height = `${textarea.scrollHeight}px`;
+    el.style.height = `${el.scrollHeight}px`;
   }
 
   return (
@@ -21,6 +21,7 @@ export default function AddComment() {
     >
       <p className={styles.add_comment_title} >Add Comment</p>
       <textarea 
+        className='textarea_one'
         ref={refTextarea}
         name="" 
         id="textarea" 
@@ -29,7 +30,6 @@ export default function AddComment() {
         placeholder='Type your comment here'
         onInput={()=>changeHeight(refTextarea.current)}
       >
-        
       </textarea>
       <div className={styles.chrleft_post} >
         <p className={styles.characters_left}>250 Characters left</p>

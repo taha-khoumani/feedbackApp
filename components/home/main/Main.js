@@ -11,10 +11,13 @@ import FeedbackBar from './FeedbackBar'
 import FeedbackList from './FeedbackList'
 
 export default function Main() {
+  const suggestion = data.productRequests.filter(feedback=>feedback.status === "suggestion")
+
+
   return (
     <main id={styles.main}>
       <FeedbackBar />
-      <FeedbackList feedbacks={data.productRequests} />
+      <FeedbackList feedbacks={suggestion} />
     </main>
   )
 }

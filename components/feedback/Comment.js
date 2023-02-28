@@ -8,15 +8,19 @@ import CommentReplies from "./CommentReplies"
 import styles from "@/styles/css/feedbackDetails.module.css"
 
 export default function Comment(props) {
-    const {isFirst,commentData} = props
+    const {isFirst,commentData,isLast} = props
 
     const ifFirstStyles = {
         border:"none",
         paddingTop:"0",
     }
 
+    const ifLastStyles = {
+        paddingBottom:"20px"
+    }
+
   return (
-    <div className={styles.comment} style={isFirst ? ifFirstStyles : {}} >
+    <div className={styles.comment} style={isFirst ? ifFirstStyles :  (isLast ? ifLastStyles : {})  } >
         <CommentContent
             commentContentData={{
                 content:commentData.content,

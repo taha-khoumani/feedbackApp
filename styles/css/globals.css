@@ -109,4 +109,26 @@ select, button {
   .reply {
     margin-left: 0;
   }
+}
+
+.textarea_one {
+  border: none;
+  background-color: #F7F8FD;
+  border-radius: 5px;
+  padding: 16px 24px;
+  font-size: 15px;
+  font-weight: 400;
+  font-family: "Jost", sans-serif;
+  color: #3A4374;
+  resize: none;
+  width: 100%;
+  box-sizing: border-box;
+  outline: none;
+  margin-bottom: 16px;
+}
+.textarea_one:focus {
+  outline: 1px solid #4661E6;
+}
+.textarea_one::placeholder {
+  color: #8C92B3;
 }/*# sourceMappingURL=globals.css.map */

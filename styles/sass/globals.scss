@@ -109,3 +109,27 @@ select,button{
         margin-left:0;
     }
 }
+
+
+.textarea_one{
+    border:none;
+    background-color: #F7F8FD;
+    border-radius: 5px;
+    padding:16px 24px;
+    font-size: 15px;
+    font-weight: 400;
+    font-family:'Jost', sans-serif ;
+    color:#3A4374;
+    resize:none;
+    width:100%;
+    box-sizing: border-box;
+    outline: none;
+    margin-bottom: 16px;
+
+    &:focus{
+        outline:1px solid #4661E6;
+    }
+    &::placeholder{
+        color: #8C92B3;
+    }
+}

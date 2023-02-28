@@ -1,9 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-    screenWidth:1000,
+    screenWidth:null,
     isMenuOpen:false,
-    logoHeight:0,
     isSortOpen:false,
     sortMethode:"Most Upvotes",
 }
@@ -18,9 +17,6 @@ const uiSlice = createSlice({
         toggleMenu:(state,{payload})=>{
             state.isMenuOpen = payload
         },
-        setLogoHeight:(state,{payload})=>{
-            state.logoHeight = payload
-        },
         toggleSort:(state,{payload})=>{
             state.isSortOpen = payload
         },
@@ -31,4 +27,4 @@ const uiSlice = createSlice({
 })
 
 export default uiSlice.reducer
-export const {setScreenWidth,toggleMenu,setLogoHeight,toggleSort,setSortMethode} = uiSlice.actions
+export const {setScreenWidth,toggleMenu,toggleSort,setSortMethode} = uiSlice.actions

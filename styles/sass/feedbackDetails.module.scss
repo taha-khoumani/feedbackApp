@@ -126,6 +126,13 @@ $mobile:767px;
                 }
         
                 .comment_content_content{
+                    display: flex;
+                    flex-direction: column;
+                    gap:24px;
+                    @include media($mobile){
+                        gap:15px;
+                    }
+
                     p{
                         color: #647196;
                         font-size: 15px;
@@ -181,29 +188,6 @@ $mobile:767px;
         margin:0 0 24px 0;
     }
 
-    textarea{
-        border:none;
-        background-color: #F7F8FD;
-        border-radius: 5px;
-        padding:16px 24px;
-        font-size: 15px;
-        font-weight: 400;
-        font-family:'Jost', sans-serif ;
-        color:#3A4374;
-        resize:none;
-        width:100%;
-        box-sizing: border-box;
-        outline: none;
-        margin-bottom: 16px;
-
-        &:focus{
-            outline:1px solid #4661E6;
-        }
-        &::placeholder{
-            color: #8C92B3;
-        }
-    }
-
     .chrleft_post{
         display: flex;
         align-items: center;
@@ -224,3 +208,26 @@ $mobile:767px;
     }
 
 }
+
+    //post_reply
+    .post_reply{
+        display: flex;
+        align-items: center;
+        gap:16px;
+
+        @include media($mobile){
+            flex-direction: column;
+            gap:10px;
+        }
+
+        button{
+            margin:0 0 auto auto;
+            white-space: nowrap;
+            @include media($mobile){
+                width: 100%;
+            }
+        }
+        textarea{
+            margin:0;
+        }
+    }

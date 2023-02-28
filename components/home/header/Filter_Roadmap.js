@@ -15,9 +15,7 @@ import { toggleMenu } from '@/state/slices/uiSlice'
 export default function Filter_Roadmap() {
     const dispatch = useDispatch()
 
-    const {isMenuOpen,screenWidth,logoHeight} = useSelector(store=>store.ui)
-
-    const upOffset = {top:`${logoHeight}px`,height: `calc(100% - ${logoHeight})px`}
+    const {isMenuOpen,screenWidth} = useSelector(store=>store.ui)
 
     function toggleMenuHandler (boolean){
         //open-modal
@@ -42,7 +40,7 @@ export default function Filter_Roadmap() {
             &&
             <div 
                 id={styles.filter_roadmap} 
-                style={upOffset}
+                style={{top:`72px`,height: `calc(100% - 72px)`}}
                 onClick={()=>toggleMenuHandler(!isMenuOpen)}
             >
                 <div>

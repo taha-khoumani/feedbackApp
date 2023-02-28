@@ -12,6 +12,7 @@ export default function Comments(props) {
   const commentsEls = comments.map((comment,index,comments)=>
     <Comment 
       isFirst={index === 0 ? true : false}
+      isLast={index === comments.length-1 ? true : false }
       commentData={comment}
       key={comment.id}
     />
