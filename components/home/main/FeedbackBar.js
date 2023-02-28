@@ -17,13 +17,14 @@ export default function FeedbackBar() {
     const {isSortOpen,sortMethode,screenWidth} = useSelector(store=>store.ui)
     const dispatch = useDispatch()
 
-    function setSortMethodeHandler (methode){
+    function setSortMethodeHandler (e,methode){
         dispatch(setSortMethode(methode))
         dispatch(toggleSort(!isSortOpen))
+        e.stopPropagation()
     }
 
     function toggleOff(){
-        if(isSortOpen){
+        if(!isSortOpen){
             dispatch(toggleSort(false))
         }
     }
@@ -31,7 +32,7 @@ export default function FeedbackBar() {
     useEffect(()=>{
         document.querySelector("#home_home__bZmM7").addEventListener("click",toggleOff)
         return document.body.removeEventListener("click",toggleOff)
-    },[isSortOpen])
+    },[])
 
   return (
     <div id={styles.feedback_bar}>
@@ -45,7 +46,10 @@ export default function FeedbackBar() {
         <div id={styles.filter_container}>
             <div 
                 id={styles.filter}
-                onClick={()=> dispatch(toggleSort(!isSortOpen))}
+                onClick={(e)=>{
+                    dispatch(toggleSort(!isSortOpen))
+                    e.stopPropagation()
+                }}
             >
                 <p id={styles.sort} >Sort by :</p>
                 <p id={styles.by_what} >&nbsp;{sortMethode}&nbsp;</p>
@@ -54,19 +58,10 @@ export default function FeedbackBar() {
             {
                 isSortOpen &&
                 <div id={styles.filter_options}>
-                    <p 
-                        onClick={()=>{
-                            console.log("taha")
-                            setSortMethodeHandler("Most Upvotes")
-                        }} 
-                    >
-                        Most Upvotes 
-                        {sortMethode === "Most Upvotes" && <i className="fa-sharp fa-solid fa-check"></i>}
-                    </p>
-
-                    <p onClick={()=>setSortMethodeHandler("Least Upvotes")}>Least Upvotes {sortMethode === "Least Upvotes" && <i className="fa-sharp fa-solid fa-check"></i>}</p>
-                    <p onClick={()=>setSortMethodeHandler("Most Comments")}>Most Comments {sortMethode === "Most Comments" && <i className="fa-sharp fa-solid fa-check"></i>}</p>
-                    <p onClick={()=>setSortMethodeHandler("Least Comments")}>Least Comments {sortMethode === "Least Comments" && <i className="fa-sharp fa-solid fa-check"></i>}</p>
+                    <p onClick={(e)=>setSortMethodeHandler(e,"Most Upvotes")}>Most Upvotes {sortMethode === "Most Upvotes" && <i className="fa-sharp fa-solid fa-check"></i>}</p>
+                    <p onClick={(e)=>setSortMethodeHandler(e,"Least Upvotes")}>Least Upvotes {sortMethode === "Least Upvotes" && <i className="fa-sharp fa-solid fa-check"></i>}</p>
+                    <p onClick={(e)=>setSortMethodeHandler(e,"Most Comments")}>Most Comments {sortMethode === "Most Comments" && <i className="fa-sharp fa-solid fa-check"></i>}</p>
+                    <p onClick={(e)=>setSortMethodeHandler(e,"Least Comments")}>Least Comments {sortMethode === "Least Comments" && <i className="fa-sharp fa-solid fa-check"></i>}</p>
                 </div>
             }
         </div>
