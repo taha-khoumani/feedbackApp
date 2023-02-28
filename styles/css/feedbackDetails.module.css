@@ -229,4 +229,9 @@
 }
 .add_comment .chrleft_post button {
   margin: auto 0 auto auto;
+}
+@media (max-width: 767px) {
+  .add_comment .chrleft_post button {
+    font-size: 13px;
+  }
 }/*# sourceMappingURL=feedbackDetails.module.css.map */

@@ -218,7 +218,7 @@ $mobile:767px;
 
         button{
             margin:auto 0 auto auto;
-            // @include media($mobile){font-size: 13px;}
+            @include media($mobile){font-size: 13px;}
         }
 
     }
