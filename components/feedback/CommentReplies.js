@@ -7,7 +7,7 @@ export default function CommentReplies(props) {
 
   if(!commentRepliesData){return null}
 
-  const commentRepliesEls = commentRepliesData.map((reply,index)=>{
+  const commentRepliesEls = commentRepliesData.map((reply,index,replies)=>{
     return(
       <CommentReply
         key={index}
@@ -17,6 +17,7 @@ export default function CommentReplies(props) {
           userName:reply.user.name,
           userUsername:reply.user.username,
           replyingTo:reply.replyingTo,
+          isLast: (index === replies.length-1) ,
         }}
       />
     )

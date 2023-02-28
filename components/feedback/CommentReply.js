@@ -7,10 +7,14 @@ import styles from "@/styles/css/feedbackDetails.module.css"
 import Image from 'next/image'
 
 export default function CommentReply(props) {
-    const {content,userName,userUsername,userImg,replyingTo} = props.replyData
+    const {content,userName,userUsername,userImg,replyingTo,isLast} = props.replyData
+
+    const lastStyles = {
+        paddingBottom:"0",
+    }
 
   return (
-    <div className={styles.comment_replies} >
+    <div className={styles.comment_replies} style={isLast ? lastStyles : {}}>
         <div className={styles.comment_metaData} >
             <Image src={userImg} alt={`${userName}'s profile picture`} width={40} height={40} />
             <div className={styles.comment_userInfo} >
@@ -21,7 +25,7 @@ export default function CommentReply(props) {
                 Reply
             </button>
         </div>
-        <div className={`${styles.comment_content_content} reply `}>
+        <div className={`${styles.comment_content_content} reply`}>
             <p>
                 <span>
                     {`@${replyingTo}`}

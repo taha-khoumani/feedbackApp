@@ -2,6 +2,22 @@
   display: flex;
   flex-direction: column;
   gap: 24px;
+  padding: 80px 150px 137px;
+}
+@media (max-width: 1023px) {
+  .feedback_details {
+    padding: 56px 39px 120px;
+  }
+}
+@media (max-width: 767px) {
+  .feedback_details {
+    padding: 24px 25px 88px;
+  }
+}
+@media (max-width: 400px) {
+  .feedback_details {
+    padding: 24px 15px 50px;
+  }
 }
 
 .feedback_nav {
@@ -35,11 +51,21 @@
   border-radius: 10px;
   padding: 24px 34px;
 }
+@media (max-width: 767px) {
+  .comments_section {
+    padding: 23px;
+  }
+}
 .comments_section > p {
   font-size: 18px;
   font-weight: 700;
   color: #3A4374;
   margin: 0 0 28px 0;
+}
+@media (max-width: 767px) {
+  .comments_section > p {
+    margin-bottom: 24px;
+  }
 }
 .comments_section .comments {
   display: flex;
@@ -49,31 +75,54 @@
   padding: 32px 0;
   border-top: solid 1px rgba(140, 146, 179, 0.25);
 }
+@media (max-width: 767px) {
+  .comments_section .comments .comment {
+    padding: 24px 0;
+  }
+}
 .comments_section .comments .comment .comment_content, .comments_section .comments .comment .comment_replies {
   display: flex;
   flex-direction: column;
   gap: 17px;
+}
+@media (max-width: 767px) {
+  .comments_section .comments .comment .comment_content, .comments_section .comments .comment .comment_replies {
+    gap: 15px;
+  }
+}
+@media (max-width: 400px) {
+  .comments_section .comments .comment .comment_content, .comments_section .comments .comment .comment_replies {
+    gap: 13px;
+  }
 }
 .comments_section .comments .comment .comment_metaData {
   display: flex;
   align-items: center;
   gap: 32px;
 }
+@media (max-width: 767px) {
+  .comments_section .comments .comment .comment_metaData {
+    gap: 16px;
+  }
+}
 .comments_section .comments .comment .comment_metaData img {
   border-radius: 100%;
 }
 .comments_section .comments .comment .comment_metaData .comment_userInfo p {
   margin: 0;
+  font-size: 14px;
+}
+@media (max-width: 767px) {
+  .comments_section .comments .comment .comment_metaData .comment_userInfo p {
+    font-size: 13px;
+  }
 }
 .comments_section .comments .comment .comment_metaData .comment_userInfo p:first-child {
   font-weight: 700;
   color: #3A4374;
-  font-size: 14px;
 }
 .comments_section .comments .comment .comment_metaData .comment_userInfo p:last-child {
-  font-weight: 400;
   color: #647196;
-  font-size: 14px;
 }
 .comments_section .comments .comment .comment_metaData button {
   border: none;
@@ -87,23 +136,41 @@
 .comments_section .comments .comment .comment_metaData button:hover {
   text-decoration: underline;
 }
-.comments_section .comments .comment .comment_content_content {
+.comments_section .comments .comment .comment_content_content p {
   color: #647196;
   font-size: 15px;
-}
-.comments_section .comments .comment .comment_content_content p {
   margin: 0;
+}
+@media (max-width: 767px) {
+  .comments_section .comments .comment .comment_content_content p {
+    font-size: 13px;
+  }
 }
 .comments_section .comments .comment .comment_replies {
   margin-left: 20px;
   border-left: solid 1px #F0F1F4;
   padding: 0 0 32px 25px;
 }
+@media (max-width: 767px) {
+  .comments_section .comments .comment .comment_replies {
+    margin-left: 0;
+  }
+}
+@media (max-width: 400px) {
+  .comments_section .comments .comment .comment_replies {
+    padding: 0 0 30px 15px;
+  }
+}
 .comments_section .comments .comment .comment_replies span {
   color: #AD1FEA;
   font-weight: 700;
   font-size: 15px;
   margin-right: 10px;
+}
+@media (max-width: 767px) {
+  .comments_section .comments .comment .comment_replies span {
+    font-size: 13px;
+  }
 }
 
 .add_comment {
@@ -112,6 +179,11 @@
   background-color: #fff;
   border-radius: 10px;
   padding: 24px 33px 32px;
+}
+@media (max-width: 767px) {
+  .add_comment {
+    padding: 24px;
+  }
 }
 .add_comment .add_comment_title {
   font-size: 18px;
@@ -148,6 +220,12 @@
   color: #647196;
   font-size: 15px;
   font-weight: 400;
+  margin: 0;
+}
+@media (max-width: 767px) {
+  .add_comment .chrleft_post .characters_left {
+    font-size: 13px;
+  }
 }
 .add_comment .chrleft_post button {
   margin: auto 0 auto auto;

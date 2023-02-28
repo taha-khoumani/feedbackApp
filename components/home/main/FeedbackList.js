@@ -8,7 +8,7 @@ import NoFeedbacks from './NoFeedbacks'
 import styles from "@/styles/css/main.module.css"
 
 export default function FeedbackList(props) {
-  const {feedbacks} = 0
+  const {feedbacks} = props
 
   if(!feedbacks){
     return(

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 
 //next
 import { useRouter } from 'next/router'
@@ -15,10 +15,27 @@ import FeedbackNav from '@/components/feedback/FeedbackNav'
 //styles
 import styles from "@/styles/css/feedbackDetails.module.css"
 
+//state
+import { useDispatch } from 'react-redux'
+import { setScreenWidth } from '@/state/slices/uiSlice'
+
+
 export default function feedback() {
     const feedbackId = useRouter().query.feedbackId
     const feedbacks = data.productRequests
     const requestedFeedback = feedbacks.find(feedback=> `${feedback.id}` === feedbackId )
+
+    const dispatch = useDispatch()
+
+    useEffect(()=>{
+      dispatch(setScreenWidth(window.innerWidth))
+
+      function cleanup (){
+        dispatch(setScreenWidth(window.innerWidth))
+      }
+
+      window.addEventListener('resize',cleanup)
+    },[])
 
     if(!feedbacks){
       return <h1>Loading...</h1>
