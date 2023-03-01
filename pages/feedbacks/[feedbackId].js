@@ -20,7 +20,7 @@ import { useDispatch } from 'react-redux'
 import { setScreenWidth } from '@/state/slices/uiSlice'
 
 
-export default function feedback() {
+export default function feedback(props) {
     const feedbackId = useRouter().query.feedbackId
     const feedbacks = data.productRequests
     const requestedFeedback = feedbacks.find(feedback=> `${feedback.id}` === feedbackId )
@@ -47,10 +47,19 @@ export default function feedback() {
 
   return (
     <div className={styles.feedback_details} >
-        <FeedbackNav />
+        <FeedbackNav prevRoute={props.history} />
         <Feedback data={requestedFeedback} />
         <CommentsSection comments={requestedFeedback.comments} />
         <AddComment />
     </div>
   )
+}
+
+export async function getServerSideProps(context){
+
+  return{
+    props:{
+      history:context.req.headers.referer
+    }
+  }
 }

@@ -31,6 +31,7 @@ export default function FeedbackList(props) {
     <Feedback 
       data={feedback} 
       key={feedback.id}
+      isLink={true}
     />
   )
 

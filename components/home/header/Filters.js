@@ -5,14 +5,21 @@ import headerStyles from "@/styles/css/header.module.css"
 
 //state
 import { useDispatch,useSelector } from 'react-redux'
-import { setFilter } from '@/state/slices/uiSlice'
+import { setFilter,toggleMenu } from '@/state/slices/uiSlice'
 
 export default function Filters() {
-  const {filter} = useSelector(store=>store.ui)
+  const {filter,isMenuOpen} = useSelector(store=>store.ui)
   const dispatch = useDispatch()
 
   function onClickHandler (filter){
     dispatch(setFilter(filter))
+    if(isMenuOpen){
+      document.querySelector("#header_menu__1DIIo").classList.remove("menu-left")
+      document.querySelector('#header_filter_roadmap__DVAvC').style.backgroundColor = "transparent"
+      document.querySelector("#header_menu__1DIIo").classList.add("menu-right")
+      document.body.style.position = "static"
+      setTimeout(()=>dispatch(toggleMenu(false)),250) 
+    }
   }
 
   const selectedStyles={
