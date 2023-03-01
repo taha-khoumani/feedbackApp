@@ -24,15 +24,15 @@ export default function FeedbackBar() {
     }
 
     function toggleOff(){
-        if(!isSortOpen){
-            console.log("doiioh")
+        if(document.querySelector("#main_filter_options__fanaa")){
             dispatch(toggleSort(false))
+            console.log("runed")
         }
     }
 
     useEffect(()=>{
-        document.querySelector("#home_home__bZmM7").addEventListener("click",toggleOff)
-        return document.body.removeEventListener("click",toggleOff)
+        document.body.addEventListener("click",toggleOff)
+        return () => document.body.removeEventListener("click",toggleOff)
     },[])
 
   return (

@@ -173,6 +173,7 @@ export default {
       "category": "bug",
       "upvotes": 3,
       "status": "suggestion",
+      "comments":[],
       "description": "Challenge preview images are missing when you apply a filter."
     },
     {
@@ -264,6 +265,7 @@ export default {
       "id": 11,
       "title": "Animated solution screenshots",
       "category": "bug",
+      "comments":[],
       "upvotes": 9,
       "status": "in-progress",
       "description": "Screenshots of solutions with animations don’t display correctly."

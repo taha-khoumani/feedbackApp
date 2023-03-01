@@ -1,31 +1,38 @@
 import React from 'react'
+
+//styles
 import headerStyles from "@/styles/css/header.module.css"
 
-export default function Filters() {
-  // const filters = ["All","UI","UX","Enhancement","Bug","Feature"]
+//state
+import { useDispatch,useSelector } from 'react-redux'
+import { setFilter } from '@/state/slices/uiSlice'
 
-  // const filtersButtons = filters.map(filter=>
-  //   <button
-  //     key={filter}
-  //     className={"button-one"}
-  //   >
-  //     {filter}
-  //   </button>
-  // )
+export default function Filters() {
+  const {filter} = useSelector(store=>store.ui)
+  const dispatch = useDispatch()
+
+  function onClickHandler (filter){
+    dispatch(setFilter(filter))
+  }
+
+  const selectedStyles={
+    backgroundColor:"#4661E6",
+    color:"white"
+  }
 
   return (
     <div id={headerStyles.filters} >
       <div>
-        <button className="button-one">All</button>
-        <button className="button-one">UI</button>
-        <button className="button-one">UX</button>
+        <button style={filter==="all"?selectedStyles:{}} className="button-one" onClick={()=>onClickHandler("all")} >All</button>
+        <button style={filter==="ui"?selectedStyles:{}} className="button-one" onClick={()=>onClickHandler("ui")} >UI</button>
+        <button style={filter==="ux"?selectedStyles:{}} className="button-one" onClick={()=>onClickHandler("ux")} >UX</button>
       </div>
       <div>
-        <button className="button-one">Enhancement</button>
-        <button className="button-one">Bug</button>
+        <button style={filter==="enhancement"?selectedStyles:{}} className="button-one" onClick={()=>onClickHandler("enhancement")} >Enhancement</button>
+        <button style={filter==="bug"?selectedStyles:{}} className="button-one" onClick={()=>onClickHandler("bug")} >Bug</button>
       </div>
       <div>
-        <button className="button-one">Feature</button>
+        <button style={filter==="feature"?selectedStyles:{}} className="button-one" onClick={()=>onClickHandler("feature")} >Feature</button>
       </div>
     </div>
   )

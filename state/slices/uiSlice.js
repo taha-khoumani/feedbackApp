@@ -5,6 +5,7 @@ const initialState = {
     isMenuOpen:false,
     isSortOpen:false,
     sortMethode:"Most Upvotes",
+    filter:"all",
 }
 
 const uiSlice = createSlice({
@@ -23,8 +24,11 @@ const uiSlice = createSlice({
         setSortMethode:(state,{payload})=>{
             state.sortMethode = payload
         },
+        setFilter:(state,{payload})=>{
+            state.filter = payload
+        },
     }
 })
 
 export default uiSlice.reducer
-export const {setScreenWidth,toggleMenu,toggleSort,setSortMethode} = uiSlice.actions
+export const {setScreenWidth,toggleMenu,toggleSort,setSortMethode,setFilter} = uiSlice.actions

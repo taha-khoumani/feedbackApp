@@ -16,16 +16,17 @@ import { useSelector} from 'react-redux'
 export default function FeedbackList(props) {
   let {feedbacks} = props
 
+  //filter&sort
+  const {sortMethode,filter} = useSelector(store=>store.ui) 
+  if(filter !== "all" ) {feedbacks = feedbacks.filter(feedback=>feedback.category === filter)}
+  feedbacks = sortFeedbacks(feedbacks,sortMethode)
+  
   if(!feedbacks){
     return(
       <NoFeedbacks />
     )
   }
 
-  //sort
-  const {sortMethode} = useSelector(store=>store.ui)
-  // feedbacks = sortFeedbacks(feedbacks,sortMethode)
-  
   const feedbacksEls = feedbacks.map(feedback => 
     <Feedback 
       data={feedback} 
