@@ -5,6 +5,7 @@ import suggestions from "@/images/icons/icon-suggestions.svg"
 
 //next
 import Image from 'next/image'
+import Link from 'next/link'
 
 //styles
 import styles from "@/styles/css/main.module.css"
@@ -66,9 +67,11 @@ export default function FeedbackBar() {
                 </div>
             }
         </div>
-        <button className='button_two'>
-            + Add Feedback
-        </button>
+        <Link href="/feedbacks/new" style={{marginLeft:"auto"}} >
+            <button className='button_two'>
+                + Add Feedback
+            </button>
+        </Link>
     </div>
   )
 }

@@ -58,6 +58,14 @@ select,button{
     }
 }
 
+.button_three{
+    @extend .button_two;
+    background-color: #3A4374;
+    &:hover{
+        background-color: #656EA3;
+    }
+}
+
 .menu-left{
     animation-name: menu-left;
     animation-fill-mode: forwards;

@@ -10,7 +10,7 @@ import leftIcon from "@/images/icons/icon-arrow-left.svg"
 import styles from "@/styles/css/feedbackDetails.module.css"
 
 export default function FeedbackNav(props) {
-  const {prevRoute}= props
+  const {prevRoute,isEditNeeded}= props
 
   return (
     <div className={styles.feedback_nav} >
@@ -20,9 +20,12 @@ export default function FeedbackNav(props) {
           <p>Go Back</p>
         </div>
       </Link>
-      <button className='button_two' >
-        Edit Feedback
-      </button>
+      {
+        isEditNeeded &&
+        <button className='button_two' >
+          Edit Feedback
+        </button>
+      }
     </div>
   )
 }

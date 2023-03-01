@@ -47,7 +47,7 @@ export default function feedback(props) {
 
   return (
     <div className={styles.feedback_details} >
-        <FeedbackNav prevRoute={props.history} />
+        <FeedbackNav prevRoute={props.history} isEditNeeded={true} />
         <Feedback data={requestedFeedback} />
         <CommentsSection comments={requestedFeedback.comments} />
         <AddComment />
