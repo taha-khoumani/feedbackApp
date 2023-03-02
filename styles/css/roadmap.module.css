@@ -1,0 +1,77 @@
+.roadmap {
+  padding: 24px;
+}
+.roadmap .roadmap_nav {
+  background-color: #373F68;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 15px;
+  position: relative;
+  margin-bottom: 48px;
+}
+.roadmap .roadmap_nav .roadmap_nav_title {
+  color: white;
+  font-weight: 700;
+  font-size: 24px;
+  margin: auto;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, 0);
+}
+.roadmap .roadmap_main .roadmap_stages {
+  display: flex;
+  gap: 30px;
+}
+.roadmap .roadmap_main .roadmap_stages .stage {
+  width: 100%;
+}
+.roadmap .roadmap_main .roadmap_stages .stage .stage_header {
+  margin-bottom: 32px;
+}
+.roadmap .roadmap_main .roadmap_stages .stage .stage_header p {
+  margin: 0;
+}
+.roadmap .roadmap_main .roadmap_stages .stage .stage_header .stage_header_title {
+  font-weight: 700;
+  color: #3A4374;
+  font-size: 18px;
+}
+.roadmap .roadmap_main .roadmap_stages .stage .stage_header .stage_header_descripton {
+  color: #647196;
+}
+.roadmap .roadmap_main .roadmap_stages .stage .stage_feedbacks {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+.roadmap .roadmap_main .roadmap_stages .stage .stage_feedbacks .status {
+  border: solid;
+  border-width: 5px 0 0 0;
+  border-radius: 5px 5px 0 0;
+  background-color: white;
+  padding: 16px 24px 6px;
+}
+.roadmap .roadmap_main .roadmap_stages .stage .stage_feedbacks .status li {
+  font-size: 14px;
+  font-weight: 400;
+  color: #647196;
+}
+.roadmap .roadmap_main .roadmap_stages .stage .stage_feedbacks .status li::marker {
+  font-size: 17px;
+}
+.roadmap .roadmap_main .roadmap_stages .stage .stage_feedbacks .status li span {
+  float: right;
+  margin-left: auto;
+  font-weight: 700;
+}
+.roadmap .roadmap_main .roadmap_stages .stage .stage_feedbacks .status .Planned::marker {
+  color: #F49F85;
+}
+.roadmap .roadmap_main .roadmap_stages .stage .stage_feedbacks .status .In-Progress::marker {
+  color: #AD1FEA;
+}
+.roadmap .roadmap_main .roadmap_stages .stage .stage_feedbacks .status .Live::marker {
+  color: #62BCFA;
+}/*# sourceMappingURL=roadmap.module.css.map */

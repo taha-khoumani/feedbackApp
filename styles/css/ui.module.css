@@ -1,0 +1,15 @@
+.go_back {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  cursor: pointer;
+  text-decoration: none;
+}
+.go_back p {
+  color: #647196;
+  font-weight: 700;
+  font-size: 14px;
+}
+.go_back p:hover {
+  text-decoration: underline;
+}/*# sourceMappingURL=ui.module.css.map */

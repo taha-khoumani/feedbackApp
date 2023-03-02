@@ -1,4 +1,4 @@
-.feedback {
+.feedback, .feedback_mobile {
   background-color: white;
   border-radius: 10px;
   display: flex;
@@ -7,17 +7,17 @@
   padding: 28px 32px;
 }
 @media (max-width: 767px) {
-  .feedback {
+  .feedback, .feedback_mobile {
     flex-direction: column;
     gap: 16px;
     align-items: flex-start;
     padding: 24px;
   }
 }
-.feedback .upvotes {
+.feedback .upvotes, .feedback_mobile .upvotes {
   margin-bottom: auto;
 }
-.feedback .upvotes button {
+.feedback .upvotes button, .feedback_mobile .upvotes button {
   background-color: #F2F4FE;
   border: none;
   display: flex;
@@ -33,7 +33,7 @@
   height: 53px;
 }
 @media (max-width: 767px) {
-  .feedback .upvotes button {
+  .feedback .upvotes button, .feedback_mobile .upvotes button {
     flex-direction: row;
     font-size: 13px;
     width: 69px;
@@ -41,43 +41,43 @@
     gap: 10px;
   }
 }
-.feedback .upvotes button img {
+.feedback .upvotes button img, .feedback_mobile .upvotes button img {
   margin-top: 10px;
 }
 @media (max-width: 767px) {
-  .feedback .upvotes button img {
+  .feedback .upvotes button img, .feedback_mobile .upvotes button img {
     margin: 0 0 3px 10px;
   }
 }
-.feedback .upvotes button:hover {
+.feedback .upvotes button:hover, .feedback_mobile .upvotes button:hover {
   background-color: #CFD7FF;
 }
-.feedback .infos p {
+.feedback .infos p, .feedback_mobile .infos p {
   margin: 0;
 }
-.feedback .infos .title {
+.feedback .infos .title, .feedback_mobile .infos .title {
   color: #3A4374;
   font-size: 18px;
   font-weight: 700;
   margin-bottom: 4px;
 }
 @media (max-width: 767px) {
-  .feedback .infos .title {
+  .feedback .infos .title, .feedback_mobile .infos .title {
     font-size: 13px;
   }
 }
-.feedback .infos .description {
+.feedback .infos .description, .feedback_mobile .infos .description {
   font-size: 16px;
   font-weight: 400;
   color: #647196;
   margin-bottom: 12px;
 }
 @media (max-width: 767px) {
-  .feedback .infos .description {
+  .feedback .infos .description, .feedback_mobile .infos .description {
     font-size: 13px;
   }
 }
-.feedback .infos .category {
+.feedback .infos .category, .feedback_mobile .infos .category {
   display: inline;
   background-color: #F2F4FF;
   border: none;
@@ -88,7 +88,7 @@
   font-size: 13px;
   color: #4661E6;
 }
-.feedback .comments {
+.feedback .comments, .feedback_mobile .comments {
   display: flex;
   gap: 8px;
   align-items: center;
@@ -98,18 +98,40 @@
   font-size: 16px;
 }
 @media (max-width: 767px) {
-  .feedback .comments {
+  .feedback .comments, .feedback_mobile .comments {
     font-size: 13px;
   }
 }
-.feedback .comments p {
+.feedback .comments p, .feedback_mobile .comments p {
   margin: 0;
 }
-.feedback .upvotes_comments {
+.feedback .upvotes_comments, .feedback_mobile .upvotes_comments {
   width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+.feedback_mobile {
+  flex-direction: column;
+  gap: 16px;
+  align-items: flex-start;
+}
+.feedback_mobile .upvotes button {
+  flex-direction: row;
+  font-size: 13px;
+  width: 69px;
+  height: 32px;
+  gap: 10px;
+}
+.feedback_mobile .upvotes button img {
+  margin: 0 0 3px 10px;
+}
+.feedback_mobile .infos .title, .feedback_mobile .infos .description {
+  font-size: 13px;
+}
+.feedback_mobile .comments {
+  font-size: 13px;
 }
 
 #no_feedback {

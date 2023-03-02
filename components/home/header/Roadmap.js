@@ -11,7 +11,7 @@ export default function Roadmap() {
     <div id={styles.roadmap}>
       <div>
         <p>Roadmap</p>
-        <Link href="" >View</Link>
+        <Link href="/roadmap" >View</Link>
       </div>
       <ul>
         <li>Planned <span>2</span></li>

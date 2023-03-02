@@ -1,0 +1,15 @@
+.go_back{
+    display: flex;
+    align-items: center;
+    gap:13px;
+    cursor: pointer;
+    text-decoration: none;
+    p{
+        color: #647196;
+        font-weight: 700;
+        font-size: 14px;
+        &:hover{
+            text-decoration: underline;
+        }
+    }
+}

@@ -117,6 +117,36 @@ $mobile:767px;
 
 }
 
+.feedback_mobile{
+    @extend .feedback;
+    flex-direction: column;
+    gap:16px;
+    align-items: flex-start;
+
+
+    .upvotes{
+
+        button{
+            flex-direction: row;
+            font-size: 13px;
+            width:69px;
+            height: 32px;
+            gap:10px;
+            img{
+                margin: 0 0 3px 10px;
+            }
+        }
+    }
+    .infos{
+        .title,.description{
+            font-size: 13px;
+        }
+    }
+    .comments{
+        font-size: 13px;
+    }
+}
+
 #no_feedback{
     display: flex;
     flex-direction: column;
