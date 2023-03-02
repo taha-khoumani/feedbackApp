@@ -66,11 +66,21 @@ $mobile:767px;
             }
             
             .button_div{
-                button{margin:0}
                 display: flex;
                 justify-content: flex-end;
                 gap:16px;
+                @include media ($mobile){
+                    flex-direction:column-reverse;
+                }
+                button{
+                    margin:0;
+                }
+
             }
+
+            // .button_div_edit{
+            //     @ex
+            // }
 
             .cat{
                 position: relative;

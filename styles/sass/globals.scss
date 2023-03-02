@@ -60,9 +60,19 @@ select,button{
 
 .button_three{
     @extend .button_two;
+    // margin-left: auto;
     background-color: #3A4374;
     &:hover{
         background-color: #656EA3;
+    }
+}
+
+.button_delete{
+    @extend .button_two;
+    background-color: #D73737;
+    // margin:0 auto 0 0;
+    &:hover{
+        background-color: #E98888
     }
 }
 

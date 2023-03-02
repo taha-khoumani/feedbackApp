@@ -7,11 +7,12 @@ import Image from 'next/image'
 import plus from "@/images/icons/icon-new-feedback.svg"
 import up from "@/images/icons/icon-arrow-up.svg"
 import down from "@/images/icons/icon-arrow-down.svg"
+import edit from "@/images/icons/icon-edit-feedback.svg"
 
 //styles
 import styles from "@/styles/css/newandedit.module.css"
 
-export default function NewFeedback() {
+export default function NewFeedback(props) {
     const [isCatOpen,toggleCat] = useState(false)
     const [cat,setCat] = useState("Feature")
 
@@ -27,13 +28,7 @@ export default function NewFeedback() {
         toggleCat(false)
         e.stopPropagation()
     }
-
-    // function setSortMethodeHandler (e,methode){
-    //     dispatch(setSortMethode(methode))
-    //     dispatch(toggleSort(!isSortOpen))
-    //     e.stopPropagation()
-    // }
-
+    
     function toggleOff(){
         if(document.querySelector("#newandedit_filter_options___5rDB")){
             toggleCat(false)
@@ -47,8 +42,14 @@ export default function NewFeedback() {
 
   return (
     <div id={styles.content} >
-        <Image src={plus} alt={'plus-icon'} />
-        <h1>Create New Feedback</h1>
+        <Image src={props.isEdit ? edit : plus} alt={'plus-icon'} width={56} height={56} />
+        <h1>
+            {   
+                props.isEdit ?
+                `Editing ‘${'Add a dark theme option'}‘` :
+                'Create New Feedback'
+            }
+        </h1>
         <form onSubmit={(e)=>e.preventDefault()} >
             <div className={styles.inputgroup} >
                 <label className={styles.inputtitle} htmlFor="">Feedback Title</label>
@@ -80,9 +81,22 @@ export default function NewFeedback() {
                 <label className={styles.inputdescription} htmlFor="">Include any specific comments on what should be improved, added, etc.</label>
                 <textarea style={{margin:0}} onInput={()=>changeHeight(refTextarea.current)} ref={refTextarea} className='textarea_one' name="" id="" cols="30" rows="1"></textarea>
             </div>
-            <div className={styles.button_div} >
-                <button className='button_three' >Cancel</button>
-                <button className='button_two' >Add Feedback</button>
+            <div className={styles.button_div} style={props.isEdit ? {justifyContent:"space-between"} : {}} >
+                {   props.isEdit 
+                        ?
+                    <>
+                        <button className='button_delete' >Delete</button> 
+                        <div className={styles.button_div} >
+                            <button className='button_three' >Cancel</button>
+                            <button className='button_two' >Save Changes</button>
+                        </div>
+                    </>
+                        :
+                    <>
+                        <button className='button_three'  >Cancel</button>
+                        <button className='button_two' >Add Feedback</button>
+                    </>
+                }
             </div>
         </form>
     </div>

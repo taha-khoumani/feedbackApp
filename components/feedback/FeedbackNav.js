@@ -22,9 +22,11 @@ export default function FeedbackNav(props) {
       </Link>
       {
         isEditNeeded &&
-        <button className='button_two' >
-          Edit Feedback
-        </button>
+        <Link href={`/feedbacks/edit`} style={{marginLeft:"auto"}} >
+          <button className='button_two' >
+            Edit Feedback
+          </button>
+        </Link>
       }
     </div>
   )

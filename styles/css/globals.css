@@ -24,7 +24,7 @@ select, button {
   background-color: #CFD7FF;
 }
 
-.button_two, .button_three {
+.button_two, .button_delete, .button_three {
   border-radius: 10px;
   background-color: #AD1FEA;
   border: none;
@@ -35,17 +35,17 @@ select, button {
   margin: 14px 16px 14px auto;
   cursor: pointer;
 }
-.button_two:hover, .button_three:hover {
+.button_two:hover, .button_delete:hover, .button_three:hover {
   background-color: #C75AF6;
 }
 @media (max-width: 767px) {
-  .button_two, .button_three {
+  .button_two, .button_delete, .button_three {
     font-size: 13px;
     padding: 11px 16px;
   }
 }
 @media (max-width: 400px) {
-  .button_two, .button_three {
+  .button_two, .button_delete, .button_three {
     margin-right: 8px;
     padding: 11px 12px;
   }
@@ -56,6 +56,13 @@ select, button {
 }
 .button_three:hover {
   background-color: #656EA3;
+}
+
+.button_delete {
+  background-color: #D73737;
+}
+.button_delete:hover {
+  background-color: #E98888;
 }
 
 .menu-left {
