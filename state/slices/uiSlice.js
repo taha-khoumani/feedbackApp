@@ -6,6 +6,7 @@ const initialState = {
     isSortOpen:false,
     sortMethode:"Most Upvotes",
     filter:"all",
+    currentStage:"In-Progress",
 }
 
 const uiSlice = createSlice({

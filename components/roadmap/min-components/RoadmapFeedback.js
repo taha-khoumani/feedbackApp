@@ -11,7 +11,8 @@ export default function RoadmapFeedback(props) {
   console.log(data.title)
   const cStyles ={
     padding:" 0 24px 24px",
-    borderRadius: "0 0 5px 5px"
+    borderRadius: "0 0 5px 5px",
+    
   }
 
   function statusStyles (status){

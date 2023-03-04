@@ -15,10 +15,10 @@ export default function Header() {
   const dispatch = useDispatch()
 
   useEffect(()=>{
-    dispatch(setScreenWidth(window.innerWidth))
-    window.addEventListener('resize',()=>{
-      dispatch(setScreenWidth(window.innerWidth))
-    })
+    function setWidth() {dispatch(setScreenWidth(window.innerWidth))}
+    setWidth()
+    window.addEventListener('resize',setWidth)
+    return () => window.removeEventListener('resize',setWidth)
   },[])
 
   return (

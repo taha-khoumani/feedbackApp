@@ -10,6 +10,9 @@ import RoadmapStages from './min-components/RoadmapStages'
 //data
 import data from "@/data"
 
+//state
+import {useSelector} from 'react-redux'
+
 export default function RoadmapMain() {
   const {productRequests:feedbacks} = data;
 
@@ -35,9 +38,20 @@ export default function RoadmapMain() {
     },
   }
 
+  const {screenWidth} = useSelector(store=>store.ui)
+
   return (
     <div className={styles.roadmap_main} >
-      {false && <OnMobileNav />}
+      {
+        screenWidth <= 768 && 
+        <OnMobileNav 
+          nums={{
+            planned:roadmapData.planned.feedbacks.length,
+            inProgress:roadmapData.inProgress.feedbacks.length,
+            live:roadmapData.live.feedbacks.length,
+          }} 
+        />
+      }
       <RoadmapStages roadmapData={roadmapData} />
     </div>
   )

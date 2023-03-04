@@ -12,7 +12,6 @@ body{
     margin:0;
     font-family: 'Jost', sans-serif;
     background-color: #F2F2F2;
-    inset:0;
 }
 
 select,button{
@@ -151,3 +150,21 @@ select,button{
         color: #8C92B3;
     }
 }
+
+
+@keyframes one {
+    100%{left: 0;}
+}
+@keyframes two {
+    100%{left: -100%;}
+}
+@keyframes three {
+    100%{left: -200%;}
+}
+
+// @keyframes swr {
+//     100%{left: -;}
+// }
+// @keyframes swl {
+//     100%{left: -200%;}
+// }

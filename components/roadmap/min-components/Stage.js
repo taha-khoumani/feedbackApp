@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useRef } from 'react'
 
 //styles
 import styles from "@/styles/css/roadmap.module.css"
@@ -16,7 +16,6 @@ export default function Stage(props) {
       key={feedback.id}
     />
   )
-
 
   return (
     <div className={styles.stage} >

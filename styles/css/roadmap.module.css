@@ -1,5 +1,11 @@
 .roadmap {
   padding: 24px;
+  overflow-x: hidden;
+}
+@media (max-width: 767px) {
+  .roadmap {
+    padding: 0;
+  }
 }
 .roadmap .roadmap_nav {
   background-color: #373F68;
@@ -11,6 +17,11 @@
   position: relative;
   margin-bottom: 48px;
 }
+@media (max-width: 767px) {
+  .roadmap .roadmap_nav {
+    border-radius: 0;
+  }
+}
 .roadmap .roadmap_nav .roadmap_nav_title {
   color: white;
   font-weight: 700;
@@ -20,12 +31,36 @@
   left: 50%;
   transform: translate(-50%, 0);
 }
+.roadmap .roadmap_main {
+  position: relative;
+}
 .roadmap .roadmap_main .roadmap_stages {
   display: flex;
   gap: 30px;
 }
+@media (max-width: 1023px) {
+  .roadmap .roadmap_main .roadmap_stages {
+    gap: 10px;
+  }
+}
+@media (max-width: 767px) {
+  .roadmap .roadmap_main .roadmap_stages {
+    gap: 0;
+    position: relative;
+    left: -100%;
+    animation-duration: 150ms;
+    animation-fill-mode: forwards;
+  }
+}
 .roadmap .roadmap_main .roadmap_stages .stage {
   width: 100%;
+}
+@media (max-width: 767px) {
+  .roadmap .roadmap_main .roadmap_stages .stage {
+    min-width: 100%;
+    padding: 24px;
+    box-sizing: border-box;
+  }
 }
 .roadmap .roadmap_main .roadmap_stages .stage .stage_header {
   margin-bottom: 32px;
@@ -74,4 +109,13 @@
 }
 .roadmap .roadmap_main .roadmap_stages .stage .stage_feedbacks .status .Live::marker {
   color: #62BCFA;
+}
+
+.OnMobileNav .OnMobileNav_cats {
+  display: flex;
+}
+.OnMobileNav .OnMobileNav_cats p {
+  width: 100%;
+  text-align: center;
+  cursor: pointer;
 }/*# sourceMappingURL=roadmap.module.css.map */

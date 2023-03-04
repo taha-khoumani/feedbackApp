@@ -1,5 +1,20 @@
+//mixins
+@mixin media($size){
+    @media (max-width:$size){
+        @content
+    }
+}
+
+//variables
+$tablet:1023px;
+$mobile:767px;
+
 .roadmap{
     padding:24px;
+    overflow-x: hidden;
+    @include media($mobile){
+        padding:0;
+    }
 
     .roadmap_nav{
         background-color: #373F68;
@@ -10,6 +25,10 @@
         padding:15px;
         position: relative;
         margin-bottom:48px ;
+        @include media($mobile){
+            border-radius: 0;
+        }
+
 
         .roadmap_nav_title{
             color: white;
@@ -23,13 +42,30 @@
     }
 
     .roadmap_main{
-        
+        position: relative;
         .roadmap_stages{
             display: flex;
             gap:30px;
+            @include media($tablet){
+                gap:10px;
+            }
+            @include media($mobile){
+                gap:0;
+                position: relative;
+                left: -100%;
+                animation-duration: 150ms;
+                animation-fill-mode: forwards;
+                // animation-name: one;
+
+            }
 
             .stage{
                 width: 100%;
+                @include media($mobile){
+                    min-width: 100%;
+                    padding:24px;
+                    box-sizing: border-box;
+                }
 
                 .stage_header{
                     margin-bottom: 32px;
@@ -48,6 +84,9 @@
                     display: flex;
                     flex-direction: column;
                     gap:24px;
+                    @include media($mobile){
+                        // margin:0 24px;
+                    }
 
                     .status{
                         border:solid;
@@ -90,3 +129,20 @@
         }
     }
 }
+
+.OnMobileNav{
+    .OnMobileNav_cats{
+        display: flex;
+
+        p{
+            width: 100%;
+            text-align: center;
+            cursor: pointer;
+            // margin:0;
+        }
+    }
+}
+
+
+
+
