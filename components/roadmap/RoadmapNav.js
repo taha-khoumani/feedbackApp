@@ -8,10 +8,10 @@ export default function RoadmapNav(props) {
   const goBackStyles ={
     color:"white",
   }
-
+ 
   return (
     <div className={styles.roadmap_nav} >
-      <GoBack prevRoute={props.prevRoute} customStyles={goBackStyles} />
+      <GoBack prevRoute={"/"} customStyles={goBackStyles} />
       <p className={styles.roadmap_nav_title} >Roadmap</p>
     </div>
   )

@@ -27,18 +27,18 @@ export default function roadmap(props) {
 
   return (
     <div className={styles.roadmap} >
-        <RoadmapNav prevRoute={props.history } />
+        <RoadmapNav  />
         <RoadmapMain />
     </div>
   )
 }
 
-export async function getServerSideProps(context){
-    const prevRoute = context.req.headers.referer
+// export async function getServerSideProps(context){
+//     const prevRoute = context.req.headers.referer
 
-    return{
-      props:{
-        history: prevRoute ? prevRoute : "/feedbacks/2" 
-      }
-    }
-}
+//     return{
+//       props:{
+//         history: prevRoute  
+//       }
+//     }
+// }

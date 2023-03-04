@@ -1,6 +1,7 @@
 .roadmap {
   padding: 24px;
   overflow-x: hidden;
+  max-width: 100vw;
 }
 @media (max-width: 767px) {
   .roadmap {

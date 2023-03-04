@@ -8,18 +8,14 @@ import styles from "@/styles/css/roadmap.module.css"
 
 //state
 import { useDispatch, useSelector } from 'react-redux'
+import { store } from '@/state/store'
 import { setcurrentStage } from '@/state/slices/uiSlice' 
 
 export default function RoadmapStages(props) {
   const {planned,inProgress,live} = props.roadmapData
-  const {currentStage} = useSelector(store=>store.ui)
   const stages = useRef(null)
   const dispatch = useDispatch()
-
-  function setStage(newStage){
-    dispatch(setcurrentStage("caca"))
-    console.log(currentStage)
-  }
+  const currentStage = store.getState().ui.currentStage
 
   // dispatch(setcurrentStage("tagopi"))
   function onScroll (id,direction){
@@ -56,27 +52,6 @@ export default function RoadmapStages(props) {
 
     navigater.style.left = `${currentPosition}`
     navigater.style.animationName = `${to}`
-
-    if(to === "one"){
-      setStage("Planned")
-    } else if(to === "two"){
-      setStage("In-Progress")
-    } else if(to === "three"){
-      setStage("Live")
-    }
-
-    // switch(to){
-    //   case "one":
-    //     setStage("Planned")
-    //   break;
-    //   case "two":
-    //     setStage("In-Progress")
-    //   break;
-    //   case "three":
-    //     setStage("Live")
-    //   break;
-    // }
-
   }
 
   useEffect(()=>{
@@ -154,8 +129,28 @@ export default function RoadmapStages(props) {
       }
     })(window.document);
 
-    document.querySelector('#roadmap_stages').addEventListener('gesture-right',()=>onScroll("roadmap_stages","r"))
-    document.querySelector('#roadmap_stages').addEventListener('gesture-left',()=>onScroll("roadmap_stages","l"))
+    document.querySelector('#roadmap_stages').addEventListener('gesture-right',()=>{
+      onScroll("roadmap_stages","r")
+      switch(currentStage){
+        case "In-Progress":
+          dispatch(setcurrentStage("Planned"))
+        break;
+        case "Live":
+          dispatch(setcurrentStage("In-Progress"))
+        break;
+      }
+    })
+    document.querySelector('#roadmap_stages').addEventListener('gesture-left',()=>{
+      onScroll("roadmap_stages","l")
+      switch(currentStage){
+        case "Planned":
+          dispatch(setcurrentStage("In-Progress"))
+        break;
+        case "In-Progress":
+          dispatch(setcurrentStage("Live"))
+        break;
+      }
+    })
   },[])
 
   return (

@@ -29,7 +29,9 @@ const uiSlice = createSlice({
             state.filter = payload
         },
         setcurrentStage:(state,{payload})=>{
+            console.log(state.currentStage)
             state.currentStage = payload
+            console.log(state.currentStage)
         },
     }
 })
