@@ -27,7 +27,6 @@ export default function FeedbackBar() {
     function toggleOff(){
         if(document.querySelector("#main_filter_options__fanaa")){
             dispatch(toggleSort(false))
-            console.log("runed")
         }
     }
 

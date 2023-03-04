@@ -151,7 +151,7 @@ select,button{
     }
 }
 
-
+//stages-animation
 @keyframes one {
     100%{left: 0;}
 }
@@ -162,9 +162,13 @@ select,button{
     100%{left: -200%;}
 }
 
-// @keyframes swr {
-//     100%{left: -;}
-// }
-// @keyframes swl {
-//     100%{left: -200%;}
-// }
+//nav-animation
+@keyframes oneN {
+    100%{margin: 0 auto 0 0 ;}
+}
+@keyframes twoN {
+    100%{margin: 0 auto 0 auto ;}
+}
+@keyframes threeN {
+    100%{margin: 0 0 0 auto ;}
+}

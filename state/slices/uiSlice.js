@@ -28,8 +28,11 @@ const uiSlice = createSlice({
         setFilter:(state,{payload})=>{
             state.filter = payload
         },
+        setcurrentStage:(state,{payload})=>{
+            state.currentStage = payload
+        },
     }
 })
 
 export default uiSlice.reducer
-export const {setScreenWidth,toggleMenu,toggleSort,setSortMethode,setFilter} = uiSlice.actions
+export const {setScreenWidth,toggleMenu,toggleSort,setSortMethode,setFilter,setcurrentStage} = uiSlice.actions

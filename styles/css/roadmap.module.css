@@ -20,6 +20,7 @@
 @media (max-width: 767px) {
   .roadmap .roadmap_nav {
     border-radius: 0;
+    margin: 0;
   }
 }
 .roadmap .roadmap_nav .roadmap_nav_title {
@@ -111,11 +112,26 @@
   color: #62BCFA;
 }
 
+.OnMobileNav {
+  border-bottom: solid 1px rgba(151, 151, 151, 0.35);
+}
 .OnMobileNav .OnMobileNav_cats {
   display: flex;
 }
 .OnMobileNav .OnMobileNav_cats p {
+  margin: 20px 0 17px;
   width: 100%;
   text-align: center;
   cursor: pointer;
+  font-weight: 700;
+  color: rgba(58, 67, 116, 0.4);
+}
+.OnMobileNav hr {
+  border: none;
+  height: 4px;
+  background-color: #AD1FEA;
+  width: 33%;
+  margin: 0 auto 0 auto;
+  animation-duration: 150ms;
+  animation-fill-mode: forwards;
 }/*# sourceMappingURL=roadmap.module.css.map */
