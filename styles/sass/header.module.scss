@@ -125,12 +125,29 @@ $mobile:767px;
     flex-direction: column;
     gap:14px;
     box-sizing: border-box;
-    // width:100%;
-    @include media($mobile){
-        // height: 100%;
-        width: auto;
+    @include media($tablet){
+        width:100%;
+        flex-direction: row;
+        flex-wrap: wrap;
     }
-     
+    @include media(790px){
+        padding:20px;
+        gap:9px;
+    }
+    @include media($mobile){
+        width: auto;
+        flex-direction: column;
+        align-items: flex-start;
+        padding:24px;
+        gap:14px;
+    }
+    
+    p{
+        font-size: 18px;
+        color:#3A4374;
+        font-weight: bold;
+        margin:0;
+    }
 
     div{
         display: flex;
@@ -146,10 +163,18 @@ $mobile:767px;
     flex-direction: column;
     gap:17px;
     box-sizing: border-box;
-    // width:100%;
+    @include media($tablet){
+        width: 100%;
+        min-width: 400px;
+        gap:5px;
+        justify-content: space-around;
+        padding:19px 24px 24px 24px;
+    }
     @include media($mobile){
-        // height: 100%;
+        min-width: 0px;
         width: auto;
+        gap:17px;
+        padding:19px 24px 24px 24px;
     }
     p,ul{
         margin:0;
@@ -175,11 +200,25 @@ $mobile:767px;
     }
     ul{
         padding-left:24px;
+        @include media($tablet){
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            padding:0;
+        }
+        @include media($mobile){
+            display:block ;
+            flex-wrap: nowrap;
+        }
         li{
             font-size: 16px;
             font-weight: 400;
             color:#647196;
             margin-bottom: 3px;
+            @include media($tablet){
+                list-style-position:inside;
+                vertical-align: middle;
+            }
 
             &::marker{
                 font-size: 20px;
@@ -198,6 +237,12 @@ $mobile:767px;
                 float: right;
                 margin-left: auto;
                 font-weight: 700;
+                @include media($tablet){
+                    margin: 4px 0 auto 10px;
+                }
+                @include media($mobile){
+                    margin-left:auto;
+                }
             }
         }
     }

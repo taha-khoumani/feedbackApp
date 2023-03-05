@@ -117,10 +117,33 @@
   gap: 14px;
   box-sizing: border-box;
 }
+@media (max-width: 1023px) {
+  #filters {
+    width: 100%;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+}
+@media (max-width: 790px) {
+  #filters {
+    padding: 20px;
+    gap: 9px;
+  }
+}
 @media (max-width: 767px) {
   #filters {
     width: auto;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 24px;
+    gap: 14px;
   }
+}
+#filters p {
+  font-size: 18px;
+  color: #3A4374;
+  font-weight: bold;
+  margin: 0;
 }
 #filters div {
   display: flex;
@@ -136,9 +159,21 @@
   gap: 17px;
   box-sizing: border-box;
 }
+@media (max-width: 1023px) {
+  #roadmap {
+    width: 100%;
+    min-width: 400px;
+    gap: 5px;
+    justify-content: space-around;
+    padding: 19px 24px 24px 24px;
+  }
+}
 @media (max-width: 767px) {
   #roadmap {
+    min-width: 0px;
     width: auto;
+    gap: 17px;
+    padding: 19px 24px 24px 24px;
   }
 }
 #roadmap p, #roadmap ul {
@@ -166,11 +201,31 @@
 #roadmap ul {
   padding-left: 24px;
 }
+@media (max-width: 1023px) {
+  #roadmap ul {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 0;
+  }
+}
+@media (max-width: 767px) {
+  #roadmap ul {
+    display: block;
+    flex-wrap: nowrap;
+  }
+}
 #roadmap ul li {
   font-size: 16px;
   font-weight: 400;
   color: #647196;
   margin-bottom: 3px;
+}
+@media (max-width: 1023px) {
+  #roadmap ul li {
+    list-style-position: inside;
+    vertical-align: middle;
+  }
 }
 #roadmap ul li::marker {
   font-size: 20px;
@@ -188,4 +243,14 @@
   float: right;
   margin-left: auto;
   font-weight: 700;
+}
+@media (max-width: 1023px) {
+  #roadmap ul li span {
+    margin: 4px 0 auto 10px;
+  }
+}
+@media (max-width: 767px) {
+  #roadmap ul li span {
+    margin-left: auto;
+  }
 }/*# sourceMappingURL=header.module.css.map */

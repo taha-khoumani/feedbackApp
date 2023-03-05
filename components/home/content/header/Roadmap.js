@@ -8,10 +8,10 @@ import styles from "@/styles/css/header.module.css"
 
 //state
 import { toggleMenu } from '@/state/slices/uiSlice'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 
 export default function Roadmap() {
-
+  const {screenWidth} = useSelector(store=>store.ui)
   const dispatch = useDispatch()
 
   return (
@@ -26,11 +26,21 @@ export default function Roadmap() {
           }}  
         >View</Link>
       </div>
-      <ul>
-        <li>Planned <span>2</span></li>
-        <li>In-Progress <span>3</span></li>
-        <li>Live <span>1</span></li>
-      </ul>
+      {
+        screenWidth > 767 && screenWidth < 1024 
+        ?
+        <ul>
+          <li>Planned <span>2</span></li>
+          <li>In-Progress <span>3</span></li>
+          <li>Live <span>1</span></li>
+        </ul>
+        :
+        <ul>
+          <li>Planned <span>2</span></li>
+          <li>In-Progress <span>3</span></li>
+          <li>Live <span>1</span></li>
+        </ul>
+      }
     </div>
   )
 }

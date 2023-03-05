@@ -8,7 +8,7 @@ import { useDispatch,useSelector } from 'react-redux'
 import { setFilter,toggleMenu } from '@/state/slices/uiSlice'
 
 export default function Filters() {
-  const {filter,isMenuOpen} = useSelector(store=>store.ui)
+  const {filter,isMenuOpen,screenWidth} = useSelector(store=>store.ui)
   const dispatch = useDispatch()
 
   function onClickHandler (filter){
@@ -29,18 +29,41 @@ export default function Filters() {
 
   return (
     <div id={headerStyles.filters} >
-      <div>
-        <button style={filter==="all"?selectedStyles:{}} className="button-one" onClick={()=>onClickHandler("all")} >All</button>
-        <button style={filter==="ui"?selectedStyles:{}} className="button-one" onClick={()=>onClickHandler("ui")} >UI</button>
-        <button style={filter==="ux"?selectedStyles:{}} className="button-one" onClick={()=>onClickHandler("ux")} >UX</button>
-      </div>
-      <div>
-        <button style={filter==="enhancement"?selectedStyles:{}} className="button-one" onClick={()=>onClickHandler("enhancement")} >Enhancement</button>
-        <button style={filter==="bug"?selectedStyles:{}} className="button-one" onClick={()=>onClickHandler("bug")} >Bug</button>
-      </div>
-      <div>
-        <button style={filter==="feature"?selectedStyles:{}} className="button-one" onClick={()=>onClickHandler("feature")} >Feature</button>
-      </div>
+
+      {
+        screenWidth > 767 && screenWidth < 1024 
+        ?
+        <>
+          {/* <p>Filters</p> */}
+          {/* <div> */}
+            {/* <div> */}
+              <button style={filter==="all"?selectedStyles:{}} className="button-one" onClick={()=>onClickHandler("all")} >All</button>
+              <button style={filter==="ui"?selectedStyles:{}} className="button-one" onClick={()=>onClickHandler("ui")} >UI</button>
+              <button style={filter==="ux"?selectedStyles:{}} className="button-one" onClick={()=>onClickHandler("ux")} >UX</button>
+              <button style={filter==="bug"?selectedStyles:{}} className="button-one" onClick={()=>onClickHandler("bug")} >Bug</button>
+              <button style={filter==="enhancement"?selectedStyles:{}} className="button-one" onClick={()=>onClickHandler("enhancement")} >Enhancement</button>
+            {/* </div> */}
+            {/* <div> */}
+              <button style={filter==="feature"?selectedStyles:{}} className="button-one" onClick={()=>onClickHandler("feature")} >Feature</button>
+            {/* </div> */}
+          {/* </div> */}
+        </>
+        :
+        <>
+          <div>
+            <button style={filter==="all"?selectedStyles:{}} className="button-one" onClick={()=>onClickHandler("all")} >All</button>
+            <button style={filter==="ui"?selectedStyles:{}} className="button-one" onClick={()=>onClickHandler("ui")} >UI</button>
+            <button style={filter==="ux"?selectedStyles:{}} className="button-one" onClick={()=>onClickHandler("ux")} >UX</button>
+          </div>
+          <div>
+            <button style={filter==="enhancement"?selectedStyles:{}} className="button-one" onClick={()=>onClickHandler("enhancement")} >Enhancement</button>
+            <button style={filter==="bug"?selectedStyles:{}} className="button-one" onClick={()=>onClickHandler("bug")} >Bug</button>
+          </div>
+          <div>
+            <button style={filter==="feature"?selectedStyles:{}} className="button-one" onClick={()=>onClickHandler("feature")} >Feature</button>
+          </div>
+        </>
+      }
     </div>
   )
 }
