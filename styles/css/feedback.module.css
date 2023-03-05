@@ -111,6 +111,10 @@
   justify-content: space-between;
   align-items: center;
 }
+.feedback:hover .title, .feedback_mobile:hover .title {
+  color: #4661E6;
+  text-decoration: underline;
+}
 
 .feedback_mobile {
   flex-direction: column;
