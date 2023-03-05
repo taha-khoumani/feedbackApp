@@ -7,12 +7,13 @@ import Stage from './Stage'
 import styles from "@/styles/css/roadmap.module.css"
 
 //state
-import { useDispatch} from 'react-redux'
+import { useDispatch, useSelector} from 'react-redux'
 import { setcurrentStage } from '@/state/slices/uiSlice' 
 
 export default function RoadmapStages(props) {
   const {planned,inProgress,live} = props.roadmapData
   const stages = useRef(null)
+  const {currentStage} = useSelector(store=>store.ui)
   const dispatch = useDispatch()
 
   function setStage(newStage){
@@ -20,7 +21,7 @@ export default function RoadmapStages(props) {
   }
 
   function onScroll (id,direction){
-    const navigater = document.querySelector(".roadmap_roadmap_stages__FAUDD")
+    const navigater = stages.current
     const currentPosition = window.getComputedStyle(navigater).left
     const winWidth = window.innerWidth
 
@@ -156,20 +157,26 @@ export default function RoadmapStages(props) {
           // TODO: MSIE touch support: https://github.com/CamHenlin/TouchPolyfill
       }
     })(window.document);
+    const navigater = stages.current
 
-    function gestureRightHandler () {onScroll("roadmap_stages","r")}
+    function gestureRightHandler () {onScroll("roadmap_stages","r")} 
     function gestureLeftHandler () {onScroll("roadmap_stages","l")}
 
-    document.querySelector('#roadmap_stages').addEventListener('gesture-right',gestureRightHandler)
-    document.querySelector('#roadmap_stages').addEventListener('gesture-left',gestureLeftHandler)
+    navigater.addEventListener('gesture-right',gestureRightHandler)
+    navigater.addEventListener('gesture-left',gestureLeftHandler)
     return ()=>{
-      document.querySelector('#roadmap_stages').removeEventListener('gesture-right',gestureRightHandler)
-      document.querySelector('#roadmap_stages').removeEventListener('gesture-left',gestureLeftHandler)
+      setStage("In-Progress")
+      navigater.removeEventListener('gesture-right',gestureRightHandler)
+      navigater.removeEventListener('gesture-left',gestureLeftHandler)
     }
   },[])
 
   return (
-    <div ref={stages} className={styles.roadmap_stages} id="roadmap_stages" >
+    <div 
+      ref={stages} 
+      className={styles.roadmap_stages} 
+      id="roadmap_stages" 
+    >
         <Stage stageData={planned} />
         <Stage stageData={inProgress} />
         <Stage stageData={live} />
