@@ -7,24 +7,36 @@ import Stage from './Stage'
 import styles from "@/styles/css/roadmap.module.css"
 
 //state
-import { useDispatch, useSelector } from 'react-redux'
-import { store } from '@/state/store'
+import { useDispatch} from 'react-redux'
 import { setcurrentStage } from '@/state/slices/uiSlice' 
 
 export default function RoadmapStages(props) {
   const {planned,inProgress,live} = props.roadmapData
   const stages = useRef(null)
   const dispatch = useDispatch()
-  const currentStage = store.getState().ui.currentStage
 
-  // dispatch(setcurrentStage("tagopi"))
+  function setStage(newStage){
+    dispatch(setcurrentStage(newStage))
+  }
+
   function onScroll (id,direction){
     const navigater = document.querySelector(".roadmap_roadmap_stages__FAUDD")
     const currentPosition = window.getComputedStyle(navigater).left
-    let to;
+    const winWidth = window.innerWidth
 
+    let initialPosition;
+    if(currentPosition === "0px"){
+      initialPosition = "Planned"
+    } else if(currentPosition === `-${winWidth}px`){
+      initialPosition = "In-Progress"
+    } else {
+      initialPosition = "Live"
+    }
+
+
+    let to;
     if(direction === "r"){
-      switch (currentStage){
+      switch (initialPosition){
         case "Planned": 
           to = ""
         break;
@@ -37,7 +49,7 @@ export default function RoadmapStages(props) {
       }
     }
     else{
-      switch (currentStage){
+      switch (initialPosition){
         case "Planned": 
           to = "two"
         break;
@@ -52,10 +64,26 @@ export default function RoadmapStages(props) {
 
     navigater.style.left = `${currentPosition}`
     navigater.style.animationName = `${to}`
+
+    switch(to){
+
+      case "one":
+        setStage("Planned")
+      break;
+
+      case "two":
+        setStage("In-Progress")
+      break;
+
+      case "three":
+        setStage("Live")
+      break;
+      
+    }
+
   }
 
   useEffect(()=>{
-
     //mobile-scrolling-event-listener
     (function(d) {
       // based on original source: https://stackoverflow.com/a/17567696/334451
@@ -129,28 +157,15 @@ export default function RoadmapStages(props) {
       }
     })(window.document);
 
-    document.querySelector('#roadmap_stages').addEventListener('gesture-right',()=>{
-      onScroll("roadmap_stages","r")
-      switch(currentStage){
-        case "In-Progress":
-          dispatch(setcurrentStage("Planned"))
-        break;
-        case "Live":
-          dispatch(setcurrentStage("In-Progress"))
-        break;
-      }
-    })
-    document.querySelector('#roadmap_stages').addEventListener('gesture-left',()=>{
-      onScroll("roadmap_stages","l")
-      switch(currentStage){
-        case "Planned":
-          dispatch(setcurrentStage("In-Progress"))
-        break;
-        case "In-Progress":
-          dispatch(setcurrentStage("Live"))
-        break;
-      }
-    })
+    function gestureRightHandler () {onScroll("roadmap_stages","r")}
+    function gestureLeftHandler () {onScroll("roadmap_stages","l")}
+
+    document.querySelector('#roadmap_stages').addEventListener('gesture-right',gestureRightHandler)
+    document.querySelector('#roadmap_stages').addEventListener('gesture-left',gestureLeftHandler)
+    return ()=>{
+      document.querySelector('#roadmap_stages').removeEventListener('gesture-right',gestureRightHandler)
+      document.querySelector('#roadmap_stages').removeEventListener('gesture-left',gestureLeftHandler)
+    }
   },[])
 
   return (
