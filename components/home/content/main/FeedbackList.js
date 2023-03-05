@@ -1,7 +1,7 @@
 import React from 'react'
 
 //components
-import Feedback from '../../ui/Feedback'
+import Feedback from '../../../ui/Feedback'
 import NoFeedbacks from './NoFeedbacks'
 
 //styles

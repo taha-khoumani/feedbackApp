@@ -1,8 +1,8 @@
 import React from 'react'
 
 //components
-import Header from '@/components/home/header/Header'
-import Main from '@/components/home/main/Main'
+import Navbar from '@/components/home/Navbar'
+import Content from '@/components/home/content/Content'
 
 //metaData
 import Head from 'next/head'
@@ -16,8 +16,8 @@ export default function Home() {
   return (
     <div id={styles.home}>
       <Head><title>Feedback</title></Head>
-      <Header />
-      <Main />
+      <Navbar />
+      <Content />
     </div>
   )
 }

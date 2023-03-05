@@ -1,4 +1,4 @@
-#home {
+#home #content {
   display: flex;
   gap: 30px;
   padding: 94px 165px;
@@ -6,18 +6,18 @@
   box-sizing: border-box;
 }
 @media (max-width: 1300px) {
-  #home {
+  #home #content {
     padding: 76px 80px;
   }
 }
 @media (max-width: 1023px) {
-  #home {
+  #home #content {
     flex-direction: column;
     padding: 56px 39px;
   }
 }
 @media (max-width: 767px) {
-  #home {
+  #home #content {
     gap: 0;
     padding: 0;
   }
