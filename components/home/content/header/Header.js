@@ -23,7 +23,6 @@ export default function Header() {
 
   return (
     <div id={styles.header}>
-      <Logo />
       <Filter_Roadmap />
     </div>
   )

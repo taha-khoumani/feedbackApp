@@ -53,7 +53,7 @@ export default function Logo() {
 
   return (
     <div id={styles.logo}>
-      <Image id={styles.bg_img} src={mediaQueries(imgsOptions,screenWidth)} alt={"background-img"} priority={true} />
+      <Image id={styles.bg_img} src={bg_3} alt={"background-img"} priority={true} />
       <div id={styles.logo_content}>
         <div>
           <h1>Audiophile</h1>

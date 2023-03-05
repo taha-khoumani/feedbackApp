@@ -11,15 +11,20 @@ $mobile:767px;
 
 #home{
 
-
+    padding: 35px 165px 94px;
+    @include media(1300px){padding:35px 80px 76px;}
+    @include media($tablet){padding:25px 39px 56px;}
+    @include media($mobile){padding: 0;}
+    #navbar{
+        margin-bottom: 20px;
+        @include media($mobile){margin:0;}
+    }
     #content{
         display: flex;
         gap:30px;
-        padding: 94px 165px;
         min-height: 100vh;
         box-sizing: border-box;
-        @include media(1300px){padding:76px 80px;}
-        @include media($tablet){flex-direction: column;padding:56px 39px;}
-        @include media($mobile){gap:0;padding:0;}
+        @include media($tablet){flex-direction: column;}
+        @include media($mobile){gap:0;}
     }
 }

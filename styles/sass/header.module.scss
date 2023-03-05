@@ -36,7 +36,6 @@ $mobile:767px;
     @include media($tablet){
         width:100%;
         flex-direction: row;
-        justify-content: space-between;
         gap:10px;
     }
     @include media($mobile){
@@ -50,29 +49,28 @@ $mobile:767px;
     color:white;
     position:relative;
     width: 100%;
+    // align-items: center;
     #bg_img{
         vertical-align: bottom;
         border-radius: 10px;
+        width: 100%;
+        height: 90px;
         @include media($tablet){
-            width: 100%;
         }
         @include media($mobile){
             border-radius: 0;
+            height: 72px;
         }
     }
     #logo_content{
         display: flex;
-        flex-direction: column;
-        justify-content: flex-end;
+        justify-content: space-between;
+        align-items: center;
         position: absolute;
         gap:5px;
-        inset: 24px;
+        inset: 0 24px;
         @include media($mobile){
-            inset: 0 24px;
             gap:3px;
-            justify-content: space-between;
-            flex-direction: row;
-            align-items: center;
         }
 
         h1,p{
