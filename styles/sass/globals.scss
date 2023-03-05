@@ -12,6 +12,11 @@ body{
     margin:0;
     font-family: 'Jost', sans-serif;
     background-color: #F2F2F2;
+    inset: 0;
+    // @include media($tablet){
+    //     min-width: 100vw;
+    //     box-sizing: border-box;
+    // }
 }
 
 select,button{
@@ -171,4 +176,10 @@ select,button{
 }
 @keyframes threeN {
     100%{margin: 0 0 0 auto ;}
+}
+
+//feedback-title-hover-styles
+.onHoverStyles:hover .feedback_title__VLjLK{
+    color:#4661E6 !important;
+    text-decoration: underline;
 }

@@ -2,6 +2,7 @@ body {
   margin: 0;
   font-family: "Jost", sans-serif;
   background-color: #F2F2F2;
+  inset: 0;
 }
 
 select, button {
@@ -175,4 +176,8 @@ select, button {
   100% {
     margin: 0 0 0 auto;
   }
+}
+.onHoverStyles:hover .feedback_title__VLjLK {
+  color: #4661E6 !important;
+  text-decoration: underline;
 }/*# sourceMappingURL=globals.css.map */

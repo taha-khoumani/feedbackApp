@@ -16,15 +16,19 @@ import { useSelector} from 'react-redux'
 export default function FeedbackList(props) {
   let {feedbacks} = props
 
+  if(feedbacks.length === 0) {
+    console.log("no shit")
+    return <NoFeedbacks />
+  }
+
   //filter&sort
   const {sortMethode,filter} = useSelector(store=>store.ui) 
   if(filter !== "all" ) {feedbacks = feedbacks.filter(feedback=>feedback.category === filter)}
   feedbacks = sortFeedbacks(feedbacks,sortMethode)
   
-  if(!feedbacks){
-    return(
-      <NoFeedbacks />
-    )
+  if(feedbacks.length === 0) {
+    console.log("no shit")
+    return <NoFeedbacks inThisCategory={true} />
   }
 
   const feedbacksEls = feedbacks.map(feedback => 
@@ -32,6 +36,7 @@ export default function FeedbackList(props) {
       data={feedback} 
       key={feedback.id}
       isLink={true}
+      customClass={'onHoverStyles'}
     />
   )
 

@@ -21,7 +21,8 @@ export default function Roadmap() {
         <Link 
           href="/roadmap"
           onClick={()=>{
-              dispatch(toggleMenu(false))
+            dispatch(toggleMenu(false))
+            document.body.style.position="static"
           }}  
         >View</Link>
       </div>

@@ -21,7 +21,7 @@ export default function Feedback(props) {
         return string.charAt(0).toUpperCase() + string.slice(1);
     }
 
-    const {screenWidth} = useSelector(store=>store.ui)
+    const {screenWidth,isSortOpen} = useSelector(store=>store.ui)
 
     function upvoteHandler (e){
         e.preventDefault()
@@ -29,7 +29,7 @@ export default function Feedback(props) {
 
 
     const desktopComponent = (
-        <div className={styles.feedback} style={props.customStyles ? props.customStyles :{}} >
+        <div className={`${styles.feedback} ${props?.customClass || ""}`} style={props.customStyles ? props.customStyles :{}} >
             <div className={styles.upvotes} >
                 <button
                     onClick={(e)=> upvoteHandler(e)}
@@ -51,7 +51,7 @@ export default function Feedback(props) {
     )
 
     const mobileComponent = (
-        <div className={styles.feedback_mobile} style={props.customStyles ? props.customStyles :{}} >
+        <div className={`${styles.feedback_mobile} ${props?.customClass || ""}`} style={props.customStyles ? props.customStyles :{}} >
             <div className={styles.infos} >
                 <p className={styles.title}>{title}</p>
                 <p className={styles.description}>{description}</p>
@@ -76,7 +76,7 @@ export default function Feedback(props) {
 
     if(props.mobileMode){
         return (
-            props.isLink 
+            props.isLink && !isSortOpen
             ?
                 <Link href={`/feedbacks/${id}`} style={{textDecoration:"none"}} >
                     {mobileComponent}
@@ -87,7 +87,7 @@ export default function Feedback(props) {
     } 
     
     else {
-        if(props.isLink){
+        if(props.isLink && !isSortOpen){
             return (
                 <Link href={`/feedbacks/${id}`} style={{textDecoration:"none"}} >
                     {screenWidth > 768 ? desktopComponent : mobileComponent }
@@ -100,18 +100,4 @@ export default function Feedback(props) {
             )
         }
     }
-
-
-                        
-    // if(props.isLink){
-    //     return(
-    //         <Link href={`/feedbacks/${id}`} style={{textDecoration:"none"}} >
-    //             {component}
-    //         </Link>
-    //     )
-    // }
-
-    // return (
-    //     component
-    // )
 }

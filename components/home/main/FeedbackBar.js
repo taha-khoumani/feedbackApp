@@ -24,7 +24,7 @@ export default function FeedbackBar() {
         e.stopPropagation()
     }
 
-    function toggleOff(){
+    function toggleOff(e){
         if(document.querySelector("#main_filter_options__fanaa")){
             dispatch(toggleSort(false))
         }
@@ -66,7 +66,7 @@ export default function FeedbackBar() {
                 </div>
             }
         </div>
-        <Link href="/feedbacks/new" style={{marginLeft:"auto"}} >
+        <Link href={"/feedbacks/new"} style={{marginLeft:"auto"}} >
             <button className='button_two'>
                 + Add Feedback
             </button>
