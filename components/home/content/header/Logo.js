@@ -55,18 +55,20 @@ export default function Logo() {
     <div id={styles.logo}>
       <Image id={styles.bg_img} src={bg_3} alt={"background-img"} priority={true} />
       <div id={styles.logo_content}>
-        <div>
-          <h1>Audiophile</h1>
-          <p>Feedback Board</p>
+        <div id={styles.logo_content_1} >
+          {
+            screenWidth < 768 && 
+            <Image 
+              src={isMenuOpen ? close : ham} 
+              alt="toggle-menu" property='true' 
+              onClick={()=>toggleMenuHandler(!isMenuOpen)} 
+            />
+          }
+          <div>
+            <h1>Audiophile</h1>
+            <p>Feedback Board</p>
+          </div>
         </div>
-        {
-          screenWidth < 768 && 
-          <Image 
-            src={isMenuOpen ? close : ham} 
-            alt="toggle-menu" property='true' 
-            onClick={()=>toggleMenuHandler(!isMenuOpen)} 
-          />
-        }
       </div>
     </div>
   )

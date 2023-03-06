@@ -87,9 +87,9 @@ select,button{
 }
 @keyframes menu-left {
     from{
-        left:100%;
+        right:100%;
     } to{
-        left: 0;
+        right: 0;
     }
 }
 
@@ -101,9 +101,9 @@ select,button{
 }
 @keyframes menu-right {
     from{
-        left:0;
+        right:0;
     } to{
-        left: 100%;
+        right: 100%;
     }
 }
 

@@ -72,6 +72,11 @@ $mobile:767px;
         @include media($mobile){
             gap:3px;
         }
+        #logo_content_1{
+            display: flex;
+            align-items: center;
+            gap:22px;
+        }
 
         h1,p{
             margin:0;
@@ -89,6 +94,8 @@ $mobile:767px;
 
         img{
             cursor: pointer;
+            height: 22px;
+            width:25px;
         }
     }
 }
@@ -96,7 +103,7 @@ $mobile:767px;
 #filter_roadmap{
     background-color: rgba($color: #000000, $alpha: 0.5);
     display: flex;
-    justify-content: flex-end;
+    justify-content: flex-start;
     width: 100%;
     height: 100%;
     position: fixed;
@@ -112,7 +119,7 @@ $mobile:767px;
         gap: 24px;
         padding:24px;
         position: relative;
-        left: 100%;
+        right: 100%;
         height: 100%;
     }
 }
