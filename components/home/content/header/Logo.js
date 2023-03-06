@@ -21,7 +21,7 @@ import { mediaQueries} from '@/lib/helper-functions'
 //next
 import Image from 'next/image'
 
-export default function Logo() {
+export default function Logo(props) {
   const imgsOptions = [bg_1,bg_2,bg_3]
 
   const {screenWidth,isMenuOpen} = useSelector(store=>store.ui)
@@ -62,6 +62,7 @@ export default function Logo() {
               src={isMenuOpen ? close : ham} 
               alt="toggle-menu" property='true' 
               onClick={()=>toggleMenuHandler(!isMenuOpen)} 
+              id={styles.menu_toggle_img}
             />
           }
           <div>
@@ -69,6 +70,7 @@ export default function Logo() {
             <p>Feedback Board</p>
           </div>
         </div>
+        {props.children}
       </div>
     </div>
   )

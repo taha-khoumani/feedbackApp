@@ -84,10 +84,37 @@
     font-size: 13px;
   }
 }
-#logo #logo_content img {
+#logo #logo_content #menu_toggle_img {
   cursor: pointer;
   height: 22px;
   width: 25px;
+}
+
+#authentification_nav #not_auth {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+#authentification_nav #not_auth .sign_in_button {
+  margin: 0;
+}
+#authentification_nav #not_auth .sign_up_button {
+  padding: 12px 24px;
+  font-size: 14px;
+}
+@media (max-width: 767px) {
+  #authentification_nav #not_auth .sign_up_button {
+    padding: 11px 16px;
+    font-size: 13px;
+  }
+}
+@media (max-width: 400px) {
+  #authentification_nav #not_auth .sign_up_button {
+    padding: 11px 12px;
+  }
+}
+#authentification_nav #profile_picture {
+  border-radius: 100%;
 }
 
 #filter_roadmap {
