@@ -1,0 +1,84 @@
+.main {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-bottom: 30px;
+}
+
+.title {
+  font-weight: 700;
+  font-size: 30px;
+  color: #3A4374;
+  margin: 0;
+}
+
+.password {
+  font-weight: 700;
+  vertical-align: middle;
+}
+
+.thirdPartyAuth {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.thirdPartyAuth button {
+  padding: 13px 0px;
+  width: 100%;
+  background-color: white;
+  border: solid 1px gray;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  gap: 20px;
+}
+.thirdPartyAuth button:hover {
+  background-color: rgba(128, 128, 128, 0.2);
+}
+@media (max-width: 767px) {
+  .thirdPartyAuth button {
+    padding: 13px 15px;
+  }
+}
+
+.google {
+  margin-right: 20px;
+}
+@media (max-width: 767px) {
+  .google {
+    height: 20px;
+    width: auto;
+  }
+}
+
+@media (max-width: 767px) {
+  .microsoft {
+    height: 16px;
+    width: auto;
+  }
+}
+
+.next {
+  margin: 0 10px 0 auto;
+  display: block;
+}
+@media (max-width: 767px) {
+  .next {
+    width: 100%;
+  }
+}
+
+.otherOption p {
+  margin: 0;
+  text-align: center;
+}
+@media (max-width: 767px) {
+  .otherOption p a {
+    margin-top: 5px;
+    display: block;
+  }
+}/*# sourceMappingURL=auth.module.css.map */

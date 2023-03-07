@@ -72,10 +72,16 @@ $mobile:767px;
         @include media($mobile){
             gap:3px;
         }
+        @include media(400px){
+            inset:0 10px 0 15px;
+        }
         #logo_content_1{
             display: flex;
             align-items: center;
             gap:22px;
+            @include media($mobile){
+                gap:13px;
+            }
         }
 
         h1,p{
@@ -95,7 +101,7 @@ $mobile:767px;
         #menu_toggle_img{
             cursor: pointer;
             height: 22px;
-            width:25px;
+            width:24px;
         }
     }
 }

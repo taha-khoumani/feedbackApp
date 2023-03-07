@@ -1,3 +1,14 @@
+//mixins
+@mixin media($size){
+    @media (max-width:$size){
+        @content
+    }
+}
+
+//variables
+$tablet:1023px;
+$mobile:767px;
+
 .go_back{
     display: flex;
     align-items: center;
@@ -11,5 +22,120 @@
         &:hover{
             text-decoration: underline;
         }
+    }
+}
+
+.container{
+    max-width: 400px;
+    margin:0 auto;
+
+    padding:30px 150px 80px;
+    @include media($tablet){
+        padding:56px 39px 120px;
+    }
+    @include media($mobile){
+        padding:24px 25px 88px;
+    }
+    @include media(400px){padding:24px 15px 50px}
+
+    
+    .content{
+        background-color: white;
+        border-radius: 10px;
+        padding:30px;
+        margin-top:28px;
+        position: relative;
+        
+        // &>img{
+        //     position: absolute;
+        //     inset: -28px auto auto 24px;
+        //     vertical-align: bottom;
+        // }
+    
+        // h1{
+        //     font-size: 24px;
+        //     color:#3A4374;
+        //     margin:0 0 30px 0;
+        // }
+
+        // form{
+        //     display: flex;
+        //     flex-direction: column;
+        //     gap: 24px;
+        //     .inputgroup{
+        //         display: flex;
+        //         flex-direction: column;
+    
+        //         .inputtitle {
+        //             font-weight: 700;
+        //             font-size:14px;
+        //             color:#3A4374;
+        //             margin-bottom: 2px;
+        //         }
+    
+        //         .inputdescription{
+        //             font-size:14px;
+        //             font-weight: 400;
+        //             color: #647196;
+        //             margin-bottom: 16px;
+        //         }
+        //     }
+            
+        //     .button_div{
+        //         display: flex;
+        //         justify-content: flex-end;
+        //         gap:16px;
+        //         @include media ($mobile){
+        //             flex-direction:column-reverse;
+        //         }
+        //         button{
+        //             margin:0;
+        //         }
+
+        //     }
+
+        //     // .button_div_edit{
+        //     //     @ex
+        //     // }
+
+        //     .cat{
+        //         position: relative;
+        //     }
+                
+        //         #filter_options{
+        //             background-color: white;
+        //             border-radius: 10px;
+        //             width:100%;
+        //             margin:0 auto;
+        //             position:absolute;
+        //             inset: calc(100% + 16px) auto auto auto;
+        //             box-shadow: 0px 10px 40px -7px rgba(55, 63, 104, 0.350492);
+        //             // display: flex;
+        //             // flex-direction: column;
+        
+        //             p{
+
+        //                 display: flex;
+        //                 justify-content: space-between;
+        //                 align-items: center;
+        //                 font-weight: 400;
+        //                 font-size: 16px;
+        //                 color: #647196;
+        //                 padding:12px 24px;
+        //                 margin:0;
+        //                 border-bottom: 1px solid rgba($color: #3A4374, $alpha: 0.15);
+        //                 cursor: pointer;
+        //                 &:hover{
+        //                     color:#AD1FEA;
+        //                 }
+        //                 i{
+        //                     color:#AD1FEA;
+        //                     font-weight: 700;
+        //                 }
+        //             }
+        //         }
+
+        // }
+
     }
 }

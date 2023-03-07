@@ -17,6 +17,14 @@ export default function Filter_Roadmap() {
 
     const {isMenuOpen,screenWidth} = useSelector(store=>store.ui)
 
+    const width = ()=>{
+        if(screenWidth){
+            return screenWidth
+        } else{
+            return window.innerWidth
+        }
+    }
+
     function toggleMenuHandler (boolean){
         //open-modal
         if(boolean){

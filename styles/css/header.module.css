@@ -59,10 +59,20 @@
     gap: 3px;
   }
 }
+@media (max-width: 400px) {
+  #logo #logo_content {
+    inset: 0 10px 0 15px;
+  }
+}
 #logo #logo_content #logo_content_1 {
   display: flex;
   align-items: center;
   gap: 22px;
+}
+@media (max-width: 767px) {
+  #logo #logo_content #logo_content_1 {
+    gap: 13px;
+  }
 }
 #logo #logo_content h1, #logo #logo_content p {
   margin: 0;
@@ -87,7 +97,7 @@
 #logo #logo_content #menu_toggle_img {
   cursor: pointer;
   height: 22px;
-  width: 25px;
+  width: 24px;
 }
 
 #authentification_nav #not_auth {
