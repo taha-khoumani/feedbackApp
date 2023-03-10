@@ -110,7 +110,7 @@ export default function RoadmapStages(props) {
               var t = e.touches[0];
               sp = { x: t.screenX, y: t.screenY, px: t.pageX, py: t.pageY };
               ep = sp; // make sure we have a sensible end poin in case next event is touchend
-              debug && console.log("start", sp);
+              debug && ("start", sp);
           },
           touchmove: function(e) {
               if (e.touches.length > 1) {

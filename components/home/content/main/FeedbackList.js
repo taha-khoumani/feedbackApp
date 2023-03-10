@@ -17,7 +17,6 @@ export default function FeedbackList(props) {
   let {feedbacks} = props
 
   if(feedbacks.length === 0) {
-    console.log("no shit")
     return <NoFeedbacks />
   }
 
@@ -27,7 +26,6 @@ export default function FeedbackList(props) {
   feedbacks = sortFeedbacks(feedbacks,sortMethode)
   
   if(feedbacks.length === 0) {
-    console.log("no shit")
     return <NoFeedbacks inThisCategory={true} />
   }
 

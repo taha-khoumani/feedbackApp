@@ -9,7 +9,6 @@ import noFeedback from "@/images/icons/illustration-empty.svg"
 import styles from "@/styles/css/feedback.module.css"
 
 export default function NoFeedbacks(props) {
-  console.log("runned")
 
   return (
     <div id={styles.no_feedback} >

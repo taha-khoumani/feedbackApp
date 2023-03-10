@@ -57,20 +57,6 @@ $mobile:767px;
     }   
 }
 
-.google{
-    margin-right: 20px;
-    @include media($mobile){
-        height: 20px;
-        width: auto;
-    }
-}
-.microsoft{
-    @include media($mobile){
-        height: 16px;
-        width: auto;
-    }
-}
-
 .next{
     margin: 0 10px 0 auto ;
     display:block;
@@ -91,4 +77,27 @@ $mobile:767px;
             }
         }
     }
+}
+
+.buttons{
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+    gap:10px;
+
+    a{
+        text-decoration: none;
+        box-sizing: border-box;
+    }
+    
+    a ,button{
+        text-align: center;
+        margin:0;
+        flex-basis: 100%;
+    }
+    @include media($mobile){
+        flex-direction: column-reverse;
+        button,a{width:100%}
+    }
+
 }

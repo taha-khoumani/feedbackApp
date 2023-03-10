@@ -45,23 +45,6 @@
   }
 }
 
-.google {
-  margin-right: 20px;
-}
-@media (max-width: 767px) {
-  .google {
-    height: 20px;
-    width: auto;
-  }
-}
-
-@media (max-width: 767px) {
-  .microsoft {
-    height: 16px;
-    width: auto;
-  }
-}
-
 .next {
   margin: 0 10px 0 auto;
   display: block;
@@ -80,5 +63,29 @@
   .otherOption p a {
     margin-top: 5px;
     display: block;
+  }
+}
+
+.buttons {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+.buttons a {
+  text-decoration: none;
+  box-sizing: border-box;
+}
+.buttons a, .buttons button {
+  text-align: center;
+  margin: 0;
+  flex-basis: 100%;
+}
+@media (max-width: 767px) {
+  .buttons {
+    flex-direction: column-reverse;
+  }
+  .buttons button, .buttons a {
+    width: 100%;
   }
 }/*# sourceMappingURL=auth.module.css.map */

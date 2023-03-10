@@ -11,7 +11,7 @@ export default function RouteContainer(props) {
 
   return (
     <div className={styles.container}>
-        <GoBack prevRoute={goBackRoute} />
+        {/* <GoBack prevRoute={goBackRoute} /> */}
         <div className={styles.content}>
             {children}
         </div>

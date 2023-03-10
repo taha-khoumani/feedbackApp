@@ -3,13 +3,9 @@ import React, { useState } from 'react'
 //components
 import RouteContainer from '@/components/ui/RouteContainer'
 
-//images
-import google from '@/images/icons/google.png' 
-import microsoft from '@/images/icons/microsoft.webp' 
-
 //next
 import Link from 'next/link'
-import Image from 'next/image'
+import { useRouter } from 'next/router'
 
 //styles
 import styles from "@/styles/css/auth.module.css"
@@ -19,6 +15,7 @@ export default function signIn() {
     email:"",
     password:'',
   })
+
   function onChangeHandler (e){
     const {name,value} = e.target
     setUserData(prevUserData=>({
@@ -58,18 +55,11 @@ export default function signIn() {
               onChange={onChangeHandler}
             />
           </div>
-          <button className={`button_three ${styles.next}`} >Sign in</button>
+          <div className={styles.buttons}>
+            <Link className='button_two' href={"/"}>Cancel</Link>
+            <button className={`button_three ${styles.next}`} >Sign in</button>
+          </div>
         </form>
-        {/* <div className={styles.thirdPartyAuth}>
-          <button>
-            Sign in with 
-            <Image className={styles.google}  height={25} src={google} alt={"googleLogo"} /> 
-          </button>
-          <button>
-            Sign in with
-            <Image className={styles.microsoft} height={20}  src={microsoft} alt={"microsoftLogo"} />
-          </button>
-        </div> */}
       </div>
       <div className={styles.otherOption}>
         <p>Don't have an account yet&nbsp;&nbsp;<Link href={"/auth/sign_up"} >Sign up here !</Link></p>
