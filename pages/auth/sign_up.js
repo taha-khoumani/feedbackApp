@@ -54,7 +54,7 @@ export default function signUp() {
       .then(res=> res.json())
       .then(res=> {
         //if error
-        if(res.status !== 200){
+        if(!res.ok){
           setFeedback({
             status:'error',
             message:res.message

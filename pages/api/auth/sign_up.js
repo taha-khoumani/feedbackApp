@@ -1,5 +1,9 @@
+//database
 import { MongoClient } from "mongodb";
-import { verifySignUp } from "@/lib/helper-functions";
+import { compare, hash } from "bcrypt"
+
+//helper-functions
+import { verifySignUp} from "@/lib/helper-functions";
 
 export default async function handler (req,res){
     if(req.method !== 'POST'){
@@ -14,6 +18,7 @@ export default async function handler (req,res){
         res.status(400).json({status:400,message:verifySignUp(userData).message})
         return null;
     }
+    
 
     const client = await MongoClient.connect(`mongodb+srv://tagopi:${'DGakye2AgwDd8v2a'}@cluster0.8kpmakb.mongodb.net/?retryWrites=true&w=majority`)
     const users = client.db("feedback").collection("users")
@@ -25,7 +30,15 @@ export default async function handler (req,res){
         return null;
     }
 
-    const result1 = await users.insertOne(userData)
+    //insert the data (with hased password)
+    async function hashPassword(notHashedPassword){
+        return await hash(notHashedPassword,12)
+    }
+    async function areTheSamePasswords(hashedPassword,notHashedPassword){
+        return await compare(hashedPassword,notHashedPassword)
+    }
+    const hashedPassword = await hashPassword(userData.password)
+    const result1 = await users.insertOne({...userData,password:hashedPassword})
     client.close()
     res.status(200).json({status:200,message:'Signed up succesefully'})
 }
