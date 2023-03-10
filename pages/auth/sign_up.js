@@ -54,7 +54,7 @@ export default function signUp() {
       .then(res=> res.json())
       .then(res=> {
         //if error
-        if(!res.ok){
+        if(res.status !== 200){
           setFeedback({
             status:'error',
             message:res.message
@@ -64,6 +64,7 @@ export default function signUp() {
         //if no error
         else{
           setFeedback({status:'succes',message:res.message})
+          
         }
       })
   }
@@ -74,12 +75,12 @@ export default function signUp() {
           <div className={styles.main} >
             <p className={styles.title} >Sign up </p>
             <form
+              noValidate
               onSubmit={onSubmitHandler}
             >
               <div>
                 <label htmlFor='first-name' >First Name</label>
                 <input 
-                  required
                   id='first-name'
                   type="text" 
                   className='textarea_one' 
@@ -91,7 +92,6 @@ export default function signUp() {
               <div>
                 <label htmlFor='last-name'>Last Name</label>
                 <input 
-                  required
                   id='last-name' 
                   type="text" 
                   className='textarea_one' 
@@ -103,7 +103,6 @@ export default function signUp() {
               <div>
                 <label htmlFor='email'>Email</label>
                 <input 
-                  required
                   id='email' 
                   type="email" 
                   className='textarea_one' 
@@ -115,7 +114,6 @@ export default function signUp() {
               <div>
                 <label htmlFor='password' >Password</label>
                 <input 
-                  required
                   id='password' 
                   type="password" 
                   className='textarea_one' 

@@ -88,4 +88,60 @@
   .buttons button, .buttons a {
     width: 100%;
   }
+}
+
+.succes, .error, .pending {
+  display: flex;
+  gap: 20px;
+  border-radius: 5px;
+  margin-bottom: 16px;
+}
+.succes p, .error p, .pending p {
+  padding: 10px 15px 10px 0px;
+  margin: 0;
+}
+.succes div, .error div, .pending div {
+  min-height: 100%;
+  display: inline-flex;
+}
+.succes div i, .error div i, .pending div i {
+  padding: 7px;
+  font-size: 30px;
+  color: white;
+  margin: auto 0;
+}
+
+.succes {
+  border: solid 2px #45C45B;
+}
+.succes div {
+  background-color: #45C45B;
+}
+
+.error {
+  border: solid 2px #FE6868;
+}
+.error div {
+  background-color: #FE6868;
+}
+
+.pending {
+  border: solid 2px rgba(0, 0, 255, 0.6);
+}
+.pending div {
+  background-color: rgba(0, 0, 255, 0.6);
+}
+.pending div i {
+  animation-name: spiner;
+  animation-duration: 950ms;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+@keyframes spiner {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }/*# sourceMappingURL=auth.module.css.map */

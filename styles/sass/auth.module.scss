@@ -101,3 +101,54 @@ $mobile:767px;
     }
 
 }
+
+//auth-feedback
+.succes,.error,.pending{
+    display: flex;
+    gap:20px;
+    border-radius: 5px;
+    margin-bottom: 16px;
+    p{
+        padding:10px 15px 10px 0px;
+        margin:0;
+    }
+    div{
+        min-height: 100%;
+        display: inline-flex;
+        i{
+            padding:7px;
+            font-size: 30px;
+            color:white;
+            margin:auto 0;
+        }
+    }
+}
+.succes{
+    border:solid 2px #45C45B;
+    div{
+        background-color: #45C45B;
+    }
+}
+.error{
+    border:solid 2px #FE6868;
+    div{
+        background-color: #FE6868;
+    }
+}
+.pending{
+    border:solid 2px rgba($color: blue, $alpha: 0.6);
+    div{
+        background-color: rgba($color: blue, $alpha: 0.6);
+
+        i{
+            animation-name: spiner;
+            animation-duration: 950ms;
+            animation-iteration-count: infinite;
+            animation-timing-function: linear;
+            @keyframes spiner {
+                0% { transform: rotate(0deg); }
+                100% { transform: rotate(360deg); }
+            }
+        }
+    }
+}
