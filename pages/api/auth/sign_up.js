@@ -1,6 +1,6 @@
 //database
 import { MongoClient } from "mongodb";
-import { compare, hash } from "bcrypt"
+import { hash } from "bcrypt"
 
 //helper-functions
 import { verifySignUp} from "@/lib/helper-functions";
@@ -26,6 +26,7 @@ export default async function handler (req,res){
     // check if inputed email already exist in the database
     const result0 = await users.findOne({email:userData.email.toLowerCase() })
     if(result0){
+        client.close()
         res.status(409).json({status:409,message:'This email already have an account'})
         return null;
     }
@@ -33,9 +34,6 @@ export default async function handler (req,res){
     //insert the data (with hased password)
     async function hashPassword(notHashedPassword){
         return await hash(notHashedPassword,12)
-    }
-    async function areTheSamePasswords(hashedPassword,notHashedPassword){
-        return await compare(hashedPassword,notHashedPassword)
     }
     const hashedPassword = await hashPassword(userData.password)
     const result1 = await users.insertOne({...userData,password:hashedPassword})

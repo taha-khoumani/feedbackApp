@@ -6,6 +6,7 @@ import AuthFeedback from '@/components/ui/AuthFeedback'
 
 //next
 import Link from 'next/link'
+import { useRouter } from 'next/router'
 
 //styles
 import styles from "@/styles/css/auth.module.css"
@@ -17,6 +18,7 @@ export default function signUp() {
   const [userData,setUserData] = useState({
     firstName:"",
     lastName:'',
+    userName:'',
     email:"",
     password:'',
   })
@@ -30,6 +32,7 @@ export default function signUp() {
   }
 
   const [feedback,setFeedback] = useState({})
+  const router = useRouter()
 
   function onSubmitHandler(e){
     e.preventDefault()
@@ -64,7 +67,7 @@ export default function signUp() {
         //if no error
         else{
           setFeedback({status:'succes',message:res.message})
-          
+          router.push('/auth/sign_in')
         }
       })
   }
@@ -97,6 +100,17 @@ export default function signUp() {
                   className='textarea_one' 
                   name='lastName'
                   value={userData.lastName}
+                  onChange={onChangeHandler}
+                />
+              </div>
+              <div>
+                <label htmlFor='user-name' >User Name</label>
+                <input 
+                  id='user-name'
+                  type="text" 
+                  className='textarea_one' 
+                  name="userName"
+                  value={userData.userName}
                   onChange={onChangeHandler}
                 />
               </div>
