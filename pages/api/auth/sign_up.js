@@ -19,12 +19,11 @@ export default async function handler (req,res){
         return null;
     }
     
-
     const client = await MongoClient.connect(`mongodb+srv://tagopi:${'DGakye2AgwDd8v2a'}@cluster0.8kpmakb.mongodb.net/?retryWrites=true&w=majority`)
     const users = client.db("feedback").collection("users")
 
     // check if inputed email already exist in the database
-    const result0 = await users.findOne({email:userData.email.toLowerCase() })
+    const result0 = await users.findOne({email:userData.email})
     if(result0){
         client.close()
         res.status(409).json({status:409,message:'This email already have an account'})

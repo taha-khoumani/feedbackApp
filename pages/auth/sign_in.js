@@ -12,7 +12,7 @@ import { useRouter } from 'next/router'
 import styles from "@/styles/css/auth.module.css"
 
 //authorization
-import { verifySignIn } from '@/lib/helper-functions'
+import { objectToLowerCase} from '@/lib/helper-functions'
 import { signIn } from 'next-auth/react'
 
 export default function sign_in() {
@@ -22,6 +22,8 @@ export default function sign_in() {
   })
 
   const [feedback,setFeedback] = useState({})
+
+  const router = useRouter()
 
   function onChangeHandler (e){
     const {name,value} = e.target
@@ -36,11 +38,11 @@ export default function sign_in() {
 
     //set pending state
     setFeedback({status:'pending',message:'Signing in...'})
-
+    
     //singning in
     const result = await signIn('credentials', {
       redirect: false,
-      ...userData
+      ...objectToLowerCase(userData)
     })
 
     //if error
@@ -51,6 +53,7 @@ export default function sign_in() {
 
     //if not
     setFeedback({status:'succes',message:'Signed in succesefully'})
+    setTimeout(()=>router.push("/"),450)
 
   }
 
@@ -64,7 +67,7 @@ export default function sign_in() {
           <div>
             <label htmlFor='email'>Email</label>
             <input 
-              required
+              hide-details="auto"
               id='email' 
               type="email" 
               className='textarea_one' 
@@ -76,7 +79,6 @@ export default function sign_in() {
           <div>
             <label htmlFor='password' >Password</label>
             <input
-              required
               id='password' 
               type="password" 
               className={`textarea_one ${styles.password}`} 

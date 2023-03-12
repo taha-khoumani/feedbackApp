@@ -12,7 +12,7 @@ import { useRouter } from 'next/router'
 import styles from "@/styles/css/auth.module.css"
 
 //helper-functions
-import { verifySignUp } from '@/lib/helper-functions'
+import { objectToLowerCase, verifySignUp } from '@/lib/helper-functions'
 
 export default function signUp() {
   const [userData,setUserData] = useState({
@@ -49,7 +49,7 @@ export default function signUp() {
     //send data
     fetch("/api/auth/sign_up",{
       method:'POST',
-      body:JSON.stringify(userData),
+      body:JSON.stringify(objectToLowerCase(userData)),
       headers:{
         'Content-Type':'application/json',
       }
@@ -67,7 +67,7 @@ export default function signUp() {
         //if no error
         else{
           setFeedback({status:'succes',message:res.message})
-          router.push('/auth/sign_in')
+          setTimeout(()=>router.push('/auth/sign_in'),450) 
         }
       })
   }

@@ -180,4 +180,8 @@ select, button {
 .onHoverStyles:hover .feedback_title__VLjLK {
   color: #4661E6 !important;
   text-decoration: underline;
+}
+
+.sb-avatar {
+  cursor: pointer;
 }/*# sourceMappingURL=globals.css.map */
