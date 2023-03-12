@@ -39,10 +39,33 @@ export const authOptions = {
 
         const {firstName,lastName,userName,email} = result
         client.close()
-        return {firstName,lastName,userName,email}
+        return Promise.resolve({firstName:result.firstName,lastName,userName,email})
       }
     })
   ],
+    callbacks: {
+    async jwt(token, user, account, profile, isNewUser) {
+      if (user?.firstName) {
+        token.firstName = user.firstName
+      }
+      if (user?.lastName) {
+        token.lastName = user.lastName
+      }
+      if (user?.userName) {
+        token.userName = user.userName;
+      }
+      return token
+    },
+  
+    async session({session,token}) {
+      const {firstName,lastName,userName,email} = token.token.user
+      session.user.email = email;
+      session.user.userName = userName;
+      session.user.firstName = firstName;
+      session.user.lastName = lastName;
+      return session
+    }
+  }
 }
 
 export default NextAuth(authOptions)

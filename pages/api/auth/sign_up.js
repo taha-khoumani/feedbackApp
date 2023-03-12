@@ -22,11 +22,19 @@ export default async function handler (req,res){
     const client = await MongoClient.connect(`mongodb+srv://tagopi:${'DGakye2AgwDd8v2a'}@cluster0.8kpmakb.mongodb.net/?retryWrites=true&w=majority`)
     const users = client.db("feedback").collection("users")
 
-    // check if inputed email already exist in the database
-    const result0 = await users.findOne({email:userData.email})
-    if(result0){
+    // check if the user's email is already signed up
+    const emailResult = await users.findOne({email:userData.email})
+    if(emailResult){
         client.close()
-        res.status(409).json({status:409,message:'This email already have an account'})
+        res.status(409).json({status:409,message:'This email is already signed up'})
+        return null;
+    }
+
+    //check if the username is already taken
+    const usernameResult = await users.findOne({userName:userData.userName})
+    if(usernameResult){
+        client.close()
+        res.status(409).json({status:409,message:'This username has been already taken'})
         return null;
     }
 

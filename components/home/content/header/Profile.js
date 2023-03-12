@@ -7,10 +7,14 @@ import Avatar from 'react-avatar';
 import styles from "@/styles/css/header.module.css"
 
 //next-auth
-import { signOut } from "next-auth/react"
+import { signOut, useSession } from "next-auth/react"
 
 export default function Profile() {
+    //state
     const [isProfileOpen,toggleProfile] = useState(false)
+
+    const {data,status} = useSession()
+    const {firstName,lastName} = data.user
 
     //click handlers
     function onProfilePictureClickHandler(){
@@ -23,7 +27,7 @@ export default function Profile() {
   return (
     <div className={styles.profile_wraper} >
         <Avatar 
-            name={"taha"} 
+            name={`${firstName} ${lastName}`} 
             size={40} 
             round={true} 
             textSizeRatio={2} 
