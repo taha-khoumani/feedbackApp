@@ -1,8 +1,9 @@
-import React from 'react'
+  import React from 'react'
 
 //next
 import Image from 'next/image';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 
 //styles
 import styles from "@/styles/css/feedback.module.css"
@@ -24,12 +25,22 @@ export default function Feedback(props) {
     const {screenWidth,isSortOpen} = useSelector(store=>store.ui)
 
     function upvoteHandler (e){
-        e.preventDefault()
+        e.stopPropagation()
+    }
+
+    const router = useRouter()
+
+    function feedbackOnClickHandler(){
+        if(props.isLink) router.push(`/feedbacks/${id}`)
     }
 
 
     const desktopComponent = (
-        <div className={`${styles.feedback} ${props?.customClass || ""}`} style={props.customStyles ? props.customStyles :{}} >
+        <div 
+            className={`${styles.feedback} ${props?.customClass || ""}`} 
+            style={props.customStyles ? props.customStyles :{}} 
+            onClick={feedbackOnClickHandler}
+        >
             <div className={styles.upvotes} >
                 <button
                     onClick={(e)=> upvoteHandler(e)}
@@ -51,7 +62,11 @@ export default function Feedback(props) {
     )
 
     const mobileComponent = (
-        <div className={`${styles.feedback_mobile} ${props?.customClass || ""}`} style={props.customStyles ? props.customStyles :{}} >
+        <div 
+            className={`${styles.feedback_mobile} ${props?.customClass || ""}`} 
+            style={props.customStyles ? props.customStyles :{}} 
+            onClick={feedbackOnClickHandler}
+        >
             <div className={styles.infos} >
                 <p className={styles.title}>{title}</p>
                 <p className={styles.description}>{description}</p>
@@ -74,30 +89,7 @@ export default function Feedback(props) {
         </div>
     )
 
-    if(props.mobileMode){
-        return (
-            props.isLink && !isSortOpen
-            ?
-                <Link href={`/feedbacks/${id}`} style={{textDecoration:"none"}} >
-                    {mobileComponent}
-                </Link>
-            :
-            mobileComponent
-        )
-    } 
+    if(props.mobileMode) return mobileComponent 
     
-    else {
-        if(props.isLink && !isSortOpen){
-            return (
-                <Link href={`/feedbacks/${id}`} style={{textDecoration:"none"}} >
-                    {screenWidth > 768 ? desktopComponent : mobileComponent }
-                </Link>
-            ) 
-        } 
-        else{
-            return (
-                screenWidth > 768 ? desktopComponent : mobileComponent
-            )
-        }
-    }
+    else return screenWidth > 768 ? desktopComponent : mobileComponent
 }

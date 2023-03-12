@@ -308,6 +308,7 @@
   background-color: white;
   border-radius: 5px;
   border: solid 1px gray;
+  z-index: 100;
 }
 .profile_wraper .profile_dropDown p {
   color: black;

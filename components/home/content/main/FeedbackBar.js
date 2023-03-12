@@ -29,11 +29,12 @@ export default function FeedbackBar() {
     function toggleOff(e){
         if(document.querySelector("#main_filter_options__fanaa")){
             dispatch(toggleSort(false))
+            e.stopPropagation()
         }
     }
 
     useEffect(()=>{
-        document.body.addEventListener("click",toggleOff)
+        document.body.addEventListener("click",toggleOff,true)
         return () => document.body.removeEventListener("click",toggleOff)
     },[])
 

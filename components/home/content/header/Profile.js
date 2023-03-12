@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
 //components
 import Avatar from 'react-avatar';
@@ -23,6 +23,19 @@ export default function Profile() {
     function onSignOutClickHandler(){
         signOut({redirect:false})
     }
+
+    function toggleOff(e){
+        if(document.querySelector('.header_profile_dropDown__Hu19q')) {
+            toggleProfile(false)
+            console.log("done")
+            e.stopPropagation()
+        }
+    }
+
+    useEffect(()=>{
+        document.body.addEventListener("click",toggleOff,true)
+        return () => document.body.removeEventListener("click",toggleOff)
+    },[])
 
   return (
     <div className={styles.profile_wraper} >

@@ -5,6 +5,7 @@
   align-items: center;
   gap: 40px;
   padding: 28px 32px;
+  cursor: pointer;
 }
 @media (max-width: 767px) {
   .feedback, .feedback_mobile {
