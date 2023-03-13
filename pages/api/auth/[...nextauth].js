@@ -7,6 +7,7 @@ import { compare,hash} from "bcrypt"
 import { MongoClient } from "mongodb";
 
 export const authOptions = {
+  secret: process.env.AUTH_SECRET,
   providers: [
     CredentialsProvider({
       async authorize(credentials,req){

@@ -144,6 +144,9 @@ $mobile:767px;
             cursor: pointer;
             font-weight: 700;
             color: rgba($color: #3A4374, $alpha: 0.4);
+            @include media(400px){
+                font-size: 14px;
+            }
         }
     }
 
@@ -158,6 +161,6 @@ $mobile:767px;
     }
 }
 
-
-
-
+.roadmap_feedbacks{
+    cursor: pointer;
+}

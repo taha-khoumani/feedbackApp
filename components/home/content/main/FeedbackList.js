@@ -35,6 +35,7 @@ export default function FeedbackList(props) {
       key={feedback.id}
       isLink={true}
       customClass={'onHoverStyles'}
+      customStyles={{cursor:'pointer'}}
     />
   )
 

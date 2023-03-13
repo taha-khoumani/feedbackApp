@@ -30,7 +30,7 @@ export default function RoadmapFeedback(props) {
   }
 
   return (
-    <div className={styles.roadmap_feedbacks} >
+    <div className={`${styles.roadmap_feedbacks} onHoverStyles`} >
         <div className={styles.status} style={{borderColor:`#${statusStyles(data.status)}`}} >
           <li className={styles[props.statusTitle]} >
             {props.statusTitle}

@@ -127,6 +127,11 @@
   font-weight: 700;
   color: rgba(58, 67, 116, 0.4);
 }
+@media (max-width: 400px) {
+  .OnMobileNav .OnMobileNav_cats p {
+    font-size: 14px;
+  }
+}
 .OnMobileNav hr {
   border: none;
   height: 4px;
@@ -135,4 +140,8 @@
   margin: 0 auto 0 auto;
   animation-duration: 150ms;
   animation-fill-mode: forwards;
+}
+
+.roadmap_feedbacks {
+  cursor: pointer;
 }/*# sourceMappingURL=roadmap.module.css.map */

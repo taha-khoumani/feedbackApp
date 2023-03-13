@@ -16,7 +16,6 @@ $mobile:767px;
     align-items: center;
     gap:40px;
     padding:28px 32px;
-    cursor: pointer;
     @include media($mobile){
         flex-direction: column;
         gap:16px;

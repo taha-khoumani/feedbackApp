@@ -14,6 +14,7 @@ import styles from "@/styles/css/auth.module.css"
 //authorization
 import { objectToLowerCase} from '@/lib/helper-functions'
 import { signIn } from 'next-auth/react'
+import { getSession } from 'next-auth'
 
 export default function sign_in() {
   const [userData,setUserData] = useState({
