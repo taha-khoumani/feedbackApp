@@ -8,6 +8,7 @@ export default {
     {
       "id": 1,
       "title": "Add tags for solutions",
+      "user":"tagopi",
       "category": "enhancement",
       "upvotes": 112,
       "status": "suggestion",

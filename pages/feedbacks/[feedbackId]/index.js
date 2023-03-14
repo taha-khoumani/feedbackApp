@@ -19,12 +19,11 @@ import styles from "@/styles/css/feedbackDetails.module.css"
 import { useDispatch } from 'react-redux'
 import { setScreenWidth } from '@/state/slices/uiSlice'
 
+//database
+import { MongoClient } from "mongodb";
 
 export default function feedback(props) {
-    const feedbackId = useRouter().query.feedbackId
-    const feedbacks = data.productRequests
-    const requestedFeedback = feedbacks.find(feedback=> `${feedback.id}` === feedbackId )
-
+    const requestedFeedback = JSON.parse(props.requestedFeedback)
     const dispatch = useDispatch()
 
     useEffect(()=>{
@@ -37,14 +36,10 @@ export default function feedback(props) {
       window.addEventListener('resize',cleanup)
     },[])
 
-    if(!feedbacks){
-      return <h1>Loading...</h1>
-    }
-
     if(!requestedFeedback){
       return <h1>error</h1>
     }
-
+    console.log(props.history)
   return (
     <div className={styles.feedback_details} >
         <FeedbackNav prevRoute={props.history} isEditNeeded={true} />
@@ -55,11 +50,19 @@ export default function feedback(props) {
   )
 }
 
-export async function getServerSideProps(context){
+export async function getServerSideProps({req,params}){
+  var ObjectId = require('mongodb').ObjectId; 
+  const wantedFeedbackId = new ObjectId(params.feedbackId) 
+
+  const client = await MongoClient.connect(`mongodb+srv://tagopi:${'DGakye2AgwDd8v2a'}@cluster0.8kpmakb.mongodb.net/?retryWrites=true&w=majority`)
+  const feedbacks = client.db("feedback").collection("feedbacks")
+
+  const result = JSON.stringify(await feedbacks.findOne({_id:wantedFeedbackId}))
 
   return{
     props:{
-      history:context.req.headers.referer
+      requestedFeedback:result,
+      history:req.headers.referer || "/"
     }
   }
 }

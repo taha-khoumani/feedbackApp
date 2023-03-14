@@ -7,11 +7,11 @@ import Main from './main/Main'
 //styles
 import styles from "@/styles/css/home.module.css"
 
-export default function Content() {
+export default function Content(props) {
   return (
     <div id={styles.content} >
         <Header />
-        <Main />
+        <Main suggestionFeedbacks={props.suggestionFeedbacks} />
     </div>
   )
 }

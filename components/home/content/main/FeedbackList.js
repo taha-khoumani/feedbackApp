@@ -32,7 +32,7 @@ export default function FeedbackList(props) {
   const feedbacksEls = feedbacks.map(feedback => 
     <Feedback 
       data={feedback} 
-      key={feedback.id}
+      key={feedback._id}
       isLink={true}
       customClass={'onHoverStyles'}
       customStyles={{cursor:'pointer'}}

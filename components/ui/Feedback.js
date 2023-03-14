@@ -1,4 +1,4 @@
-  import React from 'react'
+import React from 'react'
 
 //next
 import Image from 'next/image';
@@ -15,11 +15,12 @@ import upvotesIcon from "@/images/icons/icon-arrow-up.svg"
 //state
 import { useSelector } from 'react-redux';
 
+
 export default function Feedback(props) {
-    const {title,description,category,upvotes,comments,id} = props.data
+    const {title,description,category,upvotes,comments,_id} = props.data
 
     function capitalizeFirstLetter(string) {
-        return string.charAt(0).toUpperCase() + string.slice(1);
+        return string?.charAt(0).toUpperCase() + string?.slice(1);
     }
 
     const {screenWidth,isSortOpen} = useSelector(store=>store.ui)
@@ -31,7 +32,7 @@ export default function Feedback(props) {
     const router = useRouter()
 
     function feedbackOnClickHandler(){
-        if(props.isLink) router.push(`/feedbacks/${id}`)
+        if(props.isLink) router.push(`/feedbacks/${_id}`)
     }
 
 

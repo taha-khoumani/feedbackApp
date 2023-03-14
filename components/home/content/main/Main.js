@@ -10,14 +10,14 @@ import styles from "@/styles/css/main.module.css"
 import FeedbackBar from './FeedbackBar'
 import FeedbackList from './FeedbackList'
 
-export default function Main() {
-  const suggestion = data.productRequests.filter(feedback=>feedback.status === "suggestion")
+export default function Main(props) {
+  const suggestions = props.suggestionFeedbacks
 
 
   return (
     <main id={styles.main}>
       <FeedbackBar />
-      <FeedbackList feedbacks={suggestion} />
+      <FeedbackList feedbacks={suggestions} />
     </main>
   )
 }
