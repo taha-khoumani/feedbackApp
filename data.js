@@ -8,7 +8,7 @@ export default {
     {
       "id": 1,
       "title": "Add tags for solutions",
-      "user":"tagopi",
+      "user":"0",
       "category": "enhancement",
       "upvotes": 112,
       "status": "suggestion",
@@ -37,6 +37,7 @@ export default {
     {
       "id": 2,
       "title": "Add a dark theme option",
+      "user":"0",
       "category": "feature",
       "upvotes": 99,
       "status": "suggestion",
@@ -85,6 +86,7 @@ export default {
     {
       "id": 3,
       "title": "Q&A within the challenge hubs",
+      "user":"0",
       "category": "feature",
       "upvotes": 65,
       "status": "suggestion",
@@ -104,6 +106,7 @@ export default {
     {
       "id": 4,
       "title": "Add image/video upload to feedback",
+      "user":"0",
       "category": "enhancement",
       "upvotes": 51,
       "status": "suggestion",
@@ -132,6 +135,7 @@ export default {
     {
       "id": 5,
       "title": "Ability to follow others",
+      "user":"0",
       "category": "feature",
       "upvotes": 42,
       "status": "suggestion",
@@ -171,6 +175,7 @@ export default {
     {
       "id": 6,
       "title": "Preview images not loading",
+      "user":"0",
       "category": "bug",
       "upvotes": 3,
       "status": "suggestion",
@@ -180,6 +185,7 @@ export default {
     {
       "id": 7,
       "title": "More comprehensive reports",
+      "user":"0",
       "category": "feature",
       "upvotes": 123,
       "status": "planned",
@@ -208,6 +214,7 @@ export default {
     {
       "id": 8,
       "title": "Learning paths",
+      "user":"0",
       "category": "feature",
       "upvotes": 28,
       "status": "planned",
@@ -227,6 +234,7 @@ export default {
     {
       "id": 9,
       "title": "One-click portfolio generation",
+      "user":"0",
       "category": "feature",
       "upvotes": 62,
       "status": "in-progress",
@@ -246,6 +254,7 @@ export default {
     {
       "id": 10,
       "title": "Bookmark challenges",
+      "user":"0",
       "category": "feature",
       "upvotes": 31,
       "status": "in-progress",
@@ -265,6 +274,7 @@ export default {
     {
       "id": 11,
       "title": "Animated solution screenshots",
+      "user":"0",
       "category": "bug",
       "comments":[],
       "upvotes": 9,
@@ -274,6 +284,7 @@ export default {
     {
       "id": 12,
       "title": "Add micro-interactions",
+      "user":"0",
       "category": "enhancement",
       "upvotes": 71,
       "status": "live",

@@ -27,7 +27,6 @@ export default function Profile() {
     function toggleOff(e){
         if(document.querySelector('.header_profile_dropDown__Hu19q')) {
             toggleProfile(false)
-            console.log("done")
             e.stopPropagation()
         }
     }

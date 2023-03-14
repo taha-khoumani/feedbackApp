@@ -7,14 +7,11 @@ import styles from "@/styles/css/roadmap.module.css"
 import OnMobileNav from './min-components/OnMobileNav'
 import RoadmapStages from './min-components/RoadmapStages'
 
-//data
-import data from "@/data"
-
 //state
 import {useSelector} from 'react-redux'
 
-export default function RoadmapMain() {
-  const {productRequests:feedbacks} = data;
+export default function RoadmapMain(props) {
+  const {feedbacks} = props;
 
   function findStatusInFeedbacks (status){
     return feedbacks.filter(feedback => feedback.status === status )

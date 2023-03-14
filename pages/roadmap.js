@@ -1,5 +1,8 @@
 import React, { useEffect } from 'react'
 
+//database
+import { MongoClient } from "mongodb";
+
 //components
 import RoadmapMain from '@/components/roadmap/RoadmapMain'
 import RoadmapNav from '@/components/roadmap/RoadmapNav'
@@ -11,7 +14,7 @@ import styles from "@/styles/css/roadmap.module.css"
 import { useDispatch } from 'react-redux'
 import { setScreenWidth } from '@/state/slices/uiSlice'
 
-export default function roadmap(props) {
+export default function roadmap({feedbacks}) {
 
   const dispatch = useDispatch()
 
@@ -28,17 +31,20 @@ export default function roadmap(props) {
   return (
     <div className={styles.roadmap} >
         <RoadmapNav  />
-        <RoadmapMain />
+        <RoadmapMain feedbacks={JSON.parse(feedbacks)} />
     </div>
   )
 }
 
-// export async function getServerSideProps(context){
-//     const prevRoute = context.req.headers.referer
+export async function getServerSideProps() {
+  const client = await MongoClient.connect(`mongodb+srv://tagopi:${'DGakye2AgwDd8v2a'}@cluster0.8kpmakb.mongodb.net/?retryWrites=true&w=majority`)
+  const feedbacks = client.db(process.env.databaseName).collection("feedbacks")
+  const result = JSON.stringify(await feedbacks.find().toArray())
 
-//     return{
-//       props:{
-//         history: prevRoute  
-//       }
-//     }
-// }
+
+  return {
+    props: {
+      feedbacks:result,
+    },
+  }
+}

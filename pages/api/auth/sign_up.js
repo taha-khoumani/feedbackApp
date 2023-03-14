@@ -20,7 +20,7 @@ export default async function handler (req,res){
     }
     
     const client = await MongoClient.connect(`mongodb+srv://tagopi:${'DGakye2AgwDd8v2a'}@cluster0.8kpmakb.mongodb.net/?retryWrites=true&w=majority`)
-    const users = client.db("feedback").collection("users")
+    const users = client.db(process.env.databaseName).collection("users")
 
     // check if the user's email is already signed up
     const emailResult = await users.findOne({email:userData.email})
