@@ -15,7 +15,7 @@ export const authOptions = {
 
         //connect to database
         const client = await MongoClient.connect(`mongodb+srv://tagopi:${'DGakye2AgwDd8v2a'}@cluster0.8kpmakb.mongodb.net/?retryWrites=true&w=majority`)
-        const db = client.db(processs.env.databaseName)
+        const db = client.db(process.env.databaseName)
         const users = db.collection("users")
 
         //check credentials legetemecy

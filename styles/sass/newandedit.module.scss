@@ -72,8 +72,9 @@ $mobile:767px;
                 @include media ($mobile){
                     flex-direction:column-reverse;
                 }
-                button{
+                button,a{
                     margin:0;
+                    width: 100%;
                 }
 
             }

@@ -5,7 +5,7 @@ import suggestions from "@/images/icons/icon-suggestions.svg"
 
 //next
 import Image from 'next/image'
-import Link from 'next/link'
+import { useRouter } from 'next/router'
 
 //styles
 import styles from "@/styles/css/main.module.css"
@@ -13,6 +13,9 @@ import styles from "@/styles/css/main.module.css"
 //state
 import {setSortMethode,toggleSort} from "@/state/slices/uiSlice"
 import { useDispatch,useSelector } from 'react-redux'
+
+//auth
+import { useSession } from 'next-auth/react'
 
 export default function FeedbackBar() {
     const {isSortOpen,sortMethode,screenWidth} = useSelector(store=>store.ui)
@@ -37,6 +40,19 @@ export default function FeedbackBar() {
         document.body.addEventListener("click",toggleOff,true)
         return () => document.body.removeEventListener("click",toggleOff)
     },[])
+
+    //add-feedback-logic
+    const {data,status} = useSession()
+    const router = useRouter()
+    function addFeedbackHandler(){
+        
+        if(status !== "authenticated") {
+            console.log("you need to be signed up to add a feedback")
+            return;
+        }
+
+        router.push("/feedbacks/new")
+    }
 
   return (
     <div id={styles.feedback_bar}>
@@ -69,11 +85,12 @@ export default function FeedbackBar() {
                 </div>
             }
         </div>
-        <Link href={"/feedbacks/new"} style={{marginLeft:"auto"}} >
-            <button className='button_two'>
-                + Add Feedback
-            </button>
-        </Link>
+        <button 
+            className='button_two'
+            onClick={addFeedbackHandler}    
+        >
+            + Add Feedback
+        </button>
     </div>
   )
 }

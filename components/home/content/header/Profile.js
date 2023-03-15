@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 
 //components
 import Avatar from 'react-avatar';
@@ -13,7 +13,7 @@ export default function Profile() {
     //state
     const [isProfileOpen,toggleProfile] = useState(false)
 
-    const {data,status} = useSession()
+    const {data} = useSession()
     const {firstName,lastName} = data.user
 
     //click handlers
@@ -25,7 +25,13 @@ export default function Profile() {
     }
 
     function toggleOff(e){
-        if(document.querySelector('.header_profile_dropDown__Hu19q')) {
+        const signout = document.querySelector('.header_profile_dropDown__Hu19q p')
+
+        //if you clicked on signout : don't e.stopPropagation()
+        if(e.target === signout) return;
+
+        // if you clicked on something on the page and signout is open : e.stopPropagation()
+        if(signout) {
             toggleProfile(false)
             e.stopPropagation()
         }

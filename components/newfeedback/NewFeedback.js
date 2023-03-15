@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from 'react'
 
 //next
 import Image from 'next/image'
+import Link from 'next/link'
 
 //images
 import plus from "@/images/icons/icon-new-feedback.svg"
@@ -93,7 +94,7 @@ export default function NewFeedback(props) {
                     </>
                         :
                     <>
-                        <button className='button_three'  >Cancel</button>
+                        <Link href={"/"} ><button className='button_three'  >Cancel</button></Link>
                         <button className='button_two' >Add Feedback</button>
                     </>
                 }
