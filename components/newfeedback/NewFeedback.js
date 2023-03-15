@@ -3,6 +3,7 @@ import React, { useEffect, useRef, useState } from 'react'
 //next
 import Image from 'next/image'
 import Link from 'next/link'
+import { useRouter } from 'next/router'
 
 //images
 import plus from "@/images/icons/icon-new-feedback.svg"
@@ -16,8 +17,18 @@ import styles from "@/styles/css/newandedit.module.css"
 //auth
 import { getSession} from 'next-auth/react'
 
+//helper-function
+import { verifyFeedback } from '@/lib/helper-functions'
+
+//components
+import AuthFeedback from '../ui/AuthFeedback'
+
 export default function NewFeedback(props) {
     const [isCatOpen,toggleCat] = useState(false)
+    const router = useRouter()
+
+    //user validation feedback
+    const [feedback,setFeedback] = useState({})
 
     const [feedbackData,setFeedbackData] = useState({
         title:"",
@@ -75,9 +86,37 @@ export default function NewFeedback(props) {
         }))
     }
 
-    function onSubmitHandler(e){
+    async function onSubmitHandler(e){
         e.preventDefault()
-        console.log(feedbackData)
+
+        if(verifyFeedback(feedbackData).status === 'error'){
+            setFeedback(verifyFeedback(feedbackData))
+            return;
+        }
+
+        //pending
+        setFeedback({status:'pending',message:'Adding feedback ...'})
+
+        //post
+        const result = await fetch('/api/new',{
+            method:"POST",
+            body:JSON.stringify(feedbackData),
+            headers:{
+                'Content-Type':'application/json',
+            }
+        })
+        const jsonResult = await result.json()
+
+        //if error
+        if(jsonResult.status !== 200){
+            setFeedback({status:'error',message:jsonResult.message})
+            return;
+        }
+
+        //else
+
+        setFeedback({status:'succes',message:jsonResult.message})
+        setTimeout(()=>router.push(`/feedbacks/${jsonResult.newFeedbackId}`),450)
     }
 
   return (
@@ -143,6 +182,7 @@ export default function NewFeedback(props) {
                     onChange={onChangeHandler}
                 ></textarea>
             </div>
+            { Object.keys(feedback).length !== 0 && <AuthFeedback data={feedback} />}
             <div className={styles.button_div} style={props.isEdit ? {justifyContent:"space-between"} : {}} >
                 {   props.isEdit 
                         ?
@@ -150,12 +190,12 @@ export default function NewFeedback(props) {
                         <button className='button_delete' >Delete</button> 
                         <div className={styles.button_div} >
                             <button className='button_three' >Cancel</button>
-                            <button className='button_two' >Save Changes</button>
+                            <button className='button_two' type='submit' >Save Changes</button>
                         </div>
                     </>
                         :
                     <>
-                        <Link href={"/"} ><button className='button_three'  >Cancel</button></Link>
+                        <Link href={"/"} ><button className='button_three'  type='button'>Cancel</button></Link>
                         <button className='button_two' >Add Feedback</button>
                     </>
                 }

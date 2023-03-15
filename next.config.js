@@ -2,7 +2,7 @@
 const nextConfig = {
   reactStrictMode: true,
   env:{
-    databaseName:'feedback_production'
+    databaseName:'feedback'
   }
 }
 
