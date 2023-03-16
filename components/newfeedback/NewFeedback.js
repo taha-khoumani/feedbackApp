@@ -31,12 +31,12 @@ export default function NewFeedback(props) {
     const [feedback,setFeedback] = useState({})
 
     const [feedbackData,setFeedbackData] = useState({
-        title:"",
+        title: props.isEdit ? props.data.title :  "" ,
         user:"",
-        category:"feature",
+        category: props.isEdit ? props.data.category : "feature",
         upvotes:0,
         status:"suggestion",
-        description:"",
+        description:props.isEdit ? props.data.description :  "" ,
         comments:[],
     })
 
@@ -95,11 +95,11 @@ export default function NewFeedback(props) {
         }
 
         //pending
-        setFeedback({status:'pending',message:'Adding feedback ...'})
+        setFeedback({status:'pending',message:'Updating feedback ...'})
 
         //post
-        const result = await fetch('/api/new',{
-            method:"POST",
+        const result = await fetch(`/api/${props.isEdit ? 'edit' : 'new'}`,{
+            method: props.isEdit ? "PUT" : "POST",
             body:JSON.stringify(feedbackData),
             headers:{
                 'Content-Type':'application/json',
@@ -125,7 +125,7 @@ export default function NewFeedback(props) {
         <h1>
             {   
                 props.isEdit ?
-                `Editing ‘${'Add a dark theme option'}‘` :
+                `Editing ‘${props.data.title}‘` :
                 'Create New Feedback'
             }
         </h1>
@@ -152,7 +152,16 @@ export default function NewFeedback(props) {
                         className='textarea_one' 
                         style={{cursor:"pointer",margin:0,display:"flex",alignItems:"center"}} 
                     >
-                        <p style={{margin:"0 auto 0 0"}} >{capitalizeFirstLetter(feedbackData.category)}</p>
+                        <p style={{margin:"0 auto 0 0"}} >
+                            
+                            {
+                                //if the category is UI or UX "wich have a lenght of 2 " toUpperCase the whole category 
+                                //if it's not : upper case only the first letter
+                                feedbackData.category.length === 2 ? 
+                                feedbackData.category.toUpperCase() : 
+                                capitalizeFirstLetter(feedbackData.category)
+                            }
+                        </p>
                         <Image src={isCatOpen ? up : down} alt='arrow' />
                     </div>
                     {

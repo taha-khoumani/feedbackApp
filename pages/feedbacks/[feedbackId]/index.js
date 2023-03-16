@@ -39,10 +39,9 @@ export default function feedback(props) {
     if(!requestedFeedback){
       return <h1>error</h1>
     }
-    // console.log(props.history)
   return (
     <div className={styles.feedback_details} >
-        <FeedbackNav prevRoute={props.history} isEditNeeded={true} />
+        <FeedbackNav prevRoute={props.history} isEditNeeded={true} feedbackOwner={requestedFeedback.user} />
         <Feedback data={requestedFeedback} />
         <CommentsSection comments={requestedFeedback.comments} />
         <AddComment />
@@ -50,19 +49,18 @@ export default function feedback(props) {
   )
 }
 
-export async function getServerSideProps({req,params}){
+export async function getServerSideProps({req,params,resolvedUrl}){
   var ObjectId = require('mongodb').ObjectId; 
   const wantedFeedbackId = new ObjectId(params.feedbackId) 
 
   const client = await MongoClient.connect(`mongodb+srv://tagopi:${'DGakye2AgwDd8v2a'}@cluster0.8kpmakb.mongodb.net/?retryWrites=true&w=majority`)
   const feedbacks = client.db(process.env.databaseName).collection("feedbacks")
-
   const result = JSON.stringify(await feedbacks.findOne({_id:wantedFeedbackId}))
 
   return{
     props:{
       requestedFeedback:result,
-      history:req.headers.referer || "/"
+      history:"/"
     }
   }
 }
