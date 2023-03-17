@@ -100,7 +100,10 @@ export default function NewFeedback(props) {
         //post
         const result = await fetch(`/api/${props.isEdit ? 'edit' : 'new'}`,{
             method: props.isEdit ? "PUT" : "POST",
-            body:JSON.stringify(feedbackData),
+            body:JSON.stringify({
+                feedbackData:JSON.stringify(feedbackData),
+                _id:props?.data?._id
+            }),
             headers:{
                 'Content-Type':'application/json',
             }
@@ -116,7 +119,7 @@ export default function NewFeedback(props) {
         //else
 
         setFeedback({status:'succes',message:jsonResult.message})
-        setTimeout(()=>router.push(`/feedbacks/${jsonResult.newFeedbackId}`),450)
+        // setTimeout(()=>router.push(`/feedbacks/${jsonResult.newFeedbackId}`),450)
     }
 
   return (
