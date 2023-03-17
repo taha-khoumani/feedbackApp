@@ -74,7 +74,9 @@ $mobile:767px;
                 }
                 button,a{
                     margin:0;
-                    width: 100%;
+                    @include media($mobile){
+                        width: 100%;
+                    }
                 }
 
             }

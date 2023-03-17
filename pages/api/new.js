@@ -10,7 +10,7 @@ export default async function handler (req,res){
         return null;
     }
 
-    const feedbackData = req.body
+    const {feedbackData} = req.body
 
     //check if the data is valid
     if(verifyFeedback(feedbackData).status === 'error'){

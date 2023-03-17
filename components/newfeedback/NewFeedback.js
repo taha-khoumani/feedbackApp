@@ -24,6 +24,10 @@ import { verifyFeedback } from '@/lib/helper-functions'
 import AuthFeedback from '../ui/AuthFeedback'
 
 export default function NewFeedback(props) {
+    if(!props.data && props.isEdit ){
+        return <h1>this feedback doesn't exist</h1>
+    }
+
     const [isCatOpen,toggleCat] = useState(false)
     const router = useRouter()
 
@@ -95,7 +99,7 @@ export default function NewFeedback(props) {
         }
 
         //pending
-        setFeedback({status:'pending',message:'Updating feedback ...'})
+        setFeedback({status:'pending',message:`${props.isEdit ? 'Updating' : 'Adding'} feedback ...`})
 
         //post
         const result = await fetch(`/api/${props.isEdit ? 'edit' : 'new'}`,{
@@ -120,6 +124,34 @@ export default function NewFeedback(props) {
 
         setFeedback({status:'succes',message:jsonResult.message})
         // setTimeout(()=>router.push(`/feedbacks/${jsonResult.newFeedbackId}`),450)
+    }
+
+    async function onDeleteHandler(e){
+        //pending
+        setFeedback({status:'pending',message:'Deleting feedback ...'})
+
+        //post
+        const result = await fetch(`/api/delete`,{
+            method: 'DELETE',
+            body:JSON.stringify({
+                _id: props?.data?._id
+            }),
+            headers:{
+                'Content-Type':'application/json',
+            }
+        })
+
+        const jsonResult = await result.json()
+
+        //if error
+        // if(jsonResult.status !== 200){
+        //     setFeedback({status:'error',message:jsonResult.message})
+        //     return;
+        // }
+
+        //else
+
+        setFeedback({status:'succes',message:jsonResult.message})
     }
 
   return (
@@ -177,7 +209,7 @@ export default function NewFeedback(props) {
                             <p onClick={(e)=>setCatHandler(e,"bug")}>Bug {feedbackData.category === "Bug" && <i className="fa-sharp fa-solid fa-check"></i>}</p>
                         </div>
                     }
-                </div>
+                </div> 
             </div>
             <div className={styles.inputgroup} >
                 <label className={styles.inputtitle} >Feedback Detail</label>
@@ -199,16 +231,16 @@ export default function NewFeedback(props) {
                 {   props.isEdit 
                         ?
                     <>
-                        <button className='button_delete' >Delete</button> 
+                        <button className='button_delete' onClick={onDeleteHandler}  type='button'>Delete</button> 
                         <div className={styles.button_div} >
-                            <button className='button_three' >Cancel</button>
+                            <Link href={"/"} ><button className='button_three'  type='button'>Cancel</button></Link>
                             <button className='button_two' type='submit' >Save Changes</button>
                         </div>
                     </>
                         :
                     <>
                         <Link href={"/"} ><button className='button_three'  type='button'>Cancel</button></Link>
-                        <button className='button_two' >Add Feedback</button>
+                        <button className='button_two'  >Add Feedback</button>
                     </>
                 }
             </div>
