@@ -10,12 +10,11 @@ export default async function handler (req,res){
         return null;
     }
 
-    let {_id,feedbackData} = req.body
+    const {_id,feedbackData} = req.body
 
-    console.log(JSON.parse(feedbackData),_id)
     // check if the data is valid
-    if(verifyFeedback(JSON.parse(feedbackData)).status === 'error'){
-        res.status(400).json({status:400,message:verifyFeedback(JSON.parse(feedbackData)).message})
+    if(verifyFeedback(feedbackData).status === 'error'){
+        res.status(400).json({status:400,message:verifyFeedback(feedbackData).message})
         return null;
     }
     
@@ -25,7 +24,7 @@ export default async function handler (req,res){
     //insert the data
     var ObjectId = require('mongodb').ObjectId; 
     const wantedFeedbackId = new ObjectId(_id) 
-    const result = await feedbacks.replaceOne({_id:wantedFeedbackId},JSON.parse(feedbackData))
+    const result = await feedbacks.replaceOne({_id:wantedFeedbackId},feedbackData)
     res.status(200).json({status:200,message:'Feedback updated succesefully',newFeedbackId:req._id})
     client.close()
 }

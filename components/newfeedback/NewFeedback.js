@@ -101,7 +101,7 @@ export default function NewFeedback(props) {
         const result = await fetch(`/api/${props.isEdit ? 'edit' : 'new'}`,{
             method: props.isEdit ? "PUT" : "POST",
             body:JSON.stringify({
-                feedbackData:JSON.stringify(feedbackData),
+                feedbackData:feedbackData,
                 _id:props?.data?._id
             }),
             headers:{
