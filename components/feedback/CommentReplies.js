@@ -4,7 +4,7 @@ import CommentReply from "./CommentReply"
 
 export default function CommentReplies(props) {
   const {commentRepliesData} = props
-
+  console.log(commentRepliesData)
   if(!commentRepliesData){return null}
 
   const commentRepliesEls = commentRepliesData.map((reply,index,replies)=>{
