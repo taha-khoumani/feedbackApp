@@ -10,7 +10,6 @@ export default async function handler (req,res){
         return null;
     }
     const {replyData,_id,commentId} = req.body
-    const {} = replyData
 
     //check if the data is valid
     if(verifyComment(replyData).status === 'error'){

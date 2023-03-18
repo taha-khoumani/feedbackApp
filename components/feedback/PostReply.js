@@ -109,10 +109,7 @@ export default function PostReply(props) {
     <>
         <form 
             className={styles.post_reply}
-            onSubmit={(e)=>{
-                e.preventDefault()
-                // console.log(replyingTo)
-            }}  
+            onSubmit={onSubmitHandler}  
         >
             <textarea 
                 className='textarea_one'

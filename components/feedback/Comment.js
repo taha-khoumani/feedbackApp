@@ -34,7 +34,8 @@ export default function Comment(props) {
         />
         <CommentReplies 
             commentRepliesData={commentData.replies}
-            replyingTo=''
+            feedbackId={feedbackId}
+            commentId={commentData.id}
         />
     </div>
   )

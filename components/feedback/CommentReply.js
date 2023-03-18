@@ -11,7 +11,8 @@ import PostReply from './PostReply'
 import Avatar from 'react-avatar'
 
 export default function CommentReply(props) {
-    const {content,userName,userUsername,userImg,replyingTo,isLast} = props.replyData
+    const {feedbackId,commentId,replyData} = props
+    const {content,userName,userUsername,userImg,replyingTo,isLast} = replyData
     
     const [isReplyOpen,toggleReply] = useState(false)
 
@@ -49,7 +50,7 @@ export default function CommentReply(props) {
                 </span>
                 {content}
             </p>
-            <PostReply replyingTo={userUsername} replyStatus={{isReplyOpen,toggleReply}} />
+            <PostReply feedbackId={feedbackId} commentId={commentId} replyingTo={userUsername} replyStatus={{isReplyOpen,toggleReply}} />
         </div>
     </div>
   )

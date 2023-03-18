@@ -3,8 +3,8 @@ import React from 'react'
 import CommentReply from "./CommentReply"
 
 export default function CommentReplies(props) {
-  const {commentRepliesData} = props
-  console.log(commentRepliesData)
+  const {commentRepliesData,feedbackId,commentId} = props
+
   if(!commentRepliesData){return null}
 
   const commentRepliesEls = commentRepliesData.map((reply,index,replies)=>{
@@ -19,6 +19,8 @@ export default function CommentReplies(props) {
           replyingTo:reply.replyingTo,
           isLast: (index === replies.length-1) ,
         }}
+        commentId={commentId}
+        feedbackId={feedbackId}
       />
     )
   })
