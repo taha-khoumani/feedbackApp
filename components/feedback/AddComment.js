@@ -18,6 +18,7 @@ import { setRequestComments } from '@/state/slices/uiSlice';
 
 //auth
 import { useSession } from 'next-auth/react';
+import { nanoid } from 'nanoid'
 
 export default function AddComment(props) {
   const dispatch = useDispatch()
@@ -25,6 +26,7 @@ export default function AddComment(props) {
   const {data,status} = useSession() 
 
   const [comment,setComment] = useState({
+    id:nanoid(),
     content:"",
     user:{
       name:'',
