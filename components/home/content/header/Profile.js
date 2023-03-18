@@ -45,7 +45,7 @@ export default function Profile() {
   return (
     <div className={styles.profile_wraper} >
         <Avatar 
-            name={`${firstName} ${lastName}`} 
+            name={firstName} 
             size={40} 
             round={true} 
             textSizeRatio={2} 

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 
 //next
 import { useRouter } from 'next/router'
@@ -16,8 +16,9 @@ import FeedbackNav from '@/components/feedback/FeedbackNav'
 import styles from "@/styles/css/feedbackDetails.module.css"
 
 //state
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { setScreenWidth } from '@/state/slices/uiSlice'
+
 
 //database
 import { MongoClient } from "mongodb";
@@ -25,6 +26,18 @@ import { MongoClient } from "mongodb";
 export default function feedback(props) {
     const requestedFeedback = JSON.parse(props.requestedFeedback)
     const dispatch = useDispatch()
+    const {requestComments} = useSelector(store=>store.ui)
+    const [comments,setComments] = useState(requestedFeedback.comments)
+
+    // useEffect(()=>{
+    //   if(!requestComments) return;
+    //   (async ()=>{
+    //     const jsonResult = await fetch(`/api/get_comments/${requestedFeedback._id}`)
+    //     const result = jsonResult.json()
+    //     console.log(result)
+    //     // setComments(result)
+    //   })()
+    // },[requestComments])
 
     useEffect(()=>{
       dispatch(setScreenWidth(window.innerWidth))
@@ -39,12 +52,15 @@ export default function feedback(props) {
     if(!requestedFeedback){
       return <h1>error</h1>
     }
+
+
+
   return (
     <div className={styles.feedback_details} >
         <FeedbackNav prevRoute={props.history} isEditNeeded={true} feedbackOwner={requestedFeedback.user} />
         <Feedback data={requestedFeedback} />
-        <CommentsSection comments={requestedFeedback.comments} />
-        <AddComment />
+        <CommentsSection comments={comments} />
+        <AddComment feedbackId={requestedFeedback._id} />
     </div>
   )
 }

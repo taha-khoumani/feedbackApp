@@ -25,6 +25,6 @@ export default async function handler (req,res){
     var ObjectId = require('mongodb').ObjectId; 
     const wantedFeedbackId = new ObjectId(_id) 
     const result = await feedbacks.replaceOne({_id:wantedFeedbackId},feedbackData)
-    res.status(200).json({status:200,message:'Feedback updated succesefully',newFeedbackId:req._id})
+    res.status(200).json({status:200,message:'Feedback updated succesefully',newFeedbackId:_id})
     client.close()
 }

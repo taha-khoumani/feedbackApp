@@ -7,6 +7,7 @@ const initialState = {
     sortMethode:"Most Upvotes",
     filter:"all",
     currentStage:"In-Progress",
+    requestComments:false,
 }
 
 const uiSlice = createSlice({
@@ -31,8 +32,11 @@ const uiSlice = createSlice({
         setcurrentStage:(state,{payload})=>{
             state.currentStage = payload
         },
+        setRequestComments:(state,{payload})=>{
+            state.requestComments = payload
+        },
     }
 })
 
 export default uiSlice.reducer
-export const {setScreenWidth,toggleMenu,toggleSort,setSortMethode,setFilter,setcurrentStage} = uiSlice.actions
+export const {setScreenWidth,toggleMenu,toggleSort,setSortMethode,setFilter,setcurrentStage,setRefreshComments} = uiSlice.actions

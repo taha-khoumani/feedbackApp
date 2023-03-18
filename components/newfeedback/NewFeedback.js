@@ -121,9 +121,8 @@ export default function NewFeedback(props) {
         }
 
         //else
-
         setFeedback({status:'succes',message:jsonResult.message})
-        // setTimeout(()=>router.push(`/feedbacks/${jsonResult.newFeedbackId}`),450)
+        setTimeout(()=>router.push(`/feedbacks/${jsonResult.newFeedbackId}`),450)
     }
 
     async function onDeleteHandler(e){
@@ -143,15 +142,8 @@ export default function NewFeedback(props) {
 
         const jsonResult = await result.json()
 
-        //if error
-        // if(jsonResult.status !== 200){
-        //     setFeedback({status:'error',message:jsonResult.message})
-        //     return;
-        // }
-
-        //else
-
         setFeedback({status:'succes',message:jsonResult.message})
+        setTimeout(()=>router.push('/'),450)
     }
 
   return (
