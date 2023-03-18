@@ -31,7 +31,8 @@ export default function AddComment(props) {
     user:{
       name:'',
       username:'',
-    }
+    },
+    replies: [],
   })
 
   useEffect(()=>{

@@ -7,7 +7,7 @@ import Comment from './Comment'
 import styles from "@/styles/css/feedbackDetails.module.css"
 
 export default function Comments(props) {
-  const {comments} = props
+  const {comments,feedbackId} = props
 
   const commentsEls = comments.map((comment,index,comments)=>
     <Comment 
@@ -15,6 +15,7 @@ export default function Comments(props) {
       isLast={index === comments.length-1 ? true : false }
       commentData={comment}
       key={comment.id}
+      feedbackId={feedbackId}
     />
   )
 

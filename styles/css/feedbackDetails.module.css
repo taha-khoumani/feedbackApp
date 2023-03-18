@@ -171,14 +171,14 @@
     padding: 0 0 30px 15px;
   }
 }
-.comments_section .comments .comment .comment_replies span {
+.comments_section .comments .comment .comment_replies .username {
   color: #AD1FEA;
   font-weight: 700;
   font-size: 15px;
   margin-right: 10px;
 }
 @media (max-width: 767px) {
-  .comments_section .comments .comment .comment_replies span {
+  .comments_section .comments .comment .comment_replies .username {
     font-size: 13px;
   }
 }

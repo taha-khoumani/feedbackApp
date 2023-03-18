@@ -7,9 +7,12 @@ import styles from "@/styles/css/feedbackDetails.module.css"
 import Image from 'next/image'
 import PostReply from './PostReply'
 
+//components
+import Avatar from 'react-avatar'
+
 export default function CommentReply(props) {
     const {content,userName,userUsername,userImg,replyingTo,isLast} = props.replyData
-
+    
     const [isReplyOpen,toggleReply] = useState(false)
 
     const lastStyles = {
@@ -19,7 +22,16 @@ export default function CommentReply(props) {
   return (
     <div className={styles.comment_replies} style={isLast ? lastStyles : {}}>
         <div className={styles.comment_metaData} >
-            <Image src={userImg} alt={`${userName}'s profile picture`} width={40} height={40} />
+            {
+            userImg ?
+            <Image src={userImg} alt={`${userName}'s profile picture`} width={40} height={40} /> :
+            <Avatar 
+                name={userUsername}
+                size={40} 
+                round={true} 
+                textSizeRatio={2} 
+            /> 
+           }
             <div className={styles.comment_userInfo} >
                 <p>{userName}</p>
                 <p>{`@${userUsername}`}</p>
@@ -32,12 +44,12 @@ export default function CommentReply(props) {
         </div>
         <div className={`${styles.comment_content_content} reply`}>
             <p>
-                <span>
+                <span className={styles.username}>
                     {`@${replyingTo}`}
                 </span>
                 {content}
             </p>
-            <PostReply replyStatus={{isReplyOpen,toggleReply}} />
+            <PostReply replyingTo={userUsername} replyStatus={{isReplyOpen,toggleReply}} />
         </div>
     </div>
   )

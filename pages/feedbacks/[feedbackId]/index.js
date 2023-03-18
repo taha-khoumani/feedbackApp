@@ -59,7 +59,7 @@ export default function feedback(props) {
     <div className={styles.feedback_details} >
         <FeedbackNav prevRoute={props.history} isEditNeeded={true} feedbackOwner={requestedFeedback.user} />
         <Feedback data={requestedFeedback} />
-        <CommentsSection comments={comments} />
+        <CommentsSection feedbackId={requestedFeedback._id} comments={comments} />
         <AddComment feedbackId={requestedFeedback._id} />
     </div>
   )

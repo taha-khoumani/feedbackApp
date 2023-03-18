@@ -13,7 +13,7 @@ import styles from "@/styles/css/feedbackDetails.module.css"
 import Avatar from 'react-avatar'
 
 export default function CommentContent(props) {
-    const {content,userImg,userName,userUsername,hasReplies} = props.commentContentData
+    const {content,userImg,userName,userUsername,hasReplies,feedbackId,commentId} = props.commentContentData
     const [isReplyOpen,toggleReply] = useState(false)
 
   return (
@@ -41,7 +41,7 @@ export default function CommentContent(props) {
         </div>
         <div className={`${styles.comment_content_content} comment${hasReplies?"Yes":"No"}Replies`}>
             <p>{content}</p>
-            <PostReply replyStatus={{isReplyOpen,toggleReply}} />
+            <PostReply commentId={commentId} feedbackId={feedbackId} replyingTo={userUsername} replyStatus={{isReplyOpen,toggleReply:toggleReply}} />
         </div>
     </div>
   )

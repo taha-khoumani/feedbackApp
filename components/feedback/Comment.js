@@ -8,7 +8,7 @@ import CommentReplies from "./CommentReplies"
 import styles from "@/styles/css/feedbackDetails.module.css"
 
 export default function Comment(props) {
-    const {isFirst,commentData,isLast} = props
+    const {isFirst,commentData,isLast,feedbackId} = props
 
     const ifFirstStyles = {
         border:"none",
@@ -27,7 +27,9 @@ export default function Comment(props) {
                 userImg:commentData.user.image,
                 userName:commentData.user.name,
                 userUsername:commentData.user.username,
-                hasReplies:commentData?.replies,
+                hasReplies:commentData.replies.length !== 0 ,
+                feedbackId:feedbackId,
+                commentId:commentData.id,
             }}
         />
         <CommentReplies 
