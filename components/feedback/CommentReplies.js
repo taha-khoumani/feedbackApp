@@ -8,7 +8,6 @@ export default function CommentReplies(props) {
   if(!commentRepliesData){return null}
 
   const commentRepliesEls = commentRepliesData.map((reply,index,replies)=>{
-    console.log(reply.id)
     return(
       <CommentReply
         key={index}

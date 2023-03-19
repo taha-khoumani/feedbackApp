@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 
 //next
 import Image from 'next/image';
@@ -15,6 +15,8 @@ import upvotesIcon from "@/images/icons/icon-arrow-up.svg"
 //state
 import { useSelector } from 'react-redux';
 
+//auth
+import { useSession } from 'next-auth/react';
 
 export default function Feedback(props) {
     const {title,description,category,upvotes,comments,_id} = props.data
@@ -24,9 +26,39 @@ export default function Feedback(props) {
     }
 
     const {screenWidth,isSortOpen} = useSelector(store=>store.ui)
+    const [localeUpvotes,setLocaleUpvotes] = useState(upvotes)
+    const [didUserUpvote,toggleUpvote] = useState()
 
-    function upvoteHandler (e){
+    //auth
+    const {data,status} = useSession() 
+    const [auth,setAuth] = useState('')
+    useEffect(()=>{
+        if (status !== 'authenticated') return;
+        setAuth(data.user.userName)
+        toggleUpvote(localeUpvotes.from.find(user=>user === data.user.userName) === data.user.userName )
+    },[status,localeUpvotes])
+
+    async function onUpvoteHandler(e){
         e.stopPropagation()
+
+        // post data in database
+        const JSONresultPATCH = await fetch('/api/post_upvotes',{
+            method:"PATCH",
+            body:JSON.stringify({
+                action:!didUserUpvote,
+                from:auth,
+                feedbackId:_id,
+            }),
+            headers:{
+                'Content-Type':'application/json',
+            }
+        })
+        const resultPATCH = await JSONresultPATCH.json()
+
+        //get data from database
+        const JSONresultGET = await fetch(`/api/get_upvotes/${_id}`)
+        const resultGET = await JSONresultGET.json()
+        setLocaleUpvotes(resultGET.upvotes)
     }
 
     const router = useRouter()
@@ -43,11 +75,9 @@ export default function Feedback(props) {
             onClick={feedbackOnClickHandler}
         >
             <div className={styles.upvotes} >
-                <button
-                    onClick={(e)=> upvoteHandler(e)}
-                >
-                    <Image src={upvotesIcon} alt='upvote-icon'/>
-                    {upvotes}
+                <button onClick={onUpvoteHandler} className={didUserUpvote?styles.upvoteOn:""} >
+                    <i className="fa-solid fa-angle-up"></i>
+                    {localeUpvotes.length}
                 </button>
             </div>
             <div className={styles.infos} >
@@ -74,12 +104,10 @@ export default function Feedback(props) {
                 <p className={styles.category}>{capitalizeFirstLetter(category)}</p>
             </div>
             <div className={styles.upvotes_comments}>
-                <div className={styles.upvotes} >
-                    <button
-                        onClick={(e)=> upvoteHandler(e)}
-                    >
+                <div className={styles.upvotes}>
+                    <button onClick={onUpvoteHandler}  className={didUserUpvote?styles.upvoteOn:""}>
                         <Image src={upvotesIcon} alt='upvote-icon'/>
-                        {upvotes}
+                        {localeUpvotes.length}
                     </button>
                 </div>
                 <div className={styles.comments}>

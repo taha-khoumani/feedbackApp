@@ -38,7 +38,10 @@ export default function NewFeedback(props) {
         title: props.isEdit ? props.data.title :  "" ,
         user:"",
         category: props.isEdit ? props.data.category : "feature",
-        upvotes:0,
+        upvotes:{
+            length:0,
+            from:[]
+        },
         status:"suggestion",
         description:props.isEdit ? props.data.description :  "" ,
         comments:[],
