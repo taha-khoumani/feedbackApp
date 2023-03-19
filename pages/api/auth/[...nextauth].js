@@ -5,6 +5,7 @@ import CredentialsProvider from "next-auth/providers/credentials"
 //database
 import { compare,hash} from "bcrypt"
 import { MongoClient } from "mongodb";
+import { redirect } from "next/dist/server/api-utils";
 
 export const authOptions = {
   secret: process.env.NEXT_PUBLIC_SECRET,
@@ -65,6 +66,10 @@ export const authOptions = {
       session.user.firstName = firstName;
       session.user.lastName = lastName;
       return session
+    },
+
+    async redirect({url,baseUrl}){
+      return url
     }
   }
 }
