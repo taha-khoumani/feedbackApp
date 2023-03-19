@@ -17,27 +17,28 @@ import styles from "@/styles/css/feedbackDetails.module.css"
 
 //state
 import { useDispatch, useSelector } from 'react-redux'
-import { setScreenWidth } from '@/state/slices/uiSlice'
+import { setRequestComments, setScreenWidth } from '@/state/slices/uiSlice'
 
 
 //database
 import { MongoClient } from "mongodb";
 
 export default function feedback(props) {
-    const requestedFeedback = JSON.parse(props.requestedFeedback)
+    const {feedbackId,requestedFeedbackJSON} = props
+    const requestedFeedback = JSON.parse(requestedFeedbackJSON)
     const dispatch = useDispatch()
     const {requestComments} = useSelector(store=>store.ui)
     const [comments,setComments] = useState(requestedFeedback.comments)
 
-    // useEffect(()=>{
-    //   if(!requestComments) return;
-    //   (async ()=>{
-    //     const jsonResult = await fetch(`/api/get_comments/${requestedFeedback._id}`)
-    //     const result = jsonResult.json()
-    //     console.log(result)
-    //     // setComments(result)
-    //   })()
-    // },[requestComments])
+    useEffect(()=>{
+      if(requestComments !== 'pending') return;
+      (async ()=>{
+        const jsonResult = await fetch(`/api/get_comments/${feedbackId}`)
+        const result = await jsonResult.json()
+        setComments(result.comments)
+        dispatch(setRequestComments('finished'))
+      })()
+    },[requestComments])
 
     useEffect(()=>{
       dispatch(setScreenWidth(window.innerWidth))
@@ -75,8 +76,9 @@ export async function getServerSideProps({req,params,resolvedUrl}){
 
   return{
     props:{
-      requestedFeedback:result,
-      history:"/"
+      requestedFeedbackJSON:result,
+      history:"/",
+      feedbackId:params.feedbackId,
     }
   }
 }

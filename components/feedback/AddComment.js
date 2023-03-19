@@ -52,7 +52,8 @@ export default function AddComment(props) {
     const el = e.target
     setComment(prev=>({
       ...prev,
-      content:el.value
+      content:el.value,
+      id:nanoid(),
     }))
   }
 
@@ -94,22 +95,18 @@ export default function AddComment(props) {
       setFeedback({status:'error',message:jsonResult.message})
       return;
     }
-    
-    // dispatch(setRequestComments(true))
-    
-    // //else
-    // while(!requestComments){
-      setFeedback({status:'succes',message:jsonResult.message})
-      setTimeout(()=>{
-        setFeedback({})
-        setComment(prev=>({
-          ...prev,
-          content:''
-        }))
-      },450)
-    // }
-
+    dispatch(setRequestComments('pending'))
   }
+
+  useEffect(()=>{
+    if(requestComments !== 'finished') return;
+    setComment(prev=>({
+      ...prev,
+      content:''
+    }))
+    setFeedback({})
+    dispatch(setRequestComments('no'))
+  },[requestComments])
 
   return (
     <form 

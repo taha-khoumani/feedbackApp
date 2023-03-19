@@ -13,11 +13,17 @@ import AuthFeedback from '../ui/AuthFeedback'
 //helpers
 import { verifyComment } from '@/lib/helper-functions'
 
+//state
+import { setRequestComments } from '@/state/slices/uiSlice'
+import { useDispatch, useSelector } from 'react-redux'
+
 export default function PostReply(props) {
     const {replyingTo,replyStatus,feedbackId,commentId} = props
     const {isReplyOpen,toggleReply} = replyStatus
+    const {requestComments} = useSelector(store=>store.ui)
     const {data,status} = useSession()
     const [feedback,setFeedback] = useState({})
+    const dispatch = useDispatch()
     const [reply,setReply] = useState({
         id:nanoid(),
         content:"",
@@ -34,7 +40,7 @@ export default function PostReply(props) {
           ...prev,
           content:el.value
         }))
-      }
+    }
 
     useEffect(()=>{
         if(status !== "authenticated") return;
@@ -49,10 +55,21 @@ export default function PostReply(props) {
     
     },[status])
 
-    const refTextarea = useRef()
-    
-    if(!isReplyOpen){return null}
+    useEffect(()=>{
+        if(requestComments !== 'finished') return;
+        toggleReply(false)
+        setReply(prev=>({
+          ...prev,
+          content:''
+        }))
+        setFeedback({})
+        dispatch(setRequestComments('no'))
+    },[requestComments])
 
+    const refTextarea = useRef()
+
+    if(!isReplyOpen){return null}
+    
     function changeHeight (el){
       el.style.height = "";
       el.style.height = `${el.scrollHeight}px`;
@@ -93,17 +110,9 @@ export default function PostReply(props) {
         }
 
         //else
-        setFeedback({status:'succes',message:result.message})
-        setTimeout(()=>{
-            setFeedback({})
-            setReply(prev=>({
-              ...prev,
-              content:''
-            }))
-            toggleReply(false)
-        },450)
-
+        dispatch(setRequestComments('pending'))
     }
+
 
   return (
     <>

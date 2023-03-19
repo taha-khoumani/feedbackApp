@@ -23,7 +23,6 @@ export default async function handler (req,res){
 
     //insert the data
     const result = await feedbacks.insertOne(feedbackData)
-    console.log(result.insertedId)
     res.status(200).json({status:200,message:'Feedback added succesefully',newFeedbackId:result.insertedId})
     client.close()
 }
