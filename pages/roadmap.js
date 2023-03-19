@@ -38,7 +38,7 @@ export default function roadmap({feedbacks}) {
 
 export async function getServerSideProps() {
   const client = await MongoClient.connect(`mongodb+srv://tagopi:${'DGakye2AgwDd8v2a'}@cluster0.8kpmakb.mongodb.net/?retryWrites=true&w=majority`)
-  const feedbacks = client.db(process.env.databaseName).collection("feedbacks")
+  const feedbacks = client.db(process.env.DATABASE).collection("feedbacks")
   const result = JSON.stringify(await feedbacks.find().toArray())
 
 

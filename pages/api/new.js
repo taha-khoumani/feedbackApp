@@ -19,7 +19,7 @@ export default async function handler (req,res){
     }
     
     const client = await MongoClient.connect(`mongodb+srv://tagopi:${'DGakye2AgwDd8v2a'}@cluster0.8kpmakb.mongodb.net/?retryWrites=true&w=majority`)
-    const feedbacks = client.db(process.env.databaseName).collection("feedbacks")
+    const feedbacks = client.db(process.env.DATABASE).collection("feedbacks")
 
     //insert the data
     const result = await feedbacks.insertOne(feedbackData)

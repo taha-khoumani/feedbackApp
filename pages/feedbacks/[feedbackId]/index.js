@@ -71,7 +71,7 @@ export async function getServerSideProps({req,params,resolvedUrl}){
   const wantedFeedbackId = new ObjectId(params.feedbackId) 
 
   const client = await MongoClient.connect(`mongodb+srv://tagopi:${'DGakye2AgwDd8v2a'}@cluster0.8kpmakb.mongodb.net/?retryWrites=true&w=majority`)
-  const feedbacks = client.db(process.env.databaseName).collection("feedbacks")
+  const feedbacks = client.db(process.env.DATABASE).collection("feedbacks")
   const result = JSON.stringify(await feedbacks.findOne({_id:wantedFeedbackId}))
 
   return{

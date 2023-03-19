@@ -11,7 +11,7 @@ export default async function handler (req,res){
 
     //connect to database
     const client = await MongoClient.connect(`mongodb+srv://tagopi:${'DGakye2AgwDd8v2a'}@cluster0.8kpmakb.mongodb.net/?retryWrites=true&w=majority`)
-    const feedbacks = client.db(process.env.databaseName).collection("feedbacks")
+    const feedbacks = client.db(process.env.DATABASE).collection("feedbacks")
 
     //id object
     var ObjectId = require('mongodb').ObjectId; 

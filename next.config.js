@@ -2,7 +2,7 @@
 const nextConfig = {
   reactStrictMode: true,
   env:{
-    databaseName:'feedback',
+    DATABASE:'feedback',
     SIGN_OUT_REDIRECT:'http://192.168.2.207:3000/',
   }
 }
