@@ -70,6 +70,13 @@ export default function AddComment(props) {
   async function onPostHandler(e){
     e.preventDefault()
 
+    //auth
+    if(status !== 'authenticated'){
+      alert('You need to be sign in to comment on a feedback.')
+      return;
+    }
+
+    //validation
     if(verifyComment(comment).status === 'error'){
         setFeedback(verifyComment(comment))
         return;

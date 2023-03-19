@@ -23,10 +23,9 @@ export default async function handler (req,res){
 
     //update comment
     const updatedUpvotes = {
-        length: action ? +1 : -1 + length,
+        length: action ? length+1 : length-1,
         from: action ? From.concat(from) : From.filter(username=> username !== from)
     }
-    console.log(updatedUpvotes)
 
     const modifiedResult = await feedbacks.updateOne({_id:wantedFeedbackId},{$set:{upvotes:updatedUpvotes}})
 

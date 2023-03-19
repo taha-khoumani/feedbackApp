@@ -47,7 +47,7 @@ export default function FeedbackBar() {
     function addFeedbackHandler(){
         
         if(status !== "authenticated") {
-            console.log("you need to be signed up to add a feedback")
+            alert("you need to be signed up to add a feedback")
             return;
         }
 

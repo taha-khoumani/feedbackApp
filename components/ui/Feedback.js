@@ -41,6 +41,18 @@ export default function Feedback(props) {
     async function onUpvoteHandler(e){
         e.stopPropagation()
 
+        //auth
+        if(status !== 'authenticated') {
+            alert('You need to be sign in to upvotes feedbacks')
+            return;
+        }
+
+        //update ui directly for better UX 
+        setLocaleUpvotes(prev => ({
+            length:  !didUserUpvote ? prev.length + 1 : prev.length - 1 ,
+            from: !didUserUpvote ? prev.from.concat(auth) : prev.from.filter(username=> username !== auth)
+        }))
+
         // post data in database
         const JSONresultPATCH = await fetch('/api/post_upvotes',{
             method:"PATCH",
@@ -55,9 +67,23 @@ export default function Feedback(props) {
         })
         const resultPATCH = await JSONresultPATCH.json()
 
+        //handle error
+        if(!JSONresultPATCH.ok){
+            //revert the changes:
+            setLocaleUpvotes(prev => ({
+                length:  !didUserUpvote ? prev.length - 1 : prev.length + 1 ,
+                from: !didUserUpvote ? prev.from.filter(username=> username !== auth) :  prev.from.concat(auth)
+            }))
+            //feedback
+            alert(resultPATCH.message);
+            return;
+        }
+
         //get data from database
         const JSONresultGET = await fetch(`/api/get_upvotes/${_id}`)
         const resultGET = await JSONresultGET.json()
+
+        //sync UI with database
         setLocaleUpvotes(resultGET.upvotes)
     }
 

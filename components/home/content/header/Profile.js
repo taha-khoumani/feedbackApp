@@ -21,7 +21,7 @@ export default function Profile() {
         toggleProfile(prevState=>!prevState)
     }
     function onSignOutClickHandler(){
-        signOut({redirect:false})
+        signOut()
     }
 
     function toggleOff(e){
