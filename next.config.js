@@ -2,11 +2,12 @@
 const nextConfig = {
   reactStrictMode: true,
   env:{
-    DATABASE:process.env.DATABASE,
-    SIGN_OUT_REDIRECT:process.env.SIGN_OUT_REDIRECT,
-    NEXTAUTH_SECRET:process.env.NEXTAUTH_SECRET,
+    DATABASE:'feedback',
+    SIGN_OUT_REDIRECT:'http://192.168.2.207:3000/',
+    NEXTAUTH_SECRET:'Pnj4s2VIZ5W6U06CmJHN+ASmvKFg2O9HXuxINpnazT4=',
   }
   
 }
+console.log(process.env.DATABASE)
 
 module.exports = nextConfig
