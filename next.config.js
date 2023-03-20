@@ -1,7 +1,7 @@
 const {PHASE_DEVLOPEMENT_SERVER} = require('next/constants')
 
 /** @type {import('next').NextConfig} */
-const nextConfig = (phase) =>{
+const nextConfig = (phase) => {
   if(phase === PHASE_DEVLOPEMENT_SERVER){
     return {
       reactStrictMode: true,
@@ -12,7 +12,7 @@ const nextConfig = (phase) =>{
     }
   }
 
-  return{
+  return {
     reactStrictMode: true,
     env:{
       DATABASE:'feedback_production',

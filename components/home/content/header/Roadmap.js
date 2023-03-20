@@ -26,21 +26,11 @@ export default function Roadmap() {
           }}  
         >View</Link>
       </div>
-      {
-        screenWidth > 767 && screenWidth < 1024 
-        ?
-        <ul>
-          <li>Planned <span>2</span></li>
-          <li>In-Progress <span>3</span></li>
-          <li>Live <span>1</span></li>
-        </ul>
-        :
-        <ul>
-          <li>Planned <span>2</span></li>
-          <li>In-Progress <span>3</span></li>
-          <li>Live <span>1</span></li>
-        </ul>
-      }
+      <ul>
+        <li>Planned <span>2</span></li>
+        <li>In-Progress <span>3</span></li>
+        <li>Live <span>1</span></li>
+      </ul>
     </div>
   )
 }
