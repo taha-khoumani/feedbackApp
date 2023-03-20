@@ -8,7 +8,6 @@ import { MongoClient } from "mongodb";
 import { redirect } from "next/dist/server/api-utils";
 
 export const authOptions = {
-  secret: process.env.NEXTAUTH_SECRET,
   providers: [
     CredentialsProvider({
       async authorize(credentials,req){
@@ -45,7 +44,7 @@ export const authOptions = {
       }
     })
   ],
-    callbacks: {
+  callbacks: {
     async jwt({token, user}) {
       if (user?.firstName) {
         token.firstName = user.firstName
@@ -69,10 +68,10 @@ export const authOptions = {
     },
 
     async redirect({url,baseUrl}){
-      console.log(url)
       return url
     }
-  }
+  },
+  secret: process.env.NEXTAUTH_SECRET,
 }
 
 export default NextAuth(authOptions)
