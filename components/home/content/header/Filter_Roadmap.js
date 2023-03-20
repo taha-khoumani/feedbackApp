@@ -12,7 +12,7 @@ import Roadmap from './Roadmap'
 import { useSelector,useDispatch } from 'react-redux'
 import { toggleMenu } from '@/state/slices/uiSlice'
 
-export default function Filter_Roadmap() {
+export default function Filter_Roadmap(props) {
     const dispatch = useDispatch()
 
     const {isMenuOpen,screenWidth} = useSelector(store=>store.ui)
@@ -58,7 +58,7 @@ export default function Filter_Roadmap() {
                         onClick={(e)=>e.stopPropagation()}
                     >
                         <Filters />
-                        <Roadmap />
+                        <Roadmap nonSuggestionFeedbacks={props.nonSuggestionFeedbacks} />
                     </div>
                 </div>
             </div>
@@ -67,7 +67,7 @@ export default function Filter_Roadmap() {
         return (
             <>
                 <Filters />
-                <Roadmap />
+                <Roadmap nonSuggestionFeedbacks={props.nonSuggestionFeedbacks} />
             </>
         )
     }

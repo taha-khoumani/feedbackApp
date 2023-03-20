@@ -11,7 +11,7 @@ import styles from "@/styles/css/header.module.css"
 import { setScreenWidth} from '@/state/slices/uiSlice'
 import { useDispatch} from 'react-redux'
 
-export default function Header() {
+export default function Header(props) {
   const dispatch = useDispatch()
 
   useEffect(()=>{
@@ -23,7 +23,7 @@ export default function Header() {
 
   return (
     <div id={styles.header}>
-      <Filter_Roadmap />
+      <Filter_Roadmap nonSuggestionFeedbacks={props.nonSuggestionFeedbacks}  />
     </div>
   )
 }

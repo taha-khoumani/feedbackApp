@@ -10,9 +10,10 @@ import styles from "@/styles/css/header.module.css"
 import { toggleMenu } from '@/state/slices/uiSlice'
 import { useDispatch, useSelector } from 'react-redux'
 
-export default function Roadmap() {
+export default function Roadmap(props) {
   const {screenWidth} = useSelector(store=>store.ui)
   const dispatch = useDispatch()
+  const {live,inProgress,planned} = props.nonSuggestionFeedbacks
 
   return (
     <div id={styles.roadmap}>
@@ -27,9 +28,9 @@ export default function Roadmap() {
         >View</Link>
       </div>
       <ul>
-        <li>Planned <span>2</span></li>
-        <li>In-Progress <span>3</span></li>
-        <li>Live <span>1</span></li>
+        <li>Planned <span>{planned}</span></li>
+        <li>In-Progress <span>{inProgress}</span></li>
+        <li>Live <span>{live}</span></li>
       </ul>
     </div>
   )

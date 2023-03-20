@@ -18,7 +18,7 @@ export default function Home(props) {
     <div id={styles.home}>
       <Head><title>Feedback</title></Head>
       <Navbar />
-      <Content suggestionFeedbacks={JSON.parse(props.suggestionFeedbacks)} />
+      <Content  feedbacks={JSON.parse(props.feedbacks)} />
     </div>
   )
 }
@@ -26,12 +26,12 @@ export default function Home(props) {
 export async function getServerSideProps() {
   const client = await MongoClient.connect(`mongodb+srv://tagopi:${'DGakye2AgwDd8v2a'}@cluster0.8kpmakb.mongodb.net/?retryWrites=true&w=majority`)
   const feedbacks = client.db(process.env.DATABASE).collection("feedbacks")
-  const result = JSON.stringify(await feedbacks.find({status:"suggestion"}).toArray())
+  const result = JSON.stringify(await feedbacks.find({}).toArray())
 
 
   return {
     props: {
-      suggestionFeedbacks:result,
+      feedbacks:result
     },
   }
 }

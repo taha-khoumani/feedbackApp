@@ -21,7 +21,6 @@ export default function Profile() {
         toggleProfile(prevState=>!prevState)
     }
     function onSignOutClickHandler(){
-        // signOut({ callbackUrl: process.env.SIGN_OUT_REDIRECT})
         signOut({ callbackUrl: process.env.SIGN_OUT_REDIRECT})
     }
 

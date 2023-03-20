@@ -8,7 +8,7 @@ import { MongoClient } from "mongodb";
 import { redirect } from "next/dist/server/api-utils";
 
 export const authOptions = {
-  secret: process.env.NEXT_PUBLIC_SECRET,
+  secret: process.env.NEXTAUTH_SECRET,
   providers: [
     CredentialsProvider({
       async authorize(credentials,req){
@@ -69,6 +69,7 @@ export const authOptions = {
     },
 
     async redirect({url,baseUrl}){
+      console.log(url)
       return url
     }
   }
