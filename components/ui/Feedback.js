@@ -13,7 +13,8 @@ import commentsIcon from "@/images/icons/icon-comments.svg"
 import upvotesIcon from "@/images/icons/icon-arrow-up.svg"
 
 //state
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { setMustSigninModal } from '@/state/slices/uiSlice';
 
 //auth
 import { useSession } from 'next-auth/react';
@@ -29,6 +30,8 @@ export default function Feedback(props) {
     const [localeUpvotes,setLocaleUpvotes] = useState(upvotes)
     const [didUserUpvote,toggleUpvote] = useState()
 
+    const dispatch = useDispatch()
+
     //auth
     const {data,status} = useSession() 
     const [auth,setAuth] = useState('')
@@ -43,7 +46,7 @@ export default function Feedback(props) {
 
         //auth
         if(status !== 'authenticated') {
-            alert('You need to be sign in to upvotes feedbacks')
+            dispatch(setMustSigninModal({isOpen:true,value:'upvote a feedback.'}))
             return;
         }
 
@@ -132,7 +135,7 @@ export default function Feedback(props) {
             <div className={styles.upvotes_comments}>
                 <div className={styles.upvotes}>
                     <button onClick={onUpvoteHandler}  className={didUserUpvote?styles.upvoteOn:""}>
-                        <Image src={upvotesIcon} alt='upvote-icon'/>
+                        <i className="fa-solid fa-angle-up"></i>
                         {localeUpvotes.length}
                     </button>
                 </div>

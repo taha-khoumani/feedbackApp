@@ -14,7 +14,7 @@ import AuthFeedback from '../ui/AuthFeedback';
 
 //state
 import { useDispatch, useSelector } from 'react-redux';
-import { setRequestComments } from '@/state/slices/uiSlice';
+import { setMustSigninModal, setRequestComments } from '@/state/slices/uiSlice';
 
 //auth
 import { useSession } from 'next-auth/react';
@@ -72,7 +72,7 @@ export default function AddComment(props) {
 
     //auth
     if(status !== 'authenticated'){
-      alert('You need to be sign in to comment on a feedback.')
+      dispatch(setMustSigninModal({isOpen:true,value:'comment on a feedback.'}))
       return;
     }
 

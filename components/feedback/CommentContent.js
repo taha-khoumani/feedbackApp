@@ -15,9 +15,15 @@ import Avatar from 'react-avatar'
 //auth
 import { useSession } from 'next-auth/react'
 
+//state
+import { useDispatch } from 'react-redux'
+import { setMustSigninModal } from '@/state/slices/uiSlice'
+
 export default function CommentContent(props) {
     const {content,userImg,userName,userUsername,hasReplies,feedbackId,commentId} = props.commentContentData
     const [isReplyOpen,toggleReply] = useState(false)
+
+    const dispatch = useDispatch()
 
     //auth
     const {data,status} = useSession()
@@ -25,7 +31,7 @@ export default function CommentContent(props) {
     function onClickHandler(){
         //auth
         if(!isReplyOpen && status !== 'authenticated'){
-            alert('You need to be signed in to reply to a comment.')
+            dispatch(setMustSigninModal({isOpen:true,value:'reply to a comment.'}))
             return;
         }
 

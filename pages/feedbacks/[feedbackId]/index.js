@@ -11,6 +11,7 @@ import Feedback from '@/components/ui/Feedback'
 import AddComment from '@/components/feedback/AddComment'
 import CommentsSection from '@/components/feedback/CommentsSection'
 import FeedbackNav from '@/components/feedback/FeedbackNav'
+import MustSignInModal from '@/components/ui/MustSignInModal'
 
 //styles
 import styles from "@/styles/css/feedbackDetails.module.css"
@@ -62,6 +63,7 @@ export default function feedback(props) {
         <Feedback data={requestedFeedback} />
         <CommentsSection feedbackId={requestedFeedback._id} comments={comments} />
         <AddComment feedbackId={requestedFeedback._id} />
+        <MustSignInModal />
     </div>
   )
 }

@@ -155,7 +155,7 @@ $mobile:767px;
         padding:50px 55px;
         display: flex;
         flex-direction: column;
-        gap:15px;
+        gap:20px;
 
         p{
             font-weight: 700;
@@ -164,5 +164,18 @@ $mobile:767px;
             margin:0;
             text-align: center;
         }
+
+        div{
+            display: flex;
+            gap:10px;
+            padding:0 10px;
+            justify-content: space-evenly;
+
+            button{
+                margin:0;
+                width: 100%;
+            }
+        }
+
     }
 }

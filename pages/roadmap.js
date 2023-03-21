@@ -6,6 +6,7 @@ import { MongoClient } from "mongodb";
 //components
 import RoadmapMain from '@/components/roadmap/RoadmapMain'
 import RoadmapNav from '@/components/roadmap/RoadmapNav'
+import MustSignInModal from '@/components/ui/MustSignInModal';
 
 //styles
 import styles from "@/styles/css/roadmap.module.css"
@@ -32,6 +33,7 @@ export default function roadmap({feedbacks}) {
     <div className={styles.roadmap} >
         <RoadmapNav  />
         <RoadmapMain feedbacks={JSON.parse(feedbacks)} />
+        <MustSignInModal />
     </div>
   )
 }

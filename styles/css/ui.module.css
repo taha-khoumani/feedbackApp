@@ -56,7 +56,7 @@
   padding: 50px 55px;
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: 20px;
 }
 .must_sign_in_modal .modale_container p {
   font-weight: 700;
@@ -64,4 +64,14 @@
   font-size: 24px;
   margin: 0;
   text-align: center;
+}
+.must_sign_in_modal .modale_container div {
+  display: flex;
+  gap: 10px;
+  padding: 0 10px;
+  justify-content: space-evenly;
+}
+.must_sign_in_modal .modale_container div button {
+  margin: 0;
+  width: 100%;
 }/*# sourceMappingURL=ui.module.css.map */
