@@ -8,6 +8,10 @@ const initialState = {
     filter:"all",
     currentStage:"In-Progress",
     requestComments:'no',
+    mustSigninModal:{
+        isOpen:false,
+        value:"",
+    },
 }
 
 const uiSlice = createSlice({
@@ -35,8 +39,15 @@ const uiSlice = createSlice({
         setRequestComments:(state,{payload})=>{
             state.requestComments = payload
         },
+        setMustSigninModal:(state,{payload})=>{
+            console.log(state.mustSigninModal.value,state.mustSigninModal.isOpen)
+            state.mustSigninModal = {
+                ...state.mustSigninModal,
+                ...payload,
+            }
+        }
     }
 })
 
 export default uiSlice.reducer
-export const {setScreenWidth,toggleMenu,toggleSort,setSortMethode,setFilter,setcurrentStage,setRequestComments} = uiSlice.actions
+export const {setScreenWidth,toggleMenu,toggleSort,setSortMethode,setFilter,setcurrentStage,setRequestComments,setMustSigninModal} = uiSlice.actions

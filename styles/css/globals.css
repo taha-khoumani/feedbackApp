@@ -33,6 +33,7 @@ select, button {
   font-size: 14px;
   padding: 12px 24px;
   margin: 14px 16px 14px auto;
+  text-decoration: none;
   cursor: pointer;
 }
 .button_two:hover, .button_delete:hover, .button_three:hover {

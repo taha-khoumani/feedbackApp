@@ -150,6 +150,7 @@
   color: #647196;
   font-size: 15px;
   margin: 0;
+  word-wrap: break-word;
 }
 @media (max-width: 767px) {
   .comments_section .comments .comment .comment_content_content p {

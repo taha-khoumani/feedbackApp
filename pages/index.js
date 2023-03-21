@@ -13,12 +13,16 @@ import styles from "@/styles/css/home.module.css"
 //database
 import { MongoClient } from "mongodb";
 
+//auth
+import MustSignInModal from '@/components/ui/MustSignInModal'
+
 export default function Home(props) {
   return (
     <div id={styles.home}>
       <Head><title>Feedback</title></Head>
       <Navbar />
       <Content  feedbacks={JSON.parse(props.feedbacks)} />
+      <MustSignInModal />
     </div>
   )
 }

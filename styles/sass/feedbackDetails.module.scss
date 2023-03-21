@@ -137,6 +137,7 @@ $mobile:767px;
                         color: #647196;
                         font-size: 15px;
                         margin:0;
+                        word-wrap: break-word;
                         @include media($mobile){font-size: 13px}
                     }
                 }

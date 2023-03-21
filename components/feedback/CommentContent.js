@@ -12,10 +12,26 @@ import styles from "@/styles/css/feedbackDetails.module.css"
 //profile picture
 import Avatar from 'react-avatar'
 
+//auth
+import { useSession } from 'next-auth/react'
+
 export default function CommentContent(props) {
     const {content,userImg,userName,userUsername,hasReplies,feedbackId,commentId} = props.commentContentData
     const [isReplyOpen,toggleReply] = useState(false)
 
+    //auth
+    const {data,status} = useSession()
+
+    function onClickHandler(){
+        //auth
+        if(!isReplyOpen && status !== 'authenticated'){
+            alert('You need to be signed in to reply to a comment.')
+            return;
+        }
+
+        toggleReply(!isReplyOpen)
+    }
+    console.log(typeof content)
   return (
     <div className={styles.comment_content} >
         <div className={styles.comment_metaData} >
@@ -34,7 +50,7 @@ export default function CommentContent(props) {
                 <p>{`@${userUsername}`}</p>
             </div>
             <button
-                onClick={()=>toggleReply(!isReplyOpen)}
+                onClick={onClickHandler}
             >
                 {isReplyOpen ? 'Cancel' : 'Reply'}
             </button>

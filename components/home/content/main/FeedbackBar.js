@@ -11,7 +11,7 @@ import { useRouter } from 'next/router'
 import styles from "@/styles/css/main.module.css"
 
 //state
-import {setSortMethode,toggleSort} from "@/state/slices/uiSlice"
+import {setSortMethode,toggleSort,setMustSigninModal} from "@/state/slices/uiSlice"
 import { useDispatch,useSelector } from 'react-redux'
 
 //auth
@@ -51,7 +51,7 @@ export default function FeedbackBar() {
     function addFeedbackHandler(){
         
         if(status !== "authenticated") {
-            alert("you need to be signed up to add a feedback")
+            dispatch(setMustSigninModal({isOpen:true,value:'post a feedback.'}))
             return;
         }
 

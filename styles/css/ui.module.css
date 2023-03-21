@@ -40,4 +40,28 @@
   padding: 30px;
   margin-top: 28px;
   position: relative;
+}
+
+.must_sign_in_modal {
+  position: fixed;
+  z-index: 10000000000000000;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.3);
+  display: flex;
+}
+.must_sign_in_modal .modale_container {
+  border-radius: 10px;
+  background-color: white;
+  margin: auto;
+  padding: 50px 55px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+.must_sign_in_modal .modale_container p {
+  font-weight: 700;
+  color: #3A4374;
+  font-size: 24px;
+  margin: 0;
+  text-align: center;
 }/*# sourceMappingURL=ui.module.css.map */
