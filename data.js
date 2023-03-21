@@ -6,7 +6,7 @@ export default [
     "category": "enhancement",
     "upvotes":{
       "length":112,
-      from:[]
+      "from":[]
     },
     "status": "suggestion",
     "description": "Easier to search for solutions based on a specific stack.",
@@ -18,7 +18,8 @@ export default [
           "image": "/assets/user-images/image-suzanne.jpg",
           "name": "Suzanne Chang",
           "username": "upbeat1811"
-        }
+        },
+        "replies":[]
       },
       {
         "id": 2,
@@ -27,10 +28,11 @@ export default [
           "image": "/assets/user-images/image-thomas.jpg",
           "name": "Thomas Hood",
           "username": "brawnybrave"
-        }
+        },
+        "replies":[]
       }
-    ],
-    "replies":[]
+    ]
+    
   },
   {
     "id": 2,
@@ -39,7 +41,7 @@ export default [
     "category": "feature",
     "upvotes":{
       "length":99,
-      from:[]
+      "from":[]
     },
     "status": "suggestion",
     "description": "It would help people with light sensitivities and who prefer dark mode.",
@@ -51,7 +53,8 @@ export default [
           "image": "/assets/user-images/image-elijah.jpg",
           "name": "Elijah Moss",
           "username": "hexagon.bestagon"
-        }
+        },
+        "replies":[]
       },
       {
         "id": 4,
@@ -82,8 +85,8 @@ export default [
           }
         ]
       }
-    ],
-    "replies":[]
+    ]
+    
   },
   {
     "id": 3,
@@ -92,7 +95,7 @@ export default [
     "category": "feature",
     "upvotes":{
       "length":66,
-      from:[]
+      "from":[]
     },
     "status": "suggestion",
     "description": "Challenge-specific Q&A would make for easy reference.",
@@ -104,10 +107,11 @@ export default [
           "image": "/assets/user-images/image-george.jpg",
           "name": "George Partridge",
           "username": "soccerviewer8"
-        }
+        },
+        "replies":[]
       }
-    ],
-    "replies":[]
+    ]
+    
   },
   {
     "id": 4,
@@ -116,7 +120,7 @@ export default [
     "category": "enhancement",
     "upvotes":{
       "length":51,
-      from:[]
+      "from":[]
     },
     "status": "suggestion",
     "description": "Images and screencasts can enhance comments on solutions.",
@@ -128,7 +132,8 @@ export default [
           "image": "/assets/user-images/image-javier.jpg",
           "name": "Javier Pollard",
           "username": "warlikeduke"
-        }
+        },
+        "replies":[]
       },
       {
         "id": 7,
@@ -137,10 +142,11 @@ export default [
           "image": "/assets/user-images/image-roxanne.jpg",
           "name": "Roxanne Travis",
           "username": "peppersprime32"
-        }
+        },
+        "replies":[]
       }
-    ],
-    "replies":[]
+    ]
+    
   },
   {
     "id": 5,
@@ -149,7 +155,7 @@ export default [
     "category": "feature",
     "upvotes":{
       "length":42,
-      from:[]
+      "from":[]
     },
     "status": "suggestion",
     "description": "Stay updated on comments and solutions other people post.",
@@ -181,10 +187,11 @@ export default [
           "image": "/assets/user-images/image-jackson.jpg",
           "name": "Jackson Barker",
           "username": "countryspirit"
-        }
+        },
+        "replies":[]
       }
-    ],
-    "replies":[]
+    ]
+    
   },
   {
     "id": 6,
@@ -193,12 +200,12 @@ export default [
     "category": "bug",
     "upvotes":{
       "length":3,
-      from:[]
+      "from":[]
     },
     "status": "suggestion",
     "comments":[],
-    "description": "Challenge preview images are missing when you apply a filter.",
-    "replies":[]
+    "description": "Challenge preview images are missing when you apply a filter."
+    
   },
   {
     "id": 7,
@@ -207,7 +214,7 @@ export default [
     "category": "feature",
     "upvotes":{
       "length":123,
-      from:[]
+      "from":[]
     },
     "status": "planned",
     "description": "It would be great to see a more detailed breakdown of solutions.",
@@ -219,7 +226,8 @@ export default [
           "image": "/assets/user-images/image-victoria.jpg",
           "name": "Victoria Mejia",
           "username": "arlen_the_marlin"
-        }
+        },
+        "replies":[]
       },
       {
         "id": 11,
@@ -228,10 +236,11 @@ export default [
           "image": "/assets/user-images/image-jackson.jpg",
           "name": "Jackson Barker",
           "username": "countryspirit"
-        }
+        },
+        "replies":[]
       }
-    ],
-    "replies":[]
+    ]
+    
   },
   {
     "id": 8,
@@ -240,7 +249,7 @@ export default [
     "category": "feature",
     "upvotes":{
       "length":28,
-      from:[]
+      "from":[]
     },
     "status": "planned",
     "description": "Sequenced projects for different goals to help people improve.",
@@ -252,10 +261,11 @@ export default [
           "image": "/assets/user-images/image-george.jpg",
           "name": "George Partridge",
           "username": "soccerviewer8"
-        }
+        },
+        "replies":[]
       }
-    ],
-    "replies":[]
+    ]
+    
   },
   {
     "id": 9,
@@ -264,7 +274,7 @@ export default [
     "category": "feature",
     "upvotes":{
       "length":62,
-      from:[]
+      "from":[]
     },
     "status": "in-progress",
     "description": "Add ability to create professional looking portfolio from profile.",
@@ -276,10 +286,11 @@ export default [
           "image": "/assets/user-images/image-ryan.jpg",
           "name": "Ryan Welles",
           "username": "voyager.344"
-        }
+        },
+        "replies":[]
       }
-    ],
-    "replies":[]
+    ]
+    
   },
   {
     "id": 10,
@@ -288,7 +299,7 @@ export default [
     "category": "feature",
     "upvotes":{
       "length":31,
-      from:[]
+      "from":[]
     },
     "status": "in-progress",
     "description": "Be able to bookmark challenges to take later on.",
@@ -300,10 +311,11 @@ export default [
           "image": "/assets/user-images/image-suzanne.jpg",
           "name": "Suzanne Chang",
           "username": "upbeat1811"
-        }
+        },
+        "replies":[]
       }
-    ],
-    "replies":[]
+    ]
+    
   },
   {
     "id": 11,
@@ -313,11 +325,11 @@ export default [
     "comments":[],
     "upvotes":{
       "length":9,
-      from:[]
+      "from":[]
     },
     "status": "in-progress",
-    "description": "Screenshots of solutions with animations don’t display correctly.",
-    "replies":[]
+    "description": "Screenshots of solutions with animations don’t display correctly."
+    
   },
   {
     "id": 12,
@@ -326,7 +338,7 @@ export default [
     "category": "enhancement",
     "upvotes":{
       "length":71,
-      from:[]
+      "from":[]
     },
     "status": "live",
     "description": "Small animations at specific points can add delight.",
@@ -351,7 +363,7 @@ export default [
           }
         ]
       }
-    ],
-    "replies":[]
+    ]
+    
   }
 ]
