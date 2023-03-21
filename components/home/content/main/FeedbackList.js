@@ -24,6 +24,8 @@ export default function FeedbackList(props) {
   const {sortMethode,filter} = useSelector(store=>store.ui) 
   if(filter !== "all" ) {feedbacks = feedbacks.filter(feedback=>feedback.category === filter)}
   feedbacks = sortFeedbacks(feedbacks,sortMethode)
+
+  // console.log(feedbacks,sortMethode)
   
   if(feedbacks.length === 0) {
     return <NoFeedbacks inThisCategory={true} />

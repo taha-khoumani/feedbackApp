@@ -16,7 +16,7 @@ export default function Profile() {
     const {data} = useSession()
     const {firstName,lastName} = data.user
 
-    console.log(process.env.SIGN_OUT_REDIRECT)
+    // console.log(process.env.SIGN_OUT_REDIRECT)
 
     //click handlers
     function onProfilePictureClickHandler(){

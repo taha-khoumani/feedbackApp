@@ -8,6 +8,4 @@ const nextConfig = {
   }
   
 }
-console.log(process.env.DATABASE)
-
 module.exports = nextConfig

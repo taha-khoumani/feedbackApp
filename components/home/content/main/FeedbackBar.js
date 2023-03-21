@@ -22,6 +22,7 @@ export default function FeedbackBar() {
     const dispatch = useDispatch()
 
     function setSortMethodeHandler (e,methode){
+        console.log(methode)
         dispatch(setSortMethode(methode))
         dispatch(toggleSort(!isSortOpen))
         e.stopPropagation()
@@ -30,7 +31,10 @@ export default function FeedbackBar() {
     
 
     function toggleOff(e){
-        if(document.querySelector("#main_filter_options__fanaa")){
+        if( 
+            e.target.parentElement !== document.querySelector("#main_filter_options__fanaa") &&
+             document.querySelector("#main_filter_options__fanaa")
+        ){
             dispatch(toggleSort(false))
             e.stopPropagation()
         }
