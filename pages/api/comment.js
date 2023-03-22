@@ -4,11 +4,23 @@ import { MongoClient } from "mongodb";
 //helper-functions
 import { verifyComment} from "@/lib/helper-functions";
 
+//auth
+import { getServerSession } from "next-auth";
+import { authOptions } from "./auth/[...nextauth]";
+
 export default async function handler (req,res){
     if(req.method !== 'POST'){
         res.status(405).json({status:405,message:'This is suposed to be a POST request.'})
         return null;
     }
+
+    //auth validation
+    const session = await getServerSession(req, res, authOptions)
+    if(!session){
+        res.status(405).json({status:405,message:"You have to Sign In before posting a feedback."})
+        return null;
+    }
+
     const {commentData,_id} = req.body
 
     //check if the data is valid

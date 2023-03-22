@@ -40,7 +40,6 @@ const uiSlice = createSlice({
             state.requestComments = payload
         },
         setMustSigninModal:(state,{payload})=>{
-            console.log(state.mustSigninModal.value,state.mustSigninModal.isOpen)
             state.mustSigninModal = {
                 ...state.mustSigninModal,
                 ...payload,

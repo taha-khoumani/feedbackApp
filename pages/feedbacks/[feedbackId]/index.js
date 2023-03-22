@@ -26,7 +26,7 @@ import { MongoClient } from "mongodb";
 
 export default function feedback(props) {
     const {feedbackId,requestedFeedbackJSON} = props
-    const requestedFeedback = JSON.parse(requestedFeedbackJSON)
+    const [requestedFeedback,setRequestedFeedback] = useState(JSON.parse(requestedFeedbackJSON))
     const dispatch = useDispatch()
     const {requestComments} = useSelector(store=>store.ui)
     const [comments,setComments] = useState(requestedFeedback.comments)
@@ -37,6 +37,7 @@ export default function feedback(props) {
         const jsonResult = await fetch(`/api/get_comments/${feedbackId}`)
         const result = await jsonResult.json()
         setComments(result.comments)
+        setRequestedFeedback(prev=>({...prev,comments:result.comments}))
         dispatch(setRequestComments('finished'))
       })()
     },[requestComments])
@@ -59,7 +60,7 @@ export default function feedback(props) {
 
   return (
     <div className={styles.feedback_details} >
-        <FeedbackNav prevRoute={props.history} isEditNeeded={true} feedbackOwner={requestedFeedback.user} />
+        <FeedbackNav prevRoute={props.history} isEditNeeded={true} feedbackOwner={requestedFeedback.user}/>
         <Feedback data={requestedFeedback} />
         <CommentsSection feedbackId={requestedFeedback._id} comments={comments} />
         <AddComment feedbackId={requestedFeedback._id} />

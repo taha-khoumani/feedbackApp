@@ -37,7 +37,6 @@ export default function CommentContent(props) {
 
         toggleReply(!isReplyOpen)
     }
-    console.log(typeof content)
   return (
     <div className={styles.comment_content} >
         <div className={styles.comment_metaData} >

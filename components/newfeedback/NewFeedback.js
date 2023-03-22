@@ -142,10 +142,14 @@ export default function NewFeedback(props) {
                 'Content-Type':'application/json',
             }
         })
-
         const jsonResult = await result.json()
 
-        setFeedback({status:'succes',message:jsonResult.message})
+        if(!result.ok){
+            setFeedback({status:'error',message:jsonResult.message})
+            return;
+        }
+
+
         setTimeout(()=>router.push('/'),450)
     }
 

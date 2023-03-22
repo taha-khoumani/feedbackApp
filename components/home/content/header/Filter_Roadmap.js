@@ -51,7 +51,7 @@ export default function Filter_Roadmap(props) {
                 style={{top:`72px`,height: `calc(100% - 72px)`}}
                 onClick={()=>toggleMenuHandler(!isMenuOpen)}
             >
-                <div>
+                <div className={styles.filter_roadmap_container} >
                     <div
                         id={styles.menu}
                         className="menu-left"

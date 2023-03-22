@@ -11,7 +11,7 @@ import { getServerSession } from "next-auth/next"
 export default async function handler (req,res){
     //methode validation
     if(req.method !== 'POST'){
-        res.status(405).json({status:405,message:'this is not a post req ! '})
+        res.status(405).json({status:405,message:'This is suposed to be a POST request.'})
         return null;
     }
 
