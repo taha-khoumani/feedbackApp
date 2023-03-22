@@ -13,6 +13,11 @@ $mobile:767px;
     padding:24px;
     overflow-x: hidden;
     max-width: 100vw;
+    min-height: 100vh;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    
     @include media($mobile){
         padding:0;
     }
@@ -131,6 +136,16 @@ $mobile:767px;
     }
 }
 
+// picked out of the nesting to get acces to other components
+.stage_header_title{
+    font-weight: 700;
+    color: #3A4374;
+    font-size: 18px;
+}
+.stage_header_descripton{
+    color: #647196;
+}
+
 .OnMobileNav{
     // margin:20px 0 0;
     border-bottom: solid 1px rgba($color: #979797, $alpha: 0.35);
@@ -163,4 +178,8 @@ $mobile:767px;
 
 .roadmap_feedbacks{
     cursor: pointer;
+}
+
+#no_roadmap_headers{
+    display: none;
 }

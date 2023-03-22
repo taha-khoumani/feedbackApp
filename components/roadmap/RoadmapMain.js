@@ -6,12 +6,19 @@ import styles from "@/styles/css/roadmap.module.css"
 //components
 import OnMobileNav from './min-components/OnMobileNav'
 import RoadmapStages from './min-components/RoadmapStages'
+import NoRoadmapFeedbacks from './NoRoadmapFeedbacks'
 
 //state
 import {useSelector} from 'react-redux'
 
 export default function RoadmapMain(props) {
   const {feedbacks} = props;
+
+  //if no feedbacks in roadmap
+  console.log(feedbacks.filter(feedback=>feedback.status !== 'suggestion'))
+  if(feedbacks.filter(feedback=>feedback.status !== 'suggestion').length === 0 ){
+    return  <NoRoadmapFeedbacks />
+  }
 
   function findStatusInFeedbacks (status){
     return feedbacks.filter(feedback => feedback.status === status )

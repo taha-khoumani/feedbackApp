@@ -201,3 +201,12 @@ $mobile:767px;
     background-color: #4661E6 !important;
     color: white !important;
 }
+
+#no_roadmap_feedback_wraper{
+    flex:100%;
+    display: flex;
+    flex-direction: column;
+}
+#no_roadmap_feedback{
+    @extend #no_feedback;
+}
