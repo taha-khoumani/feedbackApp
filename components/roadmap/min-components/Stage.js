@@ -11,7 +11,6 @@ import { useSelector} from 'react-redux'
 export default function Stage(props) {
   const {title,description,feedbacks} = props.stageData
   const {screenWidth} = useSelector(store=>store.ui)
-  console.log(screenWidth)
 
   const feedbacksEls =feedbacks.length === 0 && screenWidth <=767  ?
   <NoRoadmapFeedbacks />

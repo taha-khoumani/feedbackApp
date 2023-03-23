@@ -125,7 +125,8 @@ export default function NewFeedback(props) {
 
         //else
         setFeedback({status:'succes',message:jsonResult.message})
-        setTimeout(()=>router.push(`/feedbacks/${jsonResult.newFeedbackId}`),450)
+        setTimeout(()=>setFeedback({status:'pending',message:'Redirecting ...'}),500)
+        setTimeout(()=>router.push(`/feedbacks/${jsonResult.newFeedbackId}`),500)
     }
 
     async function onDeleteHandler(e){
@@ -150,7 +151,9 @@ export default function NewFeedback(props) {
         }
 
 
-        setTimeout(()=>router.push('/'),450)
+        setFeedback({status:'succes',message:jsonResult.message})
+        setTimeout(()=>setFeedback({status:'pending',message:'Redirecting ...'}),600)
+        setTimeout(()=>router.push(`/`),400)
     }
 
   return (
@@ -232,13 +235,13 @@ export default function NewFeedback(props) {
                     <>
                         <button className='button_delete' onClick={onDeleteHandler}  type='button'>Delete</button> 
                         <div className={styles.button_div} >
-                            <Link href={"/"} ><button className='button_three'  type='button'>Cancel</button></Link>
+                            <Link href={"/"} ><button onClick={()=>setFeedback({status:'pending',message:'Redirecting ...'})} className='button_three'  type='button'>Cancel</button></Link>
                             <button className='button_two' type='submit' >Save Changes</button>
                         </div>
                     </>
                         :
                     <>
-                        <Link href={"/"} ><button className='button_three'  type='button'>Cancel</button></Link>
+                        <Link href={"/"} ><button onClick={()=>setFeedback({status:'pending',message:'Redirecting ...'})} className='button_three'  type='button'>Cancel</button></Link>
                         <button className='button_two'  >Add Feedback</button>
                     </>
                 }

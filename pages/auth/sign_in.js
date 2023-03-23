@@ -34,7 +34,9 @@ export default function sign_in() {
     }))
   }
 
+ 
   async function onSubmitHandler(e){
+
     e.preventDefault()
 
     //set pending state
@@ -54,7 +56,8 @@ export default function sign_in() {
 
     //if not
     setFeedback({status:'succes',message:'Signed in succesefully'})
-    setTimeout(()=>router.push("/"),450)
+    setTimeout(()=>setFeedback({status:'pending',message:'Redirecting ...'}),500)
+    setTimeout(()=>router.push("/"),500)
 
   }
 
@@ -90,7 +93,7 @@ export default function sign_in() {
           </div>
           { Object.keys(feedback).length !== 0 && <AuthFeedback data={feedback} />}
           <div className={styles.buttons}>
-            <Link className='button_two' href={"/"}>Cancel</Link>
+            <Link className='button_two' onClick={()=>setFeedback({status:'pending',message:'Redirecting ...'})} href={"/"}>Cancel</Link>
             <button className={`button_three ${styles.next}`}>Sign in</button>
           </div>
         </form>

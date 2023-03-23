@@ -50,6 +50,9 @@ export default function AddComment(props) {
 
   function onChangeHandler(e){
     const el = e.target
+    
+    if(el.value.length > 250)return;
+
     setComment(prev=>({
       ...prev,
       content:el.value,
@@ -136,7 +139,7 @@ export default function AddComment(props) {
       </textarea>
       { Object.keys(feedback).length !== 0 && <AuthFeedback data={feedback} />}
       <div className={styles.chrleft_post} >
-        <p className={styles.characters_left}>250 Characters left</p>
+        <p className={styles.characters_left}>{250 - refTextarea.current?.value?.length } Characters left</p>
         <button className='button_two' onClick={onPostHandler} >
           Post Comment
         </button>

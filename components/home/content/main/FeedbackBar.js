@@ -22,7 +22,6 @@ export default function FeedbackBar() {
     const dispatch = useDispatch()
 
     function setSortMethodeHandler (e,methode){
-        console.log(methode)
         dispatch(setSortMethode(methode))
         dispatch(toggleSort(!isSortOpen))
         e.stopPropagation()

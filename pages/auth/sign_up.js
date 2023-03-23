@@ -67,7 +67,8 @@ export default function signUp() {
         //if no error
         else{
           setFeedback({status:'succes',message:res.message})
-          setTimeout(()=>router.push('/auth/sign_in'),450) 
+          setTimeout(()=>setFeedback({status:'pending',message:'Redirecting ...'}),500)
+          setTimeout(()=>router.push("/auth/sign_in"),500)
         }
       })
   }
@@ -138,7 +139,7 @@ export default function signUp() {
               </div>
               { Object.keys(feedback).length !== 0 && <AuthFeedback data={feedback} />}
               <div className={styles.buttons}>
-                <Link className='button_two' href={"/"}>Cancel</Link>
+                <Link onClick={()=>setFeedback({status:'pending',message:'Redirecting ...'})} className='button_two' href={"/"}>Cancel</Link>
                 <button className={`button_three ${styles.next}`} >Sign up</button>
               </div>
             </form>
