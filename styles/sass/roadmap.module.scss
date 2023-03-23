@@ -30,7 +30,6 @@ $mobile:767px;
         gap: 20px;
         padding:15px;
         position: relative;
-        margin-bottom:48px ;
         @include media($mobile){
             border-radius: 0;
             margin:0;
@@ -50,6 +49,13 @@ $mobile:767px;
 
     .roadmap_main{
         position: relative;
+        margin-top:45px ;
+        @include media($tablet){
+            margin-top:35px;
+        }
+        @include media($mobile){
+            margin:0;
+        }
         .roadmap_stages{
             display: flex;
             gap:30px;
@@ -181,5 +187,21 @@ $mobile:767px;
 }
 
 #no_roadmap_headers{
-    display: none;
+    display: flex;
+    margin:5px 5px 0;
+    // padding:0 20px;
+    &>div{
+        flex:100%;
+        // p{margin: 0;}
+        .stage_header_title{
+            @include media($mobile){
+                font-size: 15px;
+            }
+        }
+        .stage_header_descripton{
+            @include media($mobile){
+                font-size: 13px;
+            }
+        }
+    }
 }

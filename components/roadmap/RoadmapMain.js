@@ -2,6 +2,7 @@ import React from 'react'
 
 //styles
 import styles from "@/styles/css/roadmap.module.css"
+import stylesI from "@/styles/css/feedback.module.css"
 
 //components
 import OnMobileNav from './min-components/OnMobileNav'
@@ -13,11 +14,30 @@ import {useSelector} from 'react-redux'
 
 export default function RoadmapMain(props) {
   const {feedbacks} = props;
+  const {screenWidth} = useSelector(store=>store.ui)
 
-  //if no feedbacks in roadmap
-  console.log(feedbacks.filter(feedback=>feedback.status !== 'suggestion'))
-  if(feedbacks.filter(feedback=>feedback.status !== 'suggestion').length === 0 ){
-    return  <NoRoadmapFeedbacks />
+
+  // if no feedbacks in roadmap
+  if(feedbacks.filter(feedback=>feedback.status !== 'suggestion').length === 0 && screenWidth > 767){
+    return(
+      <div id={stylesI.no_roadmap_feedback_wraper} >
+        <div id={styles.no_roadmap_headers} >
+            <div className={styles.stage_header} > 
+                <p className={styles.stage_header_title} >Planned (0)</p>
+                <p className={styles.stage_header_descripton}>Ideas prioritized for research</p>
+            </div>
+            <div className={styles.stage_header} > 
+                <p className={styles.stage_header_title}>In-Progress (0)</p>
+                <p className={styles.stage_header_descripton} >Currently being developed</p>
+            </div>
+            <div className={styles.stage_header} > 
+                <p className={styles.stage_header_title} >Live (0)</p>
+                <p className={styles.stage_header_descripton} >Released features</p>
+            </div>
+        </div>
+        <NoRoadmapFeedbacks />
+      </div>
+    )  
   }
 
   function findStatusInFeedbacks (status){
@@ -42,12 +62,11 @@ export default function RoadmapMain(props) {
     },
   }
 
-  const {screenWidth} = useSelector(store=>store.ui)
 
   return (
     <div className={styles.roadmap_main} >
       {
-        screenWidth <= 768 && 
+        screenWidth < 768 && 
         <OnMobileNav 
           nums={{
             planned:roadmapData.planned.feedbacks.length,

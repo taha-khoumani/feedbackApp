@@ -20,7 +20,6 @@
   gap: 20px;
   padding: 15px;
   position: relative;
-  margin-bottom: 48px;
 }
 @media (max-width: 767px) {
   .roadmap .roadmap_nav {
@@ -39,6 +38,17 @@
 }
 .roadmap .roadmap_main {
   position: relative;
+  margin-top: 45px;
+}
+@media (max-width: 1023px) {
+  .roadmap .roadmap_main {
+    margin-top: 35px;
+  }
+}
+@media (max-width: 767px) {
+  .roadmap .roadmap_main {
+    margin: 0;
+  }
 }
 .roadmap .roadmap_main .roadmap_stages {
   display: flex;
@@ -161,5 +171,19 @@
 }
 
 #no_roadmap_headers {
-  display: none;
+  display: flex;
+  margin: 5px 5px 0;
+}
+#no_roadmap_headers > div {
+  flex: 100%;
+}
+@media (max-width: 767px) {
+  #no_roadmap_headers > div .stage_header_title {
+    font-size: 15px;
+  }
+}
+@media (max-width: 767px) {
+  #no_roadmap_headers > div .stage_header_descripton {
+    font-size: 13px;
+  }
 }/*# sourceMappingURL=roadmap.module.css.map */

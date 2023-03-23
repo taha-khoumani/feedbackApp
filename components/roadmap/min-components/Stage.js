@@ -5,17 +5,24 @@ import styles from "@/styles/css/roadmap.module.css"
 
 //components
 import RoadmapFeedback from './RoadmapFeedback'
+import NoRoadmapFeedbacks from '../NoRoadmapFeedbacks'
+import { useSelector} from 'react-redux'
 
 export default function Stage(props) {
   const {title,description,feedbacks} = props.stageData
+  const {screenWidth} = useSelector(store=>store.ui)
+  console.log(screenWidth)
 
-  const feedbacksEls = feedbacks.map((feedback)=>
+  const feedbacksEls =feedbacks.length === 0 && screenWidth <=767  ?
+  <NoRoadmapFeedbacks />
+  :
+   feedbacks.map((feedback)=>
     <RoadmapFeedback 
       data={feedback}
       statusTitle={title}
       key={feedback._id}
     />
-  )
+    )
 
   return (
     <div className={styles.stage} >
