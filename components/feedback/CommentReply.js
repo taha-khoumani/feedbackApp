@@ -10,14 +10,31 @@ import PostReply from './PostReply'
 //components
 import Avatar from 'react-avatar'
 
+//auth
+import { useSession } from 'next-auth/react'
+
+//state
+import { useDispatch } from 'react-redux'
+import { setMustSigninModal } from '@/state/slices/uiSlice'
+
 export default function CommentReply(props) {
     const {feedbackId,commentId,replyData} = props
     const {content,userName,userUsername,userImg,replyingTo,isLast} = replyData
-    
+    const {status,data} = useSession()
     const [isReplyOpen,toggleReply] = useState(false)
+    const dispatch = useDispatch()
 
     const lastStyles = {
         paddingBottom:"0",
+    }
+
+    function onToggleReplyHandler(){
+        //auth
+        if(status !== 'authenticated'){
+            dispatch(setMustSigninModal({isOpen:true,value:'reply to a reply.'}))
+            return;
+        }
+        toggleReply(!isReplyOpen)
     }
 
   return (
@@ -38,7 +55,7 @@ export default function CommentReply(props) {
                 <p>{`@${userUsername}`}</p>
             </div>
             <button
-                onClick={()=>toggleReply(!isReplyOpen)}
+                onClick={onToggleReplyHandler}
             >
                 {isReplyOpen ? 'Cancel' : 'Reply'}
             </button>

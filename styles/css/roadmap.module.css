@@ -78,19 +78,22 @@
     box-sizing: border-box;
   }
 }
-.roadmap .roadmap_main .roadmap_stages .stage .stage_header {
+.roadmap .roadmap_main .roadmap_stages .stage .stage_header, .roadmap .roadmap_main .roadmap_stages .stage .stage_header_no_feedbacks {
   margin-bottom: 32px;
 }
-.roadmap .roadmap_main .roadmap_stages .stage .stage_header p {
+.roadmap .roadmap_main .roadmap_stages .stage .stage_header p, .roadmap .roadmap_main .roadmap_stages .stage .stage_header_no_feedbacks p {
   margin: 0;
 }
-.roadmap .roadmap_main .roadmap_stages .stage .stage_header .stage_header_title {
+.roadmap .roadmap_main .roadmap_stages .stage .stage_header .stage_header_title, .roadmap .roadmap_main .roadmap_stages .stage .stage_header_no_feedbacks .stage_header_title {
   font-weight: 700;
   color: #3A4374;
   font-size: 18px;
 }
-.roadmap .roadmap_main .roadmap_stages .stage .stage_header .stage_header_descripton {
+.roadmap .roadmap_main .roadmap_stages .stage .stage_header .stage_header_descripton, .roadmap .roadmap_main .roadmap_stages .stage .stage_header_no_feedbacks .stage_header_descripton {
   color: #647196;
+}
+.roadmap .roadmap_main .roadmap_stages .stage .stage_header_no_feedbacks {
+  margin-bottom: 0;
 }
 .roadmap .roadmap_main .roadmap_stages .stage .stage_feedbacks {
   display: flex;

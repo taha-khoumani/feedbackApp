@@ -12,7 +12,9 @@ export default function Stage(props) {
   const {title,description,feedbacks} = props.stageData
   const {screenWidth} = useSelector(store=>store.ui)
 
-  const feedbacksEls =feedbacks.length === 0 && screenWidth <=767  ?
+  let condition = feedbacks.length === 0 && screenWidth <=767
+
+  const feedbacksEls = condition ?
   <NoRoadmapFeedbacks />
   :
    feedbacks.map((feedback)=>
@@ -25,7 +27,7 @@ export default function Stage(props) {
 
   return (
     <div className={styles.stage} >
-        <div className={styles.stage_header} > 
+        <div className={condition ? styles.stage_header_no_feedbacks :styles.stage_header} > 
           <p className={styles.stage_header_title} >{title} ({feedbacks.length})</p>
           <p className={styles.stage_header_descripton} >{description}</p>
         </div>

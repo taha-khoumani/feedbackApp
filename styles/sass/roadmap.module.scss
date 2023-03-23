@@ -91,6 +91,10 @@ $mobile:767px;
                         color: #647196;
                     }
                 }
+                .stage_header_no_feedbacks{
+                    @extend .stage_header;
+                    margin-bottom: 0;
+                }
 
                 .stage_feedbacks{
                     display: flex;

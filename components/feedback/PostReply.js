@@ -14,7 +14,7 @@ import AuthFeedback from '../ui/AuthFeedback'
 import { verifyComment } from '@/lib/helper-functions'
 
 //state
-import { setRequestComments } from '@/state/slices/uiSlice'
+import { setMustSigninModal, setRequestComments } from '@/state/slices/uiSlice'
 import { useDispatch, useSelector } from 'react-redux'
 
 export default function PostReply(props) {
@@ -71,7 +71,7 @@ export default function PostReply(props) {
     if(!isReplyOpen){return null}
     
     function changeHeight (el){
-      el.style.height = "";
+      el.style.height = "";                
       el.style.height = `${el.scrollHeight}px`;
     }
 
