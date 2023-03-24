@@ -30,7 +30,7 @@ export default function signUp() {
       [name]:value,
     }))
   }
-
+  const [showPassword,toggleShowPassword] = useState(true)
   const [feedback,setFeedback] = useState({})
   const router = useRouter()
 
@@ -127,15 +127,18 @@ export default function signUp() {
                 />
               </div>
               <div>
-                <label htmlFor='password' >Password</label>
-                <input 
-                  id='password' 
-                  type="password" 
-                  className='textarea_one' 
-                  name="password"
-                  value={userData.password}
-                  onChange={onChangeHandler}
-                />
+                <label htmlFor='signup_password' >Password</label>
+                <div className='textarea_one' style={{padding:0,display:"flex",alignItems:"center"}} >
+                  <input
+                    id='signup_password' 
+                    type={showPassword ?'password':'text'} 
+                    className={`${styles.password}`} 
+                    name="password"
+                    value={userData.password}
+                    onChange={onChangeHandler}
+                  />
+                  <i onClick={()=>toggleShowPassword(prev=>!prev)} className={`fa-solid fa-eye${!showPassword ? '-slash':""}`}></i>
+                </div>
               </div>
               { Object.keys(feedback).length !== 0 && <AuthFeedback data={feedback} />}
               <div className={styles.buttons}>

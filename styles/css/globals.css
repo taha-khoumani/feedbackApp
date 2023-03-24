@@ -126,7 +126,7 @@ select, button {
   }
 }
 
-.textarea_one {
+.textarea_one, #signup_password, #signin_password {
   border: none;
   background-color: #F7F8FD;
   border-radius: 5px;
@@ -141,10 +141,10 @@ select, button {
   outline: none;
   margin-bottom: 16px;
 }
-.textarea_one:focus {
+.textarea_one:focus, #signup_password:focus, #signin_password:focus {
   outline: 1px solid #4661E6;
 }
-.textarea_one::placeholder {
+.textarea_one::placeholder, #signup_password::placeholder, #signin_password::placeholder {
   color: #8C92B3;
 }
 
@@ -185,4 +185,34 @@ select, button {
 
 .sb-avatar {
   cursor: pointer;
+}
+
+#signup_password, #signin_password {
+  margin: 0;
+  width: auto;
+  flex: 100%;
+  padding: 16px 0 16px 24px;
+}
+#signup_password:focus, #signin_password:focus {
+  outline: none;
+}
+
+[type=password] {
+  font: small-caption !important;
+  font-size: 19px !important;
+}
+
+.fa-eye, .fa-eye-slash {
+  padding: 16px;
+}
+.fa-eye:hover, .fa-eye-slash:hover {
+  cursor: pointer;
+}
+
+#focus-effect-sign-up-password, #focus-effect-sign-in-password {
+  display: none;
+}
+
+#focus-effect-sign-in-password:checked + label {
+  outline: 1px solid #4661E6;
 }/*# sourceMappingURL=globals.css.map */
