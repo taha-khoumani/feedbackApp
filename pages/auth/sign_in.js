@@ -90,6 +90,7 @@ export default function sign_in() {
                 type={showPassword ?'password':'text'} 
                 className={`${styles.password}`} 
                 name="password"
+                size='1'
                 value={userData.password}
                 onChange={onChangeHandler}
               />

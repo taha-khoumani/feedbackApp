@@ -198,6 +198,7 @@ select,button{
     @extend .textarea_one;
     margin:0;
     width: auto;
+    min-width: none;
     &:focus{
         outline: none;
     }

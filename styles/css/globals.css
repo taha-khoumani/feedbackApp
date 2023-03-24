@@ -190,6 +190,7 @@ select, button {
 #signup_password, #signin_password {
   margin: 0;
   width: auto;
+  min-width: none;
   flex: 100%;
   padding: 16px 0 16px 24px;
 }
