@@ -3,6 +3,9 @@ import React from 'react'
 ///database
 import { MongoClient } from 'mongodb'
 
+//metaData
+import Head from 'next/head'
+
 //components
 import FeedbackNav from '@/components/feedback/FeedbackNav'
 import NewFeedback from '@/components/newfeedback/NewFeedback'
@@ -13,6 +16,7 @@ import styles from "@/styles/css/newandedit.module.css"
 export default function edit(props) {
   return (
     <div id={styles.container} >
+        <Head><title>Edit:{JSON.parse(props.feedbackData).title}</title></Head>
         <FeedbackNav prevRoute={props.history}  />
         <NewFeedback isEdit={true} data={JSON.parse(props.feedbackData)}/>
     </div>

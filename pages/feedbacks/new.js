@@ -4,6 +4,9 @@ import React from 'react'
 import FeedbackNav from '@/components/feedback/FeedbackNav'
 import NewFeedback from '@/components/newfeedback/NewFeedback'
 
+//metaData
+import Head from 'next/head'
+
 //styles
 import styles from "@/styles/css/newandedit.module.css"
 import GoBack from '@/components/ui/GoBack'
@@ -11,6 +14,7 @@ import GoBack from '@/components/ui/GoBack'
 export default function New(props) {
   return (
     <div id={styles.container} >
+        <Head><title>New feedback</title></Head>
         <GoBack prevRoute={"/"} />
         <NewFeedback />
     </div>

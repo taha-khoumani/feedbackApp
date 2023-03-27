@@ -3,6 +3,9 @@ import React, { useEffect } from 'react'
 //database
 import { MongoClient } from "mongodb";
 
+//metaData
+import Head from 'next/head'
+
 //components
 import RoadmapMain from '@/components/roadmap/RoadmapMain'
 import RoadmapNav from '@/components/roadmap/RoadmapNav'
@@ -31,6 +34,7 @@ export default function roadmap({feedbacks}) {
 
   return (
     <div className={styles.roadmap} >
+        <Head><title>Roadmap</title></Head>
         <RoadmapNav  />
         <RoadmapMain feedbacks={JSON.parse(feedbacks)} />
         <MustSignInModal />

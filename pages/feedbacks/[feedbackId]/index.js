@@ -1,10 +1,7 @@
 import React, { useEffect, useState } from 'react'
 
-//next
-import { useRouter } from 'next/router'
-
-//data
-import data from "@/data.js"
+//metaData
+import Head from 'next/head'
 
 //components
 import Feedback from '@/components/ui/Feedback'
@@ -60,6 +57,7 @@ export default function feedback(props) {
 
   return (
     <div className={styles.feedback_details} >
+        <Head><title>{requestedFeedback.title}</title></Head>
         <FeedbackNav prevRoute={props.history} isEditNeeded={true} feedbackOwner={requestedFeedback.user}/>
         <Feedback data={requestedFeedback} />
         <CommentsSection feedbackId={requestedFeedback._id} comments={comments} />
