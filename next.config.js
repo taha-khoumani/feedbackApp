@@ -2,9 +2,9 @@
 const nextConfig = {
   reactStrictMode: true,
   env:{
-    DATABASE:'feedback',
-    SIGN_OUT_REDIRECT:'http://192.168.2.207:3000/',
-    NEXTAUTH_SECRET:'Pnj4s2VIZ5W6U06CmJHN+ASmvKFg2O9HXuxINpnazT4=',
+    DATABASE:process.env.DATABASE,
+    SIGN_OUT_REDIRECT:process.env.SIGN_OUT_REDIRECT,
+    NEXTAUTH_SECRET:process.env.NEXTAUTH_SECRET,
   }
   
 }
