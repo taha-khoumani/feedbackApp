@@ -17,7 +17,7 @@ import { MongoClient } from "mongodb";
 import MustSignInModal from '@/components/ui/MustSignInModal'
 
 export default function Home(props) {
-  return (
+  return (                                  
     <div id={styles.home}>
       <Head><title>Feedback</title></Head>
       <Navbar />
