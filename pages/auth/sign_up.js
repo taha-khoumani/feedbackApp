@@ -134,6 +134,7 @@ export default function signUp() {
                     type={showPassword ?'password':'text'} 
                     className={`${styles.password}`} 
                     name="password"
+                    size={1}
                     value={userData.password}
                     onChange={onChangeHandler}
                   />
